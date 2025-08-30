@@ -22,8 +22,9 @@ export default class CreateModule extends Component {
     }
   }
 
+  // THIS IS THE CORRECT SECTION TO GET THE USER LIST
   componentDidMount() {
-    axios.get('http://localhost:5000/users/')
+    axios.get('https://ssc-prep-suite-backend-123.onrender.com/users/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -61,6 +62,7 @@ export default class CreateModule extends Component {
     });
   }
 
+  // THIS IS THE CORRECT SECTION TO CREATE A NEW MODULE
   onSubmit(e) {
     e.preventDefault();
 
@@ -73,7 +75,7 @@ export default class CreateModule extends Component {
 
     console.log(module);
 
-    axios.post('http://localhost:5000/modules/add', module)
+    axios.post('https://ssc-prep-suite-backend-123.onrender.com/modules/add', module)
       .then(res => console.log(res.data));
 
     window.location = '/';

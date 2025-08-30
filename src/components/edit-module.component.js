@@ -16,7 +16,7 @@ function EditModule() {
 
   useEffect(() => {
     // Get the module data to pre-fill the form
-    axios.get('http://localhost:5000/modules/' + id)
+    axios.get('https://ssc-prep-suite-backend-123.onrender.com/modules/' + id)
       .then(response => {
         setUsername(response.data.username);
         setDescription(response.data.description);
@@ -28,7 +28,7 @@ function EditModule() {
       });
 
     // Get the list of users for the dropdown
-    axios.get('http://localhost:5000/users/')
+    axios.get('https://ssc-prep-suite-backend-123.onrender.com/users/')
       .then(response => {
         if (response.data.length > 0) {
           setUsers(response.data.map(user => user.username));
@@ -49,7 +49,7 @@ function EditModule() {
       date: date
     };
 
-    axios.post('http://localhost:5000/modules/update/' + id, module)
+    axios.post('https://ssc-prep-suite-backend-123.onrender.com/modules/update/' + id, module)
       .then(res => console.log(res.data));
 
     navigate('/');

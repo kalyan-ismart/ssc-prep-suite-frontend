@@ -28,8 +28,7 @@ export default class CreateUser extends Component {
 
     console.log(user);
 
-    axios.post('http://localhost:5000/users/add', user)
-      .then(res => console.log(res.data));
+   axios.post('https://ssc-prep-suite-backend-123.onrender.com/users/add', user)
 
     this.setState({
       username: ''

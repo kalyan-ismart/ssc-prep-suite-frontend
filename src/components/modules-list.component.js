@@ -9,7 +9,7 @@ const Module = props => (
     <td>{props.module.duration}</td>
     <td>{props.module.date.substring(0,10)}</td>
     <td>
-      <Link to={"/edit/"+props.module._id}>edit</Link> | <a href="#" onClick={() => { props.deleteModule(props.module._id) }}>delete</a>
+  <Link to={"/edit/"+props.module._id}>edit</Link> | <button onClick={() => { props.deleteModule(props.module._id) }} className="btn btn-link p-0">delete</button>
     </td>
   </tr>
 )

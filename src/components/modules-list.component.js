@@ -10,11 +10,11 @@ const Module = props => (
     <td>{props.module.duration}</td>
     <td>{new Date(props.module.date).toDateString()}</td>
     <td>
-      {/* ✅ CORRECT: Using Link instead of <a> for React Router navigation */}
+      {/* ✅ FIXED: Using Link instead of <a> with empty href */}
       <Link to={"/edit/" + props.module._id} className="btn btn-primary btn-sm me-2">
         Edit
       </Link>
-      {/* ✅ CORRECT: Using button for delete action */}
+      {/* ✅ FIXED: Using button for delete action */}
       <button 
         className="btn btn-danger btn-sm" 
         onClick={() => { props.deleteModule(props.module._id) }}
@@ -29,14 +29,11 @@ const Module = props => (
 export default class ModulesList extends Component {
   constructor(props) {
     super(props);
-
     this.deleteModule = this.deleteModule.bind(this);
-
     this.state = { modules: [] };
   }
 
   componentDidMount() {
-    // ✅ CORRECT: Using your backend API URL
     axios.get('https://ssc-prep-suite-backend-123.onrender.com/modules')
       .then(response => {
         this.setState({ modules: response.data });
@@ -47,11 +44,9 @@ export default class ModulesList extends Component {
   }
 
   deleteModule(id) {
-    // ✅ CORRECT: Proper delete request
     axios.delete('https://ssc-prep-suite-backend-123.onrender.com/modules/' + id)
       .then(response => { 
         console.log(response.data);
-        // Refresh the list after deletion
         this.setState({
           modules: this.state.modules.filter(el => el._id !== id)
         });
@@ -78,7 +73,6 @@ export default class ModulesList extends Component {
           <div className="col-12">
             <div className="d-flex justify-content-between align-items-center mb-4">
               <h3>📚 Modules List</h3>
-              {/* ✅ CORRECT: Using Link for navigation */}
               <Link to="/create" className="btn btn-success">
                 Add New Module
               </Link>

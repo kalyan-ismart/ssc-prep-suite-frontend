@@ -86,7 +86,7 @@ function App() {
     <Router>
       <Routes>
         <Route
-          path="/modules"
+          path=""
           element={<Modules theme={theme} onThemeToggle={toggleTheme} />}
         />
         <Route

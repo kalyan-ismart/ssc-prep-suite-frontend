@@ -11,7 +11,31 @@ const Logo = () => (
   </svg>
 );
 
-// Category and tools data
+// Example subtools for demonstration
+const subtoolsData = {
+  "test-tracker": [
+    { id: "attempted-tests", name: "Attempted Tests" },
+    { id: "unattempted-tests", name: "Unattempted Tests" }
+  ],
+  "progress-analyzer": [
+    { id: "daily-progress", name: "Daily Progress" },
+    { id: "weekly-progress", name: "Weekly Progress" }
+  ],
+  "rank-predictor": [
+    { id: "predict-by-score", name: "Predict by Score" },
+    { id: "compare-with-peers", name: "Compare with Peers" }
+  ],
+  "daily-scheduler": [
+    { id: "add-task", name: "Add Task" },
+    { id: "view-schedule", name: "View Schedule" }
+  ],
+  "quiz-generator": [
+    { id: "generate-random-quiz", name: "Random Quiz" },
+    { id: "topic-wise-quiz", name: "Topic-wise Quiz" }
+  ],
+  // ...add subtools for other tool IDs as desired
+};
+
 const categories = [
   {
     id: "performance-dashboard",
@@ -140,6 +164,7 @@ const stats = [
 export default function Modules() {
   const [theme, setTheme] = useState("light");
   const [openCategory, setOpenCategory] = useState(null);
+  const [openTool, setOpenTool] = useState(null);
 
   const handleThemeSwitch = () => {
     setTheme(theme === "light" ? "dark" : "light");
@@ -200,9 +225,15 @@ export default function Modules() {
                 key={cat.id}
                 tabIndex={0}
                 aria-label={cat.title}
-                onClick={() => setOpenCategory(openCategory === cat.id ? null : cat.id)}
+                onClick={() => {
+                  setOpenCategory(openCategory === cat.id ? null : cat.id);
+                  setOpenTool(null); // reset open tool when category changes
+                }}
                 onKeyDown={e => {
-                  if (e.key === 'Enter' || e.key === ' ') setOpenCategory(openCategory === cat.id ? null : cat.id);
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setOpenCategory(openCategory === cat.id ? null : cat.id);
+                    setOpenTool(null);
+                  }
                 }}
               >
                 <div className="category-vertical-row">
@@ -220,21 +251,46 @@ export default function Modules() {
                       {cat.tools.map(tool =>
                         <li
                           key={tool.id}
-                          className="tool-in-card"
+                          className={`tool-in-card${openTool === tool.id ? " open" : ""}`}
                           tabIndex={0}
                           onClick={e => {
                             e.stopPropagation();
-                            window.location.href = `/tool/${tool.id}`;
+                            setOpenTool(openTool === tool.id ? null : tool.id);
                           }}
                           onKeyDown={e => {
                             if ((e.key === 'Enter' || e.key === ' ') && !e.repeat) {
                               e.stopPropagation();
-                              window.location.href = `/tool/${tool.id}`;
+                              setOpenTool(openTool === tool.id ? null : tool.id);
                             }
                           }}
                         >
                           <span className="tool-in-card-dot">•</span>
                           <span className="tool-in-card-name">{tool.name}</span>
+                          {/* Subtools */}
+                          {openTool === tool.id && Array.isArray(subtoolsData[tool.id]) && (
+                            <ul className="subtools-list">
+                              {subtoolsData[tool.id].map(subtool => (
+                                <li
+                                  key={subtool.id}
+                                  className="subtool-in-card"
+                                  tabIndex={0}
+                                  onClick={e => {
+                                    e.stopPropagation();
+                                    window.location.href = `/tool/${tool.id}/${subtool.id}`;
+                                  }}
+                                  onKeyDown={e => {
+                                    if ((e.key === 'Enter' || e.key === ' ') && !e.repeat) {
+                                      e.stopPropagation();
+                                      window.location.href = `/tool/${tool.id}/${subtool.id}`;
+                                    }
+                                  }}
+                                >
+                                  <span className="subtool-dot">-</span>
+                                  <span className="subtool-name">{subtool.name}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                         </li>
                       )}
                     </ul>

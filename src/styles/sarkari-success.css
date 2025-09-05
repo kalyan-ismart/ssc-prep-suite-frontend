@@ -24,14 +24,14 @@ body, .main-bg {
 .header-left {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1.1rem;
 }
 .logo-icon {
   margin-right: 0.3rem;
   display: flex;
   align-items: center;
 }
-.brand-text {
+.header-title-group {
   display: flex;
   flex-direction: column;
   gap: 2px;

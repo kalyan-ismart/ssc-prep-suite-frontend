@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./sarkari-success.css";
 
-// SVG LOGO (same as reference)
+// SVG LOGO (matches reference)
 const Logo = () => (
   <svg width="32" height="32" viewBox="0 0 32 32">
     <circle cx="16" cy="16" r="16" fill="#2563eb"/>
@@ -11,13 +11,21 @@ const Logo = () => (
   </svg>
 );
 
+// Category and tools data
 const categories = [
   {
     id: "performance-dashboard",
     title: "Performance Dashboard",
     icon: <Logo />,
     description: "Comprehensive tools for performance dashboard",
-    toolsCount: 6
+    tools: [
+      { id: "test-tracker", name: "Test Tracker" },
+      { id: "progress-analyzer", name: "Progress Analyzer" },
+      { id: "rank-predictor", name: "Rank Predictor" },
+      { id: "strength-weakness", name: "Strength & Weakness" },
+      { id: "score-comparator", name: "Score Comparator" },
+      { id: "performance-history", name: "Performance History" }
+    ]
   },
   {
     id: "study-planning",
@@ -34,35 +42,80 @@ const categories = [
       </span>
     ),
     description: "Comprehensive tools for study planning",
-    toolsCount: 8
+    tools: [
+      { id: "daily-scheduler", name: "Daily Scheduler" },
+      { id: "exam-countdown", name: "Exam Countdown" },
+      { id: "smart-revision", name: "Smart Revision" },
+      { id: "goal-setter", name: "Goal Setter" },
+      { id: "reminder-manager", name: "Reminder Manager" },
+      { id: "study-timer", name: "Study Timer" },
+      { id: "habit-tracker", name: "Habit Tracker" },
+      { id: "syllabus-tracker", name: "Syllabus Tracker" }
+    ]
   },
   {
     id: "practice-testing",
     title: "Practice & Testing",
     icon: <span role="img" aria-label="bulb" style={{ fontSize: "2em" }}>💡</span>,
     description: "Sharpen your skills with quizzes, mock tests, and practice questions.",
-    toolsCount: 8
+    tools: [
+      { id: "quiz-generator", name: "Quiz Generator" },
+      { id: "mock-test-center", name: "Mock Test Center" },
+      { id: "previous-year-papers", name: "Previous Year Papers" },
+      { id: "question-bank", name: "Question Bank" },
+      { id: "speed-practice", name: "Speed Practice" },
+      { id: "custom-test", name: "Custom Test" },
+      { id: "mistake-review", name: "Mistake Review" },
+      { id: "performance-leaderboard", name: "Performance Leaderboard" }
+    ]
   },
   {
     id: "subject-mastery",
     title: "Subject Mastery",
     icon: <span role="img" aria-label="books" style={{ fontSize: "2em" }}>📚</span>,
     description: "Comprehensive tools for subject mastery",
-    toolsCount: 8
+    tools: [
+      { id: "formula-bank", name: "Formula Bank" },
+      { id: "vocabulary-builder", name: "Vocabulary Builder" },
+      { id: "concept-explainer", name: "Concept Explainer" },
+      { id: "topic-wise-notes", name: "Topic-wise Notes" },
+      { id: "video-library", name: "Video Library" },
+      { id: "mnemonic-helper", name: "Mnemonic Helper" },
+      { id: "shortcut-tricks", name: "Shortcut Tricks" },
+      { id: "practice-worksheets", name: "Practice Worksheets" }
+    ]
   },
   {
     id: "ai-powered-tools",
     title: "AI-Powered Tools",
     icon: <span role="img" aria-label="robot" style={{ fontSize: "2em" }}>🤖</span>,
     description: "AI-powered generators, assistants, analytics, and more.",
-    toolsCount: 8
+    tools: [
+      { id: "doubt-solver", name: "Doubt Solver" },
+      { id: "essay-evaluator", name: "Essay Evaluator" },
+      { id: "smart-flashcards", name: "Smart Flashcards" },
+      { id: "practice-booster", name: "Practice Booster" },
+      { id: "smart-analyzer", name: "Smart Analyzer" },
+      { id: "adaptive-test", name: "Adaptive Test" },
+      { id: "voice-qa", name: "Voice Q&A" },
+      { id: "ai-note-maker", name: "AI Note Maker" }
+    ]
   },
   {
     id: "exam-specific-prep",
     title: "Exam-Specific Prep",
     icon: <span role="img" aria-label="building" style={{ fontSize: "2em" }}>🏛️</span>,
     description: "Resources and strategies for UPSC, SSC, Banking, and more.",
-    toolsCount: 8
+    tools: [
+      { id: "upsc-hub", name: "UPSC Hub" },
+      { id: "ssc-master", name: "SSC Master" },
+      { id: "banking-pro", name: "Banking Pro" },
+      { id: "railway-expert", name: "Railway Expert" },
+      { id: "defense-corner", name: "Defense Corner" },
+      { id: "state-exams", name: "State Exams" },
+      { id: "teaching-exams", name: "Teaching Exams" },
+      { id: "other-exams", name: "Other Exams" }
+    ]
   }
 ];
 
@@ -86,6 +139,7 @@ const stats = [
 
 export default function Modules() {
   const [theme, setTheme] = useState("light");
+  const [openCategory, setOpenCategory] = useState(null);
 
   const handleThemeSwitch = () => {
     setTheme(theme === "light" ? "dark" : "light");
@@ -142,17 +196,50 @@ export default function Modules() {
           <div className="modules-categories-vertical">
             {categories.map(cat => (
               <div
-                className="category-card-vertical"
+                className={`category-card-vertical${openCategory === cat.id ? " open" : ""}`}
                 key={cat.id}
                 tabIndex={0}
                 aria-label={cat.title}
+                onClick={() => setOpenCategory(openCategory === cat.id ? null : cat.id)}
+                onKeyDown={e => {
+                  if (e.key === 'Enter' || e.key === ' ') setOpenCategory(openCategory === cat.id ? null : cat.id);
+                }}
               >
-                <span className="category-v-icon">{cat.icon}</span>
-                <span>
-                  <span className="category-v-title">{cat.title}</span>
-                  <span className="category-v-desc">{cat.description}</span>
-                </span>
-                <span className="category-v-tools">{cat.toolsCount} Tools Available</span>
+                <div className="category-vertical-row">
+                  <span className="category-v-icon">{cat.icon}</span>
+                  <span>
+                    <span className="category-v-title">{cat.title}</span>
+                    <span className="category-v-desc">{cat.description}</span>
+                  </span>
+                  <span className="category-v-tools">{cat.tools.length} Tools Available</span>
+                </div>
+                {openCategory === cat.id && (
+                  <div className="tools-in-card">
+                    <h3 className="tools-in-card-title">{cat.title} Tools</h3>
+                    <ul className="tools-list">
+                      {cat.tools.map(tool =>
+                        <li
+                          key={tool.id}
+                          className="tool-in-card"
+                          tabIndex={0}
+                          onClick={e => {
+                            e.stopPropagation();
+                            window.location.href = `/tool/${tool.id}`;
+                          }}
+                          onKeyDown={e => {
+                            if ((e.key === 'Enter' || e.key === ' ') && !e.repeat) {
+                              e.stopPropagation();
+                              window.location.href = `/tool/${tool.id}`;
+                            }
+                          }}
+                        >
+                          <span className="tool-in-card-dot">•</span>
+                          <span className="tool-in-card-name">{tool.name}</span>
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+                )}
               </div>
             ))}
           </div>

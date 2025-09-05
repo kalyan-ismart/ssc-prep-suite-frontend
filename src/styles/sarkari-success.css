@@ -1,9 +1,92 @@
+body {
+  background: #f6f7fb;
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  color: #222;
+}
+.main-content {
+  min-height: 100vh;
+  background: #f6f7fb;
+}
+.header {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.2rem;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.2rem;
+  padding-bottom: 0.7rem;
+}
+.logo h1 {
+  color: #065f46;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+}
+.logo .text-muted {
+  color: #888;
+  font-size: 1.05rem;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.search-input {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px 0 0 8px;
+  padding: 0.48em 1em;
+  font-size: 1.04em;
+  outline: none;
+  background: #f9fafb;
+}
+.search-btn {
+  border: 1px solid #e5e7eb;
+  border-radius: 0 8px 8px 0;
+  padding: 0.48em 1em;
+  font-size: 1.1em;
+  background: #e0f2fe;
+  color: #065f46;
+  cursor: pointer;
+  border-left: none;
+  outline: none;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.2rem;
+}
+.nav-link {
+  color: #065f46;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.07em;
+  padding: 0.2em 0.7em;
+  border-radius: 6px;
+  transition: background 0.13s;
+}
+.nav-link:hover {
+  background: #e0f2fe;
+}
+.container {
+  width: 93%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
 .modules-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 2rem;
 }
-
 .module-card {
   background: #fff;
   border: 1.5px solid #e5e7eb;
@@ -96,7 +179,6 @@
   color: #444;
   font-size: 0.98em;
 }
-
 @media (max-width: 900px) {
   .modules-grid {
     grid-template-columns: 1fr;

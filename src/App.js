@@ -1,11 +1,25 @@
+// src/App.js
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './styles/sarkari-success.css';
+import './index.css';
 
 // Import components
 import Modules from './components/Modules';
 import ToolInterface from './components/ToolInterface';
 import UserProfile from './components/UserProfile';
 import NotFound from './components/NotFound';
+import Analytics from './components/Analytics';
+
+// Import AI tool components
+import AIStudyAssistant from './components/ai/AIStudyAssistant';
+import DoubtSolver     from './components/ai/DoubtSolver';
+import QuestionGenerator from './components/ai/QuestionGenerator';
+import PerformancePredictor from './components/ai/PerformancePredictor';
+import StudyRecommendation  from './components/ai/StudyRecommendation';
+import ContentSummarizer    from './components/ai/ContentSummarizer';
+import SmartFlashcards      from './components/ai/SmartFlashcards';
+import VoiceAssistant       from './components/ai/VoiceAssistant';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -34,7 +48,6 @@ function App() {
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      // Implement search functionality
       console.log('Searching for:', searchQuery);
     }
   };
@@ -102,6 +115,18 @@ function App() {
             <Route path="/" element={<Modules />} />
             <Route path="/tool/:categoryId/:toolId" element={<ToolInterface />} />
             <Route path="/profile" element={<UserProfile />} />
+            <Route path="/analytics" element={<Analytics />} />
+
+            {/* AI-Powered Tools Routes */}
+            <Route path="/tool/ai-powered-tools/ai-study-assistant" element={<AIStudyAssistant />} />
+            <Route path="/tool/ai-powered-tools/doubt-solver" element={<DoubtSolver />} />
+            <Route path="/tool/ai-powered-tools/question-generator" element={<QuestionGenerator />} />
+            <Route path="/tool/ai-powered-tools/performance-predictor" element={<PerformancePredictor />} />
+            <Route path="/tool/ai-powered-tools/study-recommendation" element={<StudyRecommendation />} />
+            <Route path="/tool/ai-powered-tools/content-summarizer" element={<ContentSummarizer />} />
+            <Route path="/tool/ai-powered-tools/smart-flashcards" element={<SmartFlashcards />} />
+            <Route path="/tool/ai-powered-tools/voice-assistant" element={<VoiceAssistant />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
@@ -128,12 +153,6 @@ function App() {
               <p style={{ margin: '0 0 1rem 0', lineHeight: '1.6' }}>
                 Comprehensive government exam preparation platform with AI-powered tools and analytics.
               </p>
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                <span>📧</span>
-                <span>📱</span>
-                <span>🐦</span>
-                <span>📘</span>
-              </div>
             </div>
             
             <div>
@@ -141,32 +160,10 @@ function App() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Dashboard</Link>
                 <Link to="/profile" style={{ color: 'inherit', textDecoration: 'none' }}>Profile</Link>
-                <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>About Us</a>
-                <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Contact</a>
-              </div>
-            </div>
-            
-            <div>
-              <h4 style={{ margin: '0 0 1rem 0', color: '#2563eb' }}>Exams</h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <span>SSC CGL</span>
-                <span>IBPS PO</span>
-                <span>UPSC</span>
-                <span>RRB NTPC</span>
               </div>
             </div>
           </div>
-          
-          <div style={{
-            borderTop: '1px solid #e5e7eb',
-            marginTop: '2rem',
-            paddingTop: '1rem',
-            textAlign: 'center'
-          }}>
-            <p style={{ margin: 0 }}>
-              © 2024 SarkariSuccess Hub. All rights reserved. Built with ❤️ for exam aspirants.
-            </p>
-          </div>
+          <p style={{ marginTop: '2rem' }}>© 2025 SarkariSuccess Hub. All rights reserved.</p>
         </footer>
       </div>
     </Router>

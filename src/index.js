@@ -1,22 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/sarkari-success.css';
 import './index.css';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// Initialize SarkariSuccess-Hub
+// Initialize SarkariSuccess-Hub logs
 console.log('🏛️ SarkariSuccess-Hub - Comprehensive Government Exam Preparation Platform');
 console.log('🚀 Platform Version: 2.0.0');
 console.log('📚 Transforming SSC Prep Suite into SarkariSuccess-Hub');
 
+// Create root and render App component
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+
+root.render(<React.StrictMode><App /></React.StrictMode>);
 
 // Performance monitoring for SarkariSuccess-Hub
 reportWebVitals((metric) => {

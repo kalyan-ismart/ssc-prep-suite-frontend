@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function VoiceAssistant() {
+  const navigate = useNavigate();
   const [voiceInput, setVoiceInput] = useState('');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Simple text input simulation for voice input (you can add real voice APIs)
+  // Currently simple text input simulation; integrate real voice APIs if desired
   const handleSend = async () => {
     if (!voiceInput) return;
     setLoading(true);
@@ -21,21 +23,22 @@ export default function VoiceAssistant() {
   };
 
   return (
-    <div style={{ maxWidth: 600, margin: '2rem auto' }}>
-      <h2>Voice Assistant (Text Input Simulation)</h2>
+    <div style={{ maxWidth: 600, margin: '2rem auto', whiteSpace: 'pre-wrap' }}>
+      <button onClick={() => navigate('/')} style={{ marginBottom: 16 }}>← Back to Dashboard</button>
+      <h2>Voice Assistant</h2>
       <input
         type="text"
         value={voiceInput}
         onChange={e => setVoiceInput(e.target.value)}
-        placeholder="Speak or type your query here"
-        style={{ width: '100%', padding: '0.75em', fontSize: '1rem' }}
+        placeholder="Type voice input here (simulate)"
+        style={{ width: '100%', padding: 12, fontSize: 16, borderRadius: 8, border: '1px solid #ccc' }}
       />
-      <button onClick={handleSend} disabled={loading} style={{ marginTop: '1rem' }}>
-        {loading ? 'Listening…' : 'Send'}
+      <button onClick={handleSend} disabled={loading} style={{ marginTop: 16, padding: '10px 20px' }}>
+        {loading ? 'Processing…' : 'Send'}
       </button>
       {response && (
-        <div style={{ marginTop: '1rem', background: '#cff4fc', padding: '1rem', whiteSpace: 'pre-wrap' }}>
-          <h3>Assistant Response:</h3>
+        <div style={{ marginTop: 24, background: '#dbebfa', padding: 16, borderRadius: 8 }}>
+          <h3>Response:</h3>
           <p>{response}</p>
         </div>
       )}

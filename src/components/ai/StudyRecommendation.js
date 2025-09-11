@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function StudyRecommendation() {
+  const navigate = useNavigate();
   const [input, setInput] = useState('');
   const [recommendations, setRecommendations] = useState('');
   const [loading, setLoading] = useState(false);
@@ -20,24 +22,20 @@ export default function StudyRecommendation() {
   };
 
   return (
-    <div style={{ maxWidth: 600, margin: '2rem auto' }}>
+    <div style={{ maxWidth: 600, margin: '2rem auto', whiteSpace: 'pre-wrap' }}>
+      <button onClick={() => navigate('/')} style={{ marginBottom: 16 }}>← Back to Dashboard</button>
       <h2>Study Recommendation</h2>
-      <textarea
+      <input
+        type="text"
         value={input}
         onChange={e => setInput(e.target.value)}
-        placeholder="Enter your study goals or challenges"
-        rows={6}
-        style={{ width: '100%', padding: '1em', fontSize: '1rem' }}
+        placeholder="Enter input for recommendations"
+        style={{ width: '100%', padding: 12, fontSize: 16, borderRadius: 8, border: '1px solid #ccc' }}
       />
-      <button onClick={handleGetRecommendations} disabled={loading} style={{ marginTop: '1rem' }}>
+      <button onClick={handleGetRecommendations} disabled={loading} style={{ marginTop: 16, padding: '10px 20px' }}>
         {loading ? 'Fetching…' : 'Get Recommendations'}
       </button>
-      {recommendations && (
-        <div style={{ marginTop: '1rem', background: '#d1e7dd', padding: '1rem', whiteSpace: 'pre-wrap' }}>
-          <h3>Recommendations:</h3>
-          <p>{recommendations}</p>
-        </div>
-      )}
+      {recommendations && <pre style={{ marginTop: 24 }}>{recommendations}</pre>}
     </div>
   );
 }

@@ -4,10 +4,10 @@
   "description": "Comprehensive Government Exam Preparation Platform",
   "private": true,
   "dependencies": {
-    "bootstrap": "^5.3.3",
+    "bootstrap": "^5.3.8",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^6.23.0",
+    "react-router-dom": "^6.30.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^5.1.0"
   },

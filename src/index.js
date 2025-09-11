@@ -50,7 +50,9 @@ const initializeTheme = () => {
     console.log('🎨 System theme detected and set:', systemTheme);
   }
 };
+
 initializeTheme();
+
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
   const currentTheme = localStorage.getItem('sarkari-success-theme');
   if (!currentTheme) {
@@ -65,12 +67,14 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
 window.addEventListener('error', (event) => {
   console.error('🚨 Global Error:', event.error);
 });
+
 window.addEventListener('unhandledrejection', (event) => {
   console.error('🚨 Unhandled Promise Rejection:', event.reason);
 });
 
 // Update page metadata
 document.title = 'SarkariSuccess-Hub - Your Gateway to Government Job Success';
+
 const metaDesc = document.querySelector('meta[name="description"]');
 if (metaDesc) {
   metaDesc.setAttribute('content', 'Comprehensive government exam preparation platform with AI-powered tools, analytics, and resources for UPSC, SSC, Banking, Railways, and other competitive exams.');
@@ -80,6 +84,7 @@ if (metaDesc) {
   desc.content = 'Comprehensive government exam preparation platform with AI-powered tools, analytics, and resources for UPSC, SSC, Banking, Railways, and other competitive exams.';
   document.head.appendChild(desc);
 }
+
 const metaKeywords = document.querySelector('meta[name="keywords"]');
 if (!metaKeywords) {
   const kws = document.createElement('meta');

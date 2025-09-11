@@ -1,42 +1,41 @@
-// src/components/ai/StudyRecommendation.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
 export default function StudyRecommendation() {
-  const [profile, setProfile] = useState('');
-  const [recommendations, setRecommendations] = useState([]);
+  const [input, setInput] = useState('');
+  const [recommendations, setRecommendations] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleRecommend = async () => {
-    if (!profile) return;
+  const handleGetRecommendations = async () => {
+    if (!input) return;
     setLoading(true);
     try {
-      const res = await axios.post('/ai/study-recommendation', { profile });
-      setRecommendations(res.data.recommendations);
+      const res = await axios.post('/ai/study-recommendation', { input });
+      setRecommendations(res.data.data.recommendations);
     } catch {
-      setRecommendations(['Error getting recommendations.']);
+      setRecommendations('Error fetching recommendations.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="ai-tool-container">
+    <div style={{ maxWidth: 600, margin: '2rem auto' }}>
       <h2>Study Recommendation</h2>
       <textarea
-        value={profile}
-        onChange={e => setProfile(e.target.value)}
-        placeholder="Enter your study profile..."
+        value={input}
+        onChange={e => setInput(e.target.value)}
+        placeholder="Enter your study goals or challenges"
+        rows={6}
+        style={{ width: '100%', padding: '1em', fontSize: '1rem' }}
       />
-      <button onClick={handleRecommend} disabled={loading}>
-        {loading ? 'Generating…' : 'Get Recommendations'}
+      <button onClick={handleGetRecommendations} disabled={loading} style={{ marginTop: '1rem' }}>
+        {loading ? 'Fetching…' : 'Get Recommendations'}
       </button>
-      {recommendations.length > 0 && (
-        <div className="ai-response">
+      {recommendations && (
+        <div style={{ marginTop: '1rem', background: '#d1e7dd', padding: '1rem', whiteSpace: 'pre-wrap' }}>
           <h3>Recommendations:</h3>
-          <ul>
-            {recommendations.map((r, i) => <li key={i}>{r}</li>)}
-          </ul>
+          <p>{recommendations}</p>
         </div>
       )}
     </div>

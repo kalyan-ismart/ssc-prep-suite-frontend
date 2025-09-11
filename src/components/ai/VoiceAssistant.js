@@ -1,65 +1,41 @@
-// src/components/ai/VoiceAssistant.js
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 export default function VoiceAssistant() {
-  const [listening, setListening] = useState(false);
-  const [transcript, setTranscript] = useState('');
+  const [voiceInput, setVoiceInput] = useState('');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
-  let recognition;
 
-  useEffect(() => {
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!SpeechRecognition) return;
-
-    recognition = new SpeechRecognition();
-    recognition.lang = 'en-US';
-    recognition.interimResults = false;
-    recognition.onresult = (e) => {
-      const text = e.results[0][0].transcript;
-      setTranscript(text);
-    };
-    recognition.onend = () => setListening(false);
-  }, []);
-
-  const handleListen = () => {
-    if (!recognition) return;
-    setListening(true);
-    setTranscript('');
-    recognition.start();
-  };
-
+  // Simple text input simulation for voice input (you can add real voice APIs)
   const handleSend = async () => {
-    if (!transcript) return;
+    if (!voiceInput) return;
     setLoading(true);
     try {
-      const res = await axios.post('/ai/voice-assistant', { transcript });
-      setResponse(res.data.reply);
+      const res = await axios.post('/ai/voice-assistant', { voiceInput });
+      setResponse(res.data.data.response);
     } catch {
-      setResponse('Error processing voice message.');
+      setResponse('Error processing voice input.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="ai-tool-container">
-      <h2>Voice Assistant</h2>
-      <button onClick={handleListen} disabled={listening}>
-        {listening ? 'Listening…' : 'Start Listening'}
+    <div style={{ maxWidth: 600, margin: '2rem auto' }}>
+      <h2>Voice Assistant (Text Input Simulation)</h2>
+      <input
+        type="text"
+        value={voiceInput}
+        onChange={e => setVoiceInput(e.target.value)}
+        placeholder="Speak or type your query here"
+        style={{ width: '100%', padding: '0.75em', fontSize: '1rem' }}
+      />
+      <button onClick={handleSend} disabled={loading} style={{ marginTop: '1rem' }}>
+        {loading ? 'Listening…' : 'Send'}
       </button>
-      {transcript && (
-        <>
-          <p><strong>You said:</strong> {transcript}</p>
-          <button onClick={handleSend} disabled={loading}>
-            {loading ? 'Processing…' : 'Send to AI'}
-          </button>
-        </>
-      )}
       {response && (
-        <div className="ai-response">
-          <h3>Assistant:</h3>
+        <div style={{ marginTop: '1rem', background: '#cff4fc', padding: '1rem', whiteSpace: 'pre-wrap' }}>
+          <h3>Assistant Response:</h3>
           <p>{response}</p>
         </div>
       )}

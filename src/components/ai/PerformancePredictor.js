@@ -1,39 +1,40 @@
-// src/components/ai/PerformancePredictor.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
 export default function PerformancePredictor() {
-  const [data, setData] = useState('');
+  const [details, setDetails] = useState('');
   const [prediction, setPrediction] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handlePredict = async () => {
-    if (!data) return;
+    if (!details) return;
     setLoading(true);
     try {
-      const res = await axios.post('/ai/performance-predictor', { data });
-      setPrediction(res.data.prediction);
+      const res = await axios.post('/ai/performance-predictor', { details });
+      setPrediction(res.data.data.prediction);
     } catch {
-      setPrediction('Error predicting performance.');
+      setPrediction('Error making prediction.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="ai-tool-container">
+    <div style={{ maxWidth: 600, margin: '2rem auto' }}>
       <h2>Performance Predictor</h2>
       <textarea
-        value={data}
-        onChange={e => setData(e.target.value)}
-        placeholder="Enter your past scores/data..."
+        value={details}
+        onChange={e => setDetails(e.target.value)}
+        placeholder="Enter your study details or current scores"
+        rows={5}
+        style={{ width: '100%', padding: '1em', fontSize: '1rem' }}
       />
-      <button onClick={handlePredict} disabled={loading}>
+      <button onClick={handlePredict} disabled={loading} style={{ marginTop: '1rem' }}>
         {loading ? 'Predicting…' : 'Predict Performance'}
       </button>
       {prediction && (
-        <div className="ai-response">
-          <h3>Predicted Score:</h3>
+        <div style={{ marginTop: '1rem', background: '#e0e7ff', padding: '1rem', whiteSpace: 'pre-wrap' }}>
+          <h3>Prediction:</h3>
           <p>{prediction}</p>
         </div>
       )}

@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../../apiService';
 
 export default function PerformancePredictor() {
   const navigate = useNavigate();
   const [details, setDetails] = useState('');
   const [prediction, setPrediction] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handlePredict = async () => {
-    if (!details) return;
+    if (!details.trim()) return;
     setLoading(true);
+    setError('');
+    setPrediction('');
     try {
-      const res = await axios.post('/ai/performance-predictor', { details });
-      setPrediction(res.data.data.prediction);
-    } catch {
-      setPrediction('Error making prediction.');
+      const res = await api.post('/ai/performance-predictor', { details });
+      if (res.data && res.data.success) {
+        setPrediction(res.data.data.prediction);
+      } else {
+        setError('Unexpected response from AI.');
+      }
+    } catch (err) {
+      console.error('Error calling AI performance-predictor:', err);
+      setError('Error making prediction.');
     } finally {
       setLoading(false);
     }
@@ -39,6 +47,12 @@ export default function PerformancePredictor() {
         <div style={{ marginTop: 24, background: '#ede9fe', padding: 16, borderRadius: 8, whiteSpace: 'pre-wrap' }}>
           <h3>Prediction:</h3>
           <p>{prediction}</p>
+        </div>
+      )}
+      {error && (
+        <div style={{ marginTop: 24, background: '#fee2e2', color: '#b91c1c', padding: 16, borderRadius: 8 }}>
+          <h3>Error:</h3>
+          <p>{error}</p>
         </div>
       )}
     </div>

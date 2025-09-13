@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../../apiService';
 
 export default function DoubtSolver() {
   const navigate = useNavigate();
   const [question, setQuestion] = useState('');
   const [solution, setSolution] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSolve = async () => {
-    if (!question) return;
+    if (!question.trim()) return;
     setLoading(true);
+    setError('');
+    setSolution('');
     try {
-      const res = await axios.post('/ai/doubt-solver', { question });
-      setSolution(res.data.data.solution);
-    } catch {
-      setSolution('Error generating solution.');
+      const res = await api.post('/ai/doubt-solver', { question });
+      if (res.data && res.data.success) {
+        setSolution(res.data.data.solution);
+      } else {
+        setError('Unexpected response from AI.');
+      }
+    } catch (err) {
+      console.error('Error calling AI doubt-solver:', err);
+      setError('Error generating solution.');
     } finally {
       setLoading(false);
     }
@@ -39,6 +47,12 @@ export default function DoubtSolver() {
         <div style={{ marginTop: 24, background: '#fef3c7', padding: 16, borderRadius: 8, whiteSpace: 'pre-wrap' }}>
           <h3>Solution:</h3>
           <p>{solution}</p>
+        </div>
+      )}
+      {error && (
+        <div style={{ marginTop: 24, background: '#fee2e2', color: '#b91c1c', padding: 16, borderRadius: 8 }}>
+          <h3>Error:</h3>
+          <p>{error}</p>
         </div>
       )}
     </div>

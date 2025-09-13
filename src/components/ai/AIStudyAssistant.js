@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../../apiService';
 
 export default function AIStudyAssistant() {
   const navigate = useNavigate();
   const [prompt, setPrompt] = useState('');
   const [answer, setAnswer] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = async () => {
-    if (!prompt) return;
+    if (!prompt.trim()) return;
     setLoading(true);
+    setError('');
+    setAnswer('');
     try {
-      const res = await axios.post('/ai/study-assistant', { prompt });
-      setAnswer(res.data.data.answer);
-    } catch {
-      setAnswer('Error generating response.');
+      const res = await api.post('/ai/study-assistant', { prompt });
+      if (res.data && res.data.success) {
+        setAnswer(res.data.data.answer);
+      } else {
+        setError('Unexpected response from AI.');
+      }
+    } catch (err) {
+      console.error('Error calling AI study-assistant:', err);
+      setError('Error generating response.');
     } finally {
       setLoading(false);
     }
@@ -39,6 +47,12 @@ export default function AIStudyAssistant() {
         <div style={{ marginTop: 24, background: '#f0f9ff', padding: 16, borderRadius: 8, whiteSpace: 'pre-wrap' }}>
           <h3>AI Response:</h3>
           <p>{answer}</p>
+        </div>
+      )}
+      {error && (
+        <div style={{ marginTop: 24, background: '#fee2e2', color: '#b91c1c', padding: 16, borderRadius: 8 }}>
+          <h3>Error:</h3>
+          <p>{error}</p>
         </div>
       )}
     </div>

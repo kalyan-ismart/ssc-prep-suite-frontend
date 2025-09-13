@@ -1,22 +1,30 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../../apiService';
 
 export default function VoiceAssistant() {
   const navigate = useNavigate();
   const [voiceInput, setVoiceInput] = useState('');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   // Currently simple text input simulation; integrate real voice APIs if desired
   const handleSend = async () => {
-    if (!voiceInput) return;
+    if (!voiceInput.trim()) return;
     setLoading(true);
+    setError('');
+    setResponse('');
     try {
-      const res = await axios.post('/ai/voice-assistant', { voiceInput });
-      setResponse(res.data.data.response);
-    } catch {
-      setResponse('Error processing voice input.');
+      const res = await api.post('/ai/voice-assistant', { voiceInput });
+      if (res.data && res.data.success) {
+        setResponse(res.data.data.response);
+      } else {
+        setError('Unexpected response from AI.');
+      }
+    } catch (err) {
+      console.error('Error calling AI voice-assistant:', err);
+      setError('Error processing voice input.');
     } finally {
       setLoading(false);
     }
@@ -40,6 +48,12 @@ export default function VoiceAssistant() {
         <div style={{ marginTop: 24, background: '#dbebfa', padding: 16, borderRadius: 8 }}>
           <h3>Response:</h3>
           <p>{response}</p>
+        </div>
+      )}
+      {error && (
+        <div style={{ marginTop: 24, background: '#fee2e2', color: '#b91c1c', padding: 16, borderRadius: 8 }}>
+          <h3>Error:</h3>
+          <p>{error}</p>
         </div>
       )}
     </div>

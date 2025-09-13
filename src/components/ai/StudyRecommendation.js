@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../../apiService';
 
 export default function StudyRecommendation() {
   const navigate = useNavigate();
   const [input, setInput] = useState('');
   const [recommendations, setRecommendations] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleGetRecommendations = async () => {
-    if (!input) return;
+    if (!input.trim()) return;
     setLoading(true);
+    setError('');
+    setRecommendations('');
     try {
-      const res = await axios.post('/ai/study-recommendation', { input });
-      setRecommendations(res.data.data.recommendations);
-    } catch {
-      setRecommendations('Error fetching recommendations.');
+      const res = await api.post('/ai/study-recommendation', { input });
+      if (res.data && res.data.success) {
+        setRecommendations(res.data.data.recommendations);
+      } else {
+        setError('Unexpected response from AI.');
+      }
+    } catch (err) {
+      console.error('Error calling AI study-recommendation:', err);
+      setError('Error fetching recommendations.');
     } finally {
       setLoading(false);
     }
@@ -36,6 +44,12 @@ export default function StudyRecommendation() {
         {loading ? 'Fetching…' : 'Get Recommendations'}
       </button>
       {recommendations && <pre style={{ marginTop: 24 }}>{recommendations}</pre>}
+      {error && (
+        <div style={{ marginTop: 24, background: '#fee2e2', color: '#b91c1c', padding: 16, borderRadius: 8 }}>
+          <h3>Error:</h3>
+          <p>{error}</p>
+        </div>
+      )}
     </div>
   );
 }

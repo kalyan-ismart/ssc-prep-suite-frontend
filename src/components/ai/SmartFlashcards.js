@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../../apiService';
 
 export default function SmartFlashcards() {
   const navigate = useNavigate();
   const [topic, setTopic] = useState('');
   const [flashcards, setFlashcards] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleGenerate = async () => {
-    if (!topic) return;
+    if (!topic.trim()) return;
     setLoading(true);
+    setError('');
+    setFlashcards('');
     try {
-      const res = await axios.post('/ai/smart-flashcards', { topic });
-      setFlashcards(res.data.data.flashcards);
-    } catch {
-      setFlashcards('Error generating flashcards.');
+      const res = await api.post('/ai/smart-flashcards', { topic });
+      if (res.data && res.data.success) {
+        setFlashcards(res.data.data.flashcards);
+      } else {
+        setError('Unexpected response from AI.');
+      }
+    } catch (err) {
+      console.error('Error calling AI smart-flashcards:', err);
+      setError('Error generating flashcards.');
     } finally {
       setLoading(false);
     }
@@ -36,6 +44,12 @@ export default function SmartFlashcards() {
         {loading ? 'Generating…' : 'Generate Flashcards'}
       </button>
       {flashcards && <pre style={{ marginTop: 24 }}>{flashcards}</pre>}
+      {error && (
+        <div style={{ marginTop: 24, background: '#fee2e2', color: '#b91c1c', padding: 16, borderRadius: 8 }}>
+          <h3>Error:</h3>
+          <p>{error}</p>
+        </div>
+      )}
     </div>
   );
 }

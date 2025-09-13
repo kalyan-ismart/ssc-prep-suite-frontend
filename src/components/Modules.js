@@ -118,7 +118,6 @@ export default function Modules() {
                     <div className="category-v-title">{cat.title}</div>
                     <div className="category-v-desc">{cat.description}</div>
                   </div>
-                  {/* FIXED: The broken div element is now corrected. */}
                   <div className="category-v-tools">
                     {cat.tools.length} Tools Available
                   </div>

@@ -1,4 +1,9 @@
-import API from '../services/api';
+import axios from 'axios';
+
+// Create an Axios instance
+const API = axios.create({
+  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000',
+});
 
 // Authentication
 export const register = (data) => API.post('/api/users/register', data);
@@ -10,20 +15,16 @@ export const updateProfile = (id, data) => API.post(`/api/users/update/${id}`, d
 
 // Categories & Tools
 export const getCategories = () => API.get('/api/categories');
-export const getCategoryTools = (categoryId) =>
-  API.get(`/api/categories/${categoryId}/tools`);
+export const getCategoryTools = (categoryId) => API.get(`/api/categories/${categoryId}/tools`);
 export const getTool = (id) => API.get(`/api/tools/${id}`);
 
 // Progress & Analytics
-export const getAnalytics = (userId) =>
-  API.get(`/api/progress/analytics/${userId}`);
-export const updateProgress = (userId, data) =>
-  API.post(`/api/progress/update/${userId}`, data);
+export const getAnalytics = (userId) => API.get(`/api/progress/analytics/${userId}`);
+export const updateProgress = (userId, data) => API.post(`/api/progress/update/${userId}`, data);
 
 // Quizzes
 export const getQuizzes = () => API.get('/api/quizzes');
 export const getQuiz = (id) => API.get(`/api/quizzes/${id}`);
-export const submitQuiz = (id, answers) =>
-  API.post(`/api/quizzes/${id}/submit`, answers);
+export const submitQuiz = (id, answers) => API.post(`/api/quizzes/${id}/submit`, answers);
 
 export default API;

@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import api from '../../apiService';
 
 export default function AIStudyAssistant() {
-  const navigate = useNavigate();
   const [prompt, setPrompt] = useState('');
   const [answer, setAnswer] = useState('');
   const [loading, setLoading] = useState(false);
@@ -30,19 +28,26 @@ export default function AIStudyAssistant() {
   };
 
   return (
-    <div>
+    <div className="ai-tool-container">
       <h2>AI Study Assistant</h2>
       <textarea
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
-        placeholder="Enter your question or topic"
-        rows={5}
+        placeholder="Enter your question or topic here..."
+        rows={6}
+        disabled={loading}
+        className="input-box"
       />
-      <button onClick={handleSubmit} disabled={loading}>
+      <button onClick={handleSubmit} disabled={loading || !prompt.trim()}>
         {loading ? 'Generating...' : 'Get Answer'}
       </button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {answer && <div className="answer-box">{answer}</div>}
+      {error && <p className="error-text">{error}</p>}
+      {answer && (
+        <div className="output-box">
+          <h3>Answer:</h3>
+          <p>{answer}</p>
+        </div>
+      )}
     </div>
   );
 }

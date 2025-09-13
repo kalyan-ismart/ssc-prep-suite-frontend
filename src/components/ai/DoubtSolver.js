@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import api from '../../apiService';
 
 export default function DoubtSolver() {
-  const navigate = useNavigate();
   const [question, setQuestion] = useState('');
   const [solution, setSolution] = useState('');
   const [loading, setLoading] = useState(false);
@@ -30,19 +28,26 @@ export default function DoubtSolver() {
   };
 
   return (
-    <div>
+    <div className="ai-tool-container">
       <h2>Doubt Solver</h2>
       <textarea
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
-        placeholder="Enter your question"
-        rows={4}
+        placeholder="Enter your question here..."
+        rows={5}
+        disabled={loading}
+        className="input-box"
       />
-      <button onClick={handleSolve} disabled={loading}>
+      <button onClick={handleSolve} disabled={loading || !question.trim()}>
         {loading ? 'Solving...' : 'Get Solution'}
       </button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {solution && <div className="solution-box">{solution}</div>}
+      {error && <p className="error-text">{error}</p>}
+      {solution && (
+        <div className="output-box">
+          <h3>Solution:</h3>
+          <p>{solution}</p>
+        </div>
+      )}
     </div>
   );
 }

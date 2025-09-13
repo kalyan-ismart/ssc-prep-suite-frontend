@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import api from '../../apiService';
 
 export default function QuestionGenerator() {
-  const navigate = useNavigate();
   const [topic, setTopic] = useState('');
-  const [questions, setQuestions] = useState('');
+  const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -13,7 +11,7 @@ export default function QuestionGenerator() {
     if (!topic.trim()) return;
     setLoading(true);
     setError('');
-    setQuestions('');
+    setQuestions([]);
     try {
       const res = await api.post('/ai/question-generator', { topic });
       if (res.data && res.data.success) {
@@ -30,22 +28,24 @@ export default function QuestionGenerator() {
   };
 
   return (
-    <div>
+    <div className="ai-tool-container">
       <h2>Question Generator</h2>
       <input
         type="text"
         value={topic}
         onChange={(e) => setTopic(e.target.value)}
         placeholder="Enter topic"
+        disabled={loading}
+        className="input-box"
       />
-      <button onClick={handleGenerate} disabled={loading}>
+      <button onClick={handleGenerate} disabled={loading || !topic.trim()}>
         {loading ? 'Generating...' : 'Generate Questions'}
       </button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {questions && (
-        <ul>
-          {questions.map((q, idx) => (
-            <li key={idx}>{q}</li>
+      {error && <p className="error-text">{error}</p>}
+      {questions.length > 0 && (
+        <ul className="output-list">
+          {questions.map((question, index) => (
+            <li key={index}>{question}</li>
           ))}
         </ul>
       )}

@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import api from '../../apiService';
 
 export default function VoiceAssistant() {
-  const navigate = useNavigate();
   const [voiceInput, setVoiceInput] = useState('');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // Placeholder for real speech-to-text integration
+  // Placeholder for real speech input integration
 
   const handleSend = async () => {
     if (!voiceInput.trim()) return;
@@ -32,19 +30,26 @@ export default function VoiceAssistant() {
   };
 
   return (
-    <div>
+    <div className="ai-tool-container">
       <h2>Voice Assistant</h2>
       <textarea
+        rows={4}
         value={voiceInput}
         onChange={(e) => setVoiceInput(e.target.value)}
         placeholder="Speak or type here"
-        rows={4}
+        disabled={loading}
+        className="input-box"
       />
-      <button onClick={handleSend} disabled={loading}>
+      <button onClick={handleSend} disabled={loading || !voiceInput.trim()}>
         {loading ? 'Processing...' : 'Send'}
       </button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {response && <div className="response-box">{response}</div>}
+      {error && <p className="error-text">{error}</p>}
+      {response && (
+        <div className="output-box">
+          <h3>Response:</h3>
+          <p>{response}</p>
+        </div>
+      )}
     </div>
   );
 }

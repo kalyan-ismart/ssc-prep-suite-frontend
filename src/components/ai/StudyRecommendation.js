@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import api from '../../apiService';
 
 export default function StudyRecommendation() {
-  const navigate = useNavigate();
   const [input, setInput] = useState('');
-  const [recommendations, setRecommendations] = useState('');
+  const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -13,7 +11,7 @@ export default function StudyRecommendation() {
     if (!input.trim()) return;
     setLoading(true);
     setError('');
-    setRecommendations('');
+    setRecommendations([]);
     try {
       const res = await api.post('/ai/study-recommendation', { input });
       if (res.data && res.data.success) {
@@ -30,22 +28,24 @@ export default function StudyRecommendation() {
   };
 
   return (
-    <div>
+    <div className="ai-tool-container">
       <h2>Study Recommendation</h2>
       <input
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder="Enter your topic or challenge"
+        placeholder="Enter topic or question"
+        disabled={loading}
+        className="input-box"
       />
-      <button onClick={handleGetRecommendations} disabled={loading}>
+      <button onClick={handleGetRecommendations} disabled={loading || !input.trim()}>
         {loading ? 'Fetching...' : 'Get Recommendations'}
       </button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {recommendations && (
-        <ul>
-          {recommendations.map((rec, idx) => (
-            <li key={idx}>{rec}</li>
+      {error && <p className="error-text">{error}</p>}
+      {recommendations.length > 0 && (
+        <ul className="output-list">
+          {recommendations.map((rec, index) => (
+            <li key={index}>{rec}</li>
           ))}
         </ul>
       )}

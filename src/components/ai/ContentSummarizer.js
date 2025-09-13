@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import api from '../../apiService';
 
 export default function ContentSummarizer() {
-  const navigate = useNavigate();
   const [text, setText] = useState('');
   const [summary, setSummary] = useState('');
   const [loading, setLoading] = useState(false);
@@ -30,19 +28,26 @@ export default function ContentSummarizer() {
   };
 
   return (
-    <div>
+    <div className="ai-tool-container">
       <h2>Content Summarizer</h2>
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Paste or type content here"
-        rows={6}
+        placeholder="Paste or enter content to summarize..."
+        rows={8}
+        disabled={loading}
+        className="input-box"
       />
-      <button onClick={handleSummarize} disabled={loading}>
+      <button onClick={handleSummarize} disabled={loading || !text.trim()}>
         {loading ? 'Summarizing...' : 'Summarize'}
       </button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {summary && <div className="summary-box">{summary}</div>}
+      {error && <p className="error-text">{error}</p>}
+      {summary && (
+        <div className="output-box">
+          <h3>Summary:</h3>
+          <p>{summary}</p>
+        </div>
+      )}
     </div>
   );
 }

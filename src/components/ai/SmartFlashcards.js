@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import api from '../../apiService';
 
 export default function SmartFlashcards() {
-  const navigate = useNavigate();
   const [topic, setTopic] = useState('');
-  const [flashcards, setFlashcards] = useState('');
+  const [flashcards, setFlashcards] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -13,7 +11,7 @@ export default function SmartFlashcards() {
     if (!topic.trim()) return;
     setLoading(true);
     setError('');
-    setFlashcards('');
+    setFlashcards([]);
     try {
       const res = await api.post('/ai/smart-flashcards', { topic });
       if (res.data && res.data.success) {
@@ -30,22 +28,24 @@ export default function SmartFlashcards() {
   };
 
   return (
-    <div>
+    <div className="ai-tool-container">
       <h2>Smart Flashcards</h2>
       <input
         type="text"
         value={topic}
         onChange={(e) => setTopic(e.target.value)}
         placeholder="Enter topic"
+        disabled={loading}
+        className="input-box"
       />
-      <button onClick={handleGenerate} disabled={loading}>
+      <button onClick={handleGenerate} disabled={loading || !topic.trim()}>
         {loading ? 'Generating...' : 'Generate Flashcards'}
       </button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {flashcards && (
-        <ul>
-          {flashcards.map((card, idx) => (
-            <li key={idx}>{card}</li>
+      {error && <p className="error-text">{error}</p>}
+      {flashcards.length > 0 && (
+        <ul className="output-list">
+          {flashcards.map((card, index) => (
+            <li key={index}>{card}</li>
           ))}
         </ul>
       )}

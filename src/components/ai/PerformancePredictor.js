@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import api from '../../apiService';
 
 export default function PerformancePredictor() {
-  const navigate = useNavigate();
   const [details, setDetails] = useState('');
   const [prediction, setPrediction] = useState('');
   const [loading, setLoading] = useState(false);
@@ -30,19 +28,26 @@ export default function PerformancePredictor() {
   };
 
   return (
-    <div>
+    <div className="ai-tool-container">
       <h2>Performance Predictor</h2>
       <textarea
         value={details}
         onChange={(e) => setDetails(e.target.value)}
-        placeholder="Provide your details"
-        rows={5}
+        placeholder="Enter your details here..."
+        rows={6}
+        disabled={loading}
+        className="input-box"
       />
-      <button onClick={handlePredict} disabled={loading}>
+      <button onClick={handlePredict} disabled={loading || !details.trim()}>
         {loading ? 'Predicting...' : 'Get Prediction'}
       </button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {prediction && <div className="prediction-box">{prediction}</div>}
+      {error && <p className="error-text">{error}</p>}
+      {prediction && (
+        <div className="output-box">
+          <h3>Prediction:</h3>
+          <p>{prediction}</p>
+        </div>
+      )}
     </div>
   );
 }

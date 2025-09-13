@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSC Prep Suite | Auth Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md mx-auto">
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-2xl font-bold text-center mb-6">Backend Authentication</h1>
+
+            <!-- Registration Form -->
+            <div id="register-section">
+                <h2 class="text-xl font-semibold mb-4">Register</h2>
+                <form id="register-form" class="space-y-4">
+                    <input type="text" id="register-username" placeholder="Username" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="password" id="register-password" placeholder="Password" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300">Register</button>
+                </form>
+            </div>
+
+            <hr class="my-6">
+
+            <!-- Login Form -->
+            <div id="login-section">
+                <h2 class="text-xl font-semibold mb-4">Login</h2>
+                <form id="login-form" class="space-y-4">
+                    <input type="text" id="login-username" placeholder="Username" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <input type="password" id="login-password" placeholder="Password" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <button type="submit" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-300">Login</button>
+                </form>
+            </div>
+
+            <hr class="my-6">
+
+            <!-- Protected Data Section -->
+            <div id="profile-section" class="space-y-4">
+                <h2 class="text-xl font-semibold">Protected Profile Data</h2>
+                <button id="get-profile-btn" class="w-full bg-gray-700 text-white py-2 rounded-lg hover:bg-gray-800 transition duration-300">Fetch Profile</button>
+                <div id="profile-content" class="mt-4 p-4 bg-gray-50 rounded-lg border hidden">
+                    <p class="text-center text-gray-500">Click the button to fetch your protected data.</p>
+                </div>
+            </div>
+
+             <div class="mt-6 text-center">
+                 <button id="logout-btn" class="text-red-500 hover:underline hidden">Logout</button>
+             </div>
+        </div>
+         <div id="message-box" class="mt-4 p-4 text-center rounded-lg shadow-md font-medium hidden"></div>
+    </div>
+
+    <script>
+        // --- UPDATED --- Using your backend's port from the server.js file
+        const API_BASE_URL = 'http://localhost:10000'; // Your backend server URL
+
+        // DOM Elements
+        const registerForm = document.getElementById('register-form');
+        const loginForm = document.getElementById('login-form');
+        const getProfileBtn = document.getElementById('get-profile-btn');
+        const profileContent = document.getElementById('profile-content');
+        const messageBox = document.getElementById('message-box');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        // --- Event Listeners ---
+        registerForm.addEventListener('submit', handleRegister);
+        loginForm.addEventListener('submit', handleLogin);
+        getProfileBtn.addEventListener('click', handleGetProfile);
+        logoutBtn.addEventListener('click', handleLogout);
+
+        // --- On Page Load ---
+        checkLoginStatus();
+
+        // --- Handler Functions ---
+
+        async function handleRegister(e) {
+            e.preventDefault();
+            const username = document.getElementById('register-username').value;
+            const password = document.getElementById('register-password').value;
+
+            try {
+                // --- UPDATED --- Added /api prefix
+                const response = await fetch(`${API_BASE_URL}/api/users/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Registration failed');
+                }
+                
+                showMessage(`✅ Success: ${data.message}`, 'success');
+                registerForm.reset();
+
+            } catch (error) {
+                showMessage(`❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        async function handleLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            try {
+                // --- UPDATED --- Added /api prefix
+                const response = await fetch(`${API_BASE_URL}/api/users/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Login failed');
+                }
+                
+                localStorage.setItem('accessToken', data.accessToken);
+                
+                showMessage(`✅ Success: ${data.message}`, 'success');
+                loginForm.reset();
+                checkLoginStatus();
+
+            } catch (error) {
+                showMessage(`❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        async function handleGetProfile() {
+            const token = localStorage.getItem('accessToken');
+
+            if (!token) {
+                showMessage('❌ Error: You must be logged in to view your profile.', 'error');
+                return;
+            }
+
+            try {
+                // --- UPDATED --- Added /api prefix
+                const response = await fetch(`${API_BASE_URL}/api/profile`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Failed to fetch profile');
+                }
+                
+                profileContent.innerHTML = `<pre class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto">${JSON.stringify(data, null, 2)}</pre>`;
+                profileContent.classList.remove('hidden');
+
+            } catch (error) {
+                showMessage(`❌ Error: ${error.message}`, 'error');
+                if (error.message.toLowerCase().includes('invalid token')) {
+                    handleLogout();
+                }
+            }
+        }
+        
+        function handleLogout() {
+            localStorage.removeItem('accessToken');
+            showMessage('👋 You have been logged out.', 'success');
+            checkLoginStatus();
+            profileContent.classList.add('hidden');
+            profileContent.innerHTML = `<p class="text-center text-gray-500">Click the button to fetch your protected data.</p>`;
+        }
+
+        function checkLoginStatus() {
+            const token = localStorage.getItem('accessToken');
+            if (token) {
+                logoutBtn.classList.remove('hidden');
+            } else {
+                logoutBtn.classList.add('hidden');
+            }
+        }
+
+        function showMessage(message, type) {
+            messageBox.textContent = message;
+            messageBox.className = 'mt-4 p-4 text-center rounded-lg shadow-md font-medium';
+            
+            if (type === 'success') {
+                messageBox.classList.add('bg-green-100', 'text-green-800');
+            } else if (type === 'error') {
+                messageBox.classList.add('bg-red-100', 'text-red-800');
+            }
+            messageBox.classList.remove('hidden');
+
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 5000);
+        }
+
+    </script>
+</body>
+</html>
+

@@ -18,7 +18,7 @@ export default function Modules() {
 
     const filtered = categories.map(category => ({
       ...category,
-      // FIXED: Safely handle cases where category.tools might not exist.
+      // Safely handle cases where category.tools might not exist.
       tools: (category.tools || []).filter(tool =>
         tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         tool.description.toLowerCase().includes(searchTerm.toLowerCase())
@@ -118,9 +118,8 @@ export default function Modules() {
                     <div className="category-v-title">{cat.title}</div>
                     <div className="category-v-desc">{cat.description}</div>
                   </div>
-                  <div className.
-                  
-                  className="category-v-tools">
+                  {/* FIXED: The broken div element is now corrected. */}
+                  <div className="category-v-tools">
                     {cat.tools.length} Tools Available
                   </div>
                 </div>

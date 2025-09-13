@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// CORRECTED: 'BrowserRouter as Router' has been removed from this import
 import { Routes, Route, Link } from 'react-router-dom';
 import './styles/sarkari-success.css';
 import './index.css';
@@ -50,11 +49,9 @@ function App() {
     e.preventDefault();
     if (searchQuery.trim()) {
       console.log('Searching for:', searchQuery);
-      // Implement search functionality here
     }
   };
 
-  // CORRECTED: The <Router> component has been removed from this file.
   return (
     <div className={`App ${isDarkMode ? 'dark-mode' : ''}`}>
       {/* Header */}

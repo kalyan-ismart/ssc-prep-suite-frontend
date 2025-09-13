@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+// CORRECTED: 'BrowserRouter as Router' has been removed from this import
+import { Routes, Route, Link } from 'react-router-dom';
 import './styles/sarkari-success.css';
 import './index.css';
 
@@ -53,85 +54,84 @@ function App() {
     }
   };
 
+  // CORRECTED: The <Router> component has been removed from this file.
   return (
-    <Router>
-      <div className={`App ${isDarkMode ? 'dark-mode' : ''}`}>
-        {/* Header */}
-        <header className="custom-header">
-          <div className="header-left">
-            <span className="logo-icon">🏛️</span>
-            <Link to="/" className="brand-main">SarkariSuccess</Link>
-            <div className="brand-sub">Your Gateway to Government Job Success</div>
-          </div>
-          <div className="header-right">
-            <form className="search-form" onSubmit={handleSearch}>
-              <input
-                type="text"
-                className="search-input"
-                placeholder="Search tools, exams, topics..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-              <button type="submit" className="search-btn">🔍</button>
-            </form>
-            <button
-              className="theme-switch-btn"
-              onClick={toggleTheme}
-              title={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-            >
-              {isDarkMode ? '☀️' : '🌙'}
-            </button>
-            <Link to="/profile" className="profile-btn">👤 Profile</Link>
-          </div>
-        </header>
+    <div className={`App ${isDarkMode ? 'dark-mode' : ''}`}>
+      {/* Header */}
+      <header className="custom-header">
+        <div className="header-left">
+          <span className="logo-icon">🏛️</span>
+          <Link to="/" className="brand-main">SarkariSuccess</Link>
+          <div className="brand-sub">Your Gateway to Government Job Success</div>
+        </div>
+        <div className="header-right">
+          <form className="search-form" onSubmit={handleSearch}>
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Search tools, exams, topics..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button type="submit" className="search-btn">🔍</button>
+          </form>
+          <button
+            className="theme-switch-btn"
+            onClick={toggleTheme}
+            title={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
+          >
+            {isDarkMode ? '☀️' : '🌙'}
+          </button>
+          <Link to="/profile" className="profile-btn">👤 Profile</Link>
+        </div>
+      </header>
 
-        {/* Main Content Routes */}
-        <main>
-          <Routes>
-            <Route path="/" element={<Modules />} />
-            <Route path="/tool/:categoryId/:toolId" element={<ToolInterface />} />
-            <Route path="/profile" element={<UserProfile />} />
-            <Route path="/analytics" element={<Analytics />} />
-            
-            {/* AI-Powered Tools */}
-            <Route path="/tool/ai-powered-tools/ai-study-assistant" element={<AIStudyAssistant />} />
-            <Route path="/tool/ai-powered-tools/doubt-solver" element={<DoubtSolver />} />
-            <Route path="/tool/ai-powered-tools/question-generator" element={<QuestionGenerator />} />
-            <Route path="/tool/ai-powered-tools/performance-predictor" element={<PerformancePredictor />} />
-            <Route path="/tool/ai-powered-tools/study-recommendation" element={<StudyRecommendation />} />
-            <Route path="/tool/ai-powered-tools/content-summarizer" element={<ContentSummarizer />} />
-            <Route path="/tool/ai-powered-tools/smart-flashcards" element={<SmartFlashcards />} />
-            <Route path="/tool/ai-powered-tools/voice-assistant" element={<VoiceAssistant />} />
-            
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
+      {/* Main Content Routes */}
+      <main>
+        <Routes>
+          <Route path="/" element={<Modules />} />
+          <Route path="/tool/:categoryId/:toolId" element={<ToolInterface />} />
+          <Route path="/profile" element={<UserProfile />} />
+          <Route path="/analytics" element={<Analytics />} />
+          
+          {/* AI-Powered Tools */}
+          <Route path="/tool/ai-powered-tools/ai-study-assistant" element={<AIStudyAssistant />} />
+          <Route path="/tool/ai-powered-tools/doubt-solver" element={<DoubtSolver />} />
+          <Route path="/tool/ai-powered-tools/question-generator" element={<QuestionGenerator />} />
+          <Route path="/tool/ai-powered-tools/performance-predictor" element={<PerformancePredictor />} />
+          <Route path="/tool/ai-powered-tools/study-recommendation" element={<StudyRecommendation />} />
+          <Route path="/tool/ai-powered-tools/content-summarizer" element={<ContentSummarizer />} />
+          <Route path="/tool/ai-powered-tools/smart-flashcards" element={<SmartFlashcards />} />
+          <Route path="/tool/ai-powered-tools/voice-assistant" element={<VoiceAssistant />} />
+          
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
 
-        {/* Footer */}
-        <footer className="custom-footer">
-          <div className="footer-content">
-            <div>
-              <h4>SarkariSuccess Hub</h4>
-              <p>Comprehensive government exam preparation platform</p>
-            </div>
-            <div>
-              <h4>Quick Links</h4>
-              <Link to="/">Dashboard</Link>
-              <Link to="/profile">Profile</Link>
-            </div>
-            <div>
-              <h4>Exams</h4>
-              <span>SSC CGL</span>
-              <span>IBPS PO</span>
-              <span>UPSC</span>
-            </div>
+      {/* Footer */}
+      <footer className="custom-footer">
+        <div className="footer-content">
+          <div>
+            <h4>SarkariSuccess Hub</h4>
+            <p>Comprehensive government exam preparation platform</p>
           </div>
-          <div className="footer-bottom">
-            © 2024 SarkariSuccess Hub. All rights reserved.
+          <div>
+            <h4>Quick Links</h4>
+            <Link to="/">Dashboard</Link>
+            <Link to="/profile">Profile</Link>
           </div>
-        </footer>
-      </div>
-    </Router>
+          <div>
+            <h4>Exams</h4>
+            <span>SSC CGL</span>
+            <span>IBPS PO</span>
+            <span>UPSC</span>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          © 2024 SarkariSuccess Hub. All rights reserved.
+        </div>
+      </footer>
+    </div>
   );
 }
 

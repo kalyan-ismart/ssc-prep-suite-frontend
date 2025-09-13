@@ -88,11 +88,14 @@ function App() {
         {/* Main Content Routes */}
         <main>
           <Routes>
+            {/* The main dashboard route is active. All others are commented out for testing. */}
             <Route path="/" element={<Modules />} />
+
+            {/*
             <Route path="/tool/:categoryId/:toolId" element={<ToolInterface />} />
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/analytics" element={<Analytics />} />
-            {/* AI-Powered Tools */}
+            
             <Route path="/tool/ai-powered-tools/ai-study-assistant" element={<AIStudyAssistant />} />
             <Route path="/tool/ai-powered-tools/doubt-solver" element={<DoubtSolver />} />
             <Route path="/tool/ai-powered-tools/question-generator" element={<QuestionGenerator />} />
@@ -101,6 +104,8 @@ function App() {
             <Route path="/tool/ai-powered-tools/content-summarizer" element={<ContentSummarizer />} />
             <Route path="/tool/ai-powered-tools/smart-flashcards" element={<SmartFlashcards />} />
             <Route path="/tool/ai-powered-tools/voice-assistant" element={<VoiceAssistant />} />
+            */}
+            
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

@@ -15,8 +15,8 @@ const api = axios.create({
 
 // Optional: Add response interceptors for global error handling
 api.interceptors.response.use(
-  response => response,
-  error => {
+  (response) => response,
+  (error) => {
     if (error.response) {
       // Backend returned error status code
       console.error('API Error:', error.response.data.message || error.message);

@@ -18,7 +18,8 @@ export default function Modules() {
 
     const filtered = categories.map(category => ({
       ...category,
-      tools: category.tools.filter(tool =>
+      // FIXED: Safely handle cases where category.tools might not exist.
+      tools: (category.tools || []).filter(tool =>
         tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         tool.description.toLowerCase().includes(searchTerm.toLowerCase())
       )
@@ -56,19 +57,19 @@ export default function Modules() {
           
           <div className="dashboard-stats">
             <div className="stat-card">
-              <div className="stat-icon" style={{backgroundColor: '#e0f2fe', color: '#0369a1'}}>📊</div>
+              <div className="stat-icon" style={{backgroundColor: '#e0f2fe', color: '#0369a1'}}>投</div>
               <div className="stat-label">Current Streak</div>
               <div className="stat-value">7 days</div>
             </div>
             
             <div className="stat-card">
-              <div className="stat-icon" style={{backgroundColor: '#dcfce7', color: '#166534'}}>🎯</div>
+              <div className="stat-icon" style={{backgroundColor: '#dcfce7', color: '#166534'}}>識</div>
               <div className="stat-label">Goals Completed</div>
               <div className="stat-value">3/5</div>
             </div>
             
             <div className="stat-card">
-              <div className="stat-icon" style={{backgroundColor: '#fef3c7', color: '#d97706'}}>📈</div>
+              <div className="stat-icon" style={{backgroundColor: '#fef3c7', color: '#d97706'}}>嶋</div>
               <div className="stat-label">Avg Score</div>
               <div className="stat-value">78%</div>
             </div>
@@ -137,7 +138,7 @@ export default function Modules() {
                           role="button"
                           aria-label={`Open ${tool.name} - ${tool.description}`}
                         >
-                          <span className="tool-in-card-dot" role="img" aria-hidden="true">•</span>
+                          <span className="tool-in-card-dot" role="img" aria-hidden="true">窶｢</span>
                           <div>
                             <div style={{fontWeight: '600', marginBottom: '2px'}}>{tool.name}</div>
                             <div style={{fontSize: '0.9em', color: '#64748b'}}>{tool.description}</div>

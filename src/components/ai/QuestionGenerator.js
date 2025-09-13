@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import api from '../../apiService';
+import api from '../apiService';
 
 export default function QuestionGenerator() {
   const [topic, setTopic] = useState('');

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import api from '../apiService';
+import api from '../../apiService';
 
 export default function DoubtSolver() {
   const [question, setQuestion] = useState('');

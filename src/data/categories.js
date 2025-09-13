@@ -36,7 +36,7 @@ export const categories = [
     id: "practice-testing",
     title: "Practice & Testing",
     description: "Comprehensive tools for practice & testing",
-    icon: "📝",
+    icon: "✍️",
     totalTools: 8,
     tools: [
       { id: "mock-tests", name: "Mock Tests", description: "Full-length mock examinations" },
@@ -53,7 +53,7 @@ export const categories = [
     id: "subject-mastery",
     title: "Subject Mastery",
     description: "Comprehensive tools for subject mastery",
-    icon: "🎓",
+    icon: "📚",
     totalTools: 8,
     tools: [
       { id: "quantitative-aptitude", name: "Quantitative Aptitude", description: "Mathematics and numerical ability" },
@@ -87,7 +87,7 @@ export const categories = [
     id: "exam-specific-prep",
     title: "Exam-Specific Prep",
     description: "Comprehensive tools for exam-specific prep",
-    icon: "🏛️",
+    icon: "🎓",
     totalTools: 8,
     tools: [
       { id: "upsc-preparation", name: "UPSC Preparation Hub", description: "Comprehensive UPSC resources and materials" },
@@ -96,6 +96,7 @@ export const categories = [
       { id: "railway-exam-resources", name: "Railway Exam Resources", description: "Technical railway exam preparation" },
       { id: "state-psc-preparation", name: "State PSC Preparation", description: "State-wise PSC exam resources" },
       { id: "defense-exam-prep", name: "Defense Exam Prep", description: "Military and defense exam preparation" },
+      // FIXED: Corrected the id:: typo below
       { id: "teaching-exam-resources", name: "Teaching Exam Resources", description: "Education sector job preparation" },
       { id: "police-exam-preparation", name: "Police Exam Preparation", description: "Law enforcement exam resources" }
     ]

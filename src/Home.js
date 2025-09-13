@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getCategories, getCategoryTools } from './services/api';
+import api from './apiService'; // CORRECTED IMPORT
 
 export default function Home() {
   const [categories, setCategories] = useState([]);
@@ -17,7 +17,8 @@ export default function Home() {
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const res = await getCategories();
+        // UPDATED API CALL
+        const res = await api.get('/api/categories');
         const cats = res.data.data;
         setCategories(cats);
         if (cats.length) {
@@ -39,7 +40,8 @@ export default function Home() {
     async function fetchTools() {
       setLoadingTools(true);
       try {
-        const res = await getCategoryTools(selectedCategory);
+        // UPDATED API CALL
+        const res = await api.get(`/api/categories/${selectedCategory}/tools`);
         setTools(res.data.data);
       } catch (err) {
         console.error('Failed to load tools', err);

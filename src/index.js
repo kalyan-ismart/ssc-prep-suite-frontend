@@ -8,7 +8,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import API from './services/api';
+import API from './apiService'; // CORRECTED IMPORT
 
 // Initialize SarkariSuccess-Hub logs
 console.log('🏛️ SarkariSuccess-Hub - Comprehensive Government Exam Preparation Platform');

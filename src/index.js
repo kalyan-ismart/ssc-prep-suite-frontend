@@ -1,22 +1,38 @@
+// src/index.js
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/sarkari-success.css';
 import './index.css';
-
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import API from './services/api';
 
 // Initialize SarkariSuccess-Hub logs
 console.log('🏛️ SarkariSuccess-Hub - Comprehensive Government Exam Preparation Platform');
 console.log('🚀 Platform Version: 2.0.0');
 console.log('📚 Transforming SSC Prep Suite into SarkariSuccess-Hub');
 
+// Attach JWT token from localStorage to every request
+API.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+}, (error) => {
+  return Promise.reject(error);
+});
+
 // Create root and render App component
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-root.render(<React.StrictMode><App /></React.StrictMode>);
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
 
 // Performance monitoring for SarkariSuccess-Hub
 reportWebVitals((metric) => {
@@ -50,7 +66,6 @@ const initializeTheme = () => {
     console.log('🎨 System theme detected and set:', systemTheme);
   }
 };
-
 initializeTheme();
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
@@ -67,14 +82,12 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
 window.addEventListener('error', (event) => {
   console.error('🚨 Global Error:', event.error);
 });
-
 window.addEventListener('unhandledrejection', (event) => {
   console.error('🚨 Unhandled Promise Rejection:', event.reason);
 });
 
 // Update page metadata
 document.title = 'SarkariSuccess-Hub - Your Gateway to Government Job Success';
-
 const metaDesc = document.querySelector('meta[name="description"]');
 if (metaDesc) {
   metaDesc.setAttribute('content', 'Comprehensive government exam preparation platform with AI-powered tools, analytics, and resources for UPSC, SSC, Banking, Railways, and other competitive exams.');

@@ -30,31 +30,19 @@ export default function AIStudyAssistant() {
   };
 
   return (
-    <div style={{ maxWidth: 600, margin: '2rem auto' }}>
-      <button onClick={() => navigate('/')} style={{ marginBottom: 16 }}>← Back to Dashboard</button>
+    <div>
       <h2>AI Study Assistant</h2>
       <textarea
-        rows={6}
         value={prompt}
-        onChange={e => setPrompt(e.target.value)}
-        placeholder="Ask your study question..."
-        style={{ width: '100%', padding: 12, fontSize: 16, borderRadius: 8, border: '1px solid #ccc' }}
+        onChange={(e) => setPrompt(e.target.value)}
+        placeholder="Enter your question or topic"
+        rows={5}
       />
-      <button onClick={handleSubmit} disabled={loading} style={{ marginTop: 16, padding: '10px 20px' }}>
-        {loading ? 'Thinking…' : 'Ask AI'}
+      <button onClick={handleSubmit} disabled={loading}>
+        {loading ? 'Generating...' : 'Get Answer'}
       </button>
-      {answer && (
-        <div style={{ marginTop: 24, background: '#f0f9ff', padding: 16, borderRadius: 8, whiteSpace: 'pre-wrap' }}>
-          <h3>AI Response:</h3>
-          <p>{answer}</p>
-        </div>
-      )}
-      {error && (
-        <div style={{ marginTop: 24, background: '#fee2e2', color: '#b91c1c', padding: 16, borderRadius: 8 }}>
-          <h3>Error:</h3>
-          <p>{error}</p>
-        </div>
-      )}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {answer && <div className="answer-box">{answer}</div>}
     </div>
   );
 }

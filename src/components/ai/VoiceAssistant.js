@@ -9,7 +9,8 @@ export default function VoiceAssistant() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // Currently simple text input simulation; integrate real voice APIs if desired
+  // Placeholder for real speech-to-text integration
+
   const handleSend = async () => {
     if (!voiceInput.trim()) return;
     setLoading(true);
@@ -31,31 +32,19 @@ export default function VoiceAssistant() {
   };
 
   return (
-    <div style={{ maxWidth: 600, margin: '2rem auto', whiteSpace: 'pre-wrap' }}>
-      <button onClick={() => navigate('/')} style={{ marginBottom: 16 }}>← Back to Dashboard</button>
+    <div>
       <h2>Voice Assistant</h2>
-      <input
-        type="text"
+      <textarea
         value={voiceInput}
-        onChange={e => setVoiceInput(e.target.value)}
-        placeholder="Type voice input here (simulate)"
-        style={{ width: '100%', padding: 12, fontSize: 16, borderRadius: 8, border: '1px solid #ccc' }}
+        onChange={(e) => setVoiceInput(e.target.value)}
+        placeholder="Speak or type here"
+        rows={4}
       />
-      <button onClick={handleSend} disabled={loading} style={{ marginTop: 16, padding: '10px 20px' }}>
-        {loading ? 'Processing…' : 'Send'}
+      <button onClick={handleSend} disabled={loading}>
+        {loading ? 'Processing...' : 'Send'}
       </button>
-      {response && (
-        <div style={{ marginTop: 24, background: '#dbebfa', padding: 16, borderRadius: 8 }}>
-          <h3>Response:</h3>
-          <p>{response}</p>
-        </div>
-      )}
-      {error && (
-        <div style={{ marginTop: 24, background: '#fee2e2', color: '#b91c1c', padding: 16, borderRadius: 8 }}>
-          <h3>Error:</h3>
-          <p>{error}</p>
-        </div>
-      )}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {response && <div className="response-box">{response}</div>}
     </div>
   );
 }

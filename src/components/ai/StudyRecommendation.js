@@ -30,25 +30,24 @@ export default function StudyRecommendation() {
   };
 
   return (
-    <div style={{ maxWidth: 600, margin: '2rem auto', whiteSpace: 'pre-wrap' }}>
-      <button onClick={() => navigate('/')} style={{ marginBottom: 16 }}>← Back to Dashboard</button>
+    <div>
       <h2>Study Recommendation</h2>
       <input
         type="text"
         value={input}
-        onChange={e => setInput(e.target.value)}
-        placeholder="Enter input for recommendations"
-        style={{ width: '100%', padding: 12, fontSize: 16, borderRadius: 8, border: '1px solid #ccc' }}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Enter your topic or challenge"
       />
-      <button onClick={handleGetRecommendations} disabled={loading} style={{ marginTop: 16, padding: '10px 20px' }}>
-        {loading ? 'Fetching…' : 'Get Recommendations'}
+      <button onClick={handleGetRecommendations} disabled={loading}>
+        {loading ? 'Fetching...' : 'Get Recommendations'}
       </button>
-      {recommendations && <pre style={{ marginTop: 24 }}>{recommendations}</pre>}
-      {error && (
-        <div style={{ marginTop: 24, background: '#fee2e2', color: '#b91c1c', padding: 16, borderRadius: 8 }}>
-          <h3>Error:</h3>
-          <p>{error}</p>
-        </div>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {recommendations && (
+        <ul>
+          {recommendations.map((rec, idx) => (
+            <li key={idx}>{rec}</li>
+          ))}
+        </ul>
       )}
     </div>
   );

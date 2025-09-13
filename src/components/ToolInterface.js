@@ -1,91 +1,55 @@
+// src/components/ToolInterface.js
+
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getToolById, getCategoryById } from "../data/categories";
+import { getTool } from "../services/api";
 
 export default function ToolInterface() {
-  const { categoryId, toolId } = useParams();
+  const { toolId } = useParams();
   const navigate = useNavigate();
 
   const [tool, setTool] = useState(null);
-  const [category, setCategory] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    // Simulate loading delay for better UX
-    setTimeout(() => {
+    async function fetchTool() {
+      setLoading(true);
       try {
-        const foundTool = getToolById(categoryId, toolId);
-        const foundCategory = getCategoryById(categoryId);
-
-        if (!foundTool || !foundCategory) {
-          setError('Tool not found');
-        } else {
-          setTool(foundTool);
-          setCategory(foundCategory);
-        }
+        const res = await getTool(toolId);
+        setTool(res.data.data);
       } catch (err) {
-        setError('Failed to load tool');
-        console.error('Tool loading error:', err);
+        console.error("Tool loading error:", err);
+        setError("Failed to load tool. It may not exist.");
       } finally {
         setLoading(false);
       }
-    }, 500);
-  }, [categoryId, toolId]);
+    }
+    fetchTool();
+  }, [toolId]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading tool...</div>;
   }
 
   if (error) {
-    return (
-      <div style={{ padding: '2rem', textAlign: 'center' }}>
-        <button
-          style={{ marginBottom: '1rem', cursor: 'pointer' }}
-          onClick={() => navigate('/')}
-        >
-          ← Back to Dashboard
-        </button>
-        <h2>{error}</h2>
-        <p>The requested tool could not be found. It may have been moved or doesn't exist.</p>
-      </div>
-    );
+    return <div style={{ color: "red" }}>{error}</div>;
+  }
+
+  if (!tool) {
+    return <div>Tool not found.</div>;
   }
 
   return (
-    <div style={{ maxWidth: '800px', margin: '2rem auto' }}>
-      <button
-        style={{
-          marginBottom: '1rem',
-          padding: '0.5rem 1rem',
-          fontSize: '1rem',
-          cursor: 'pointer'
-        }}
-        onClick={() => navigate('/')}
-      >
-        ← Back to Dashboard
-      </button>
-
-      <h1>{tool.name}</h1>
-      <h3>Category: {category.name}</h3>
-
-      <p>{tool.description}</p>
-
+    <div className="tool-interface">
+      <header>
+        <button onClick={() => navigate(-1)}>← Back</button>
+        <h2>{tool.name}</h2>
+      </header>
       <section>
-        <h2>Features</h2>
-        {/* Assuming tool.settings.features is an array */}
-        {tool.settings && tool.settings.features && tool.settings.features.length > 0 ? (
-          <ul>
-            {tool.settings.features.map((feature, idx) => (
-              <li key={idx}>{feature}</li>
-            ))}
-          </ul>
-        ) : (
-          <p>This tool is currently being developed and will be available soon.</p>
-        )}
+        <p>{tool.description}</p>
+        {/* TODO: Render tool-specific UI based on tool.toolType or settings */}
       </section>
-
-      {/* Render the interactive UI of your tool here */}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 // src/UserProfile.js
 
 import React, { useState, useEffect } from 'react';
-import { getProfile, updateProfile, getAnalytics } from './services/api';
+import api from '../apiService'; // CORRECTED IMPORT
 
 export default function UserProfile() {
   const [user, setUser] = useState(null);
@@ -13,13 +13,13 @@ export default function UserProfile() {
   useEffect(() => {
     async function fetchData() {
       try {
-        // Fetch user profile
-        const profileRes = await getProfile();
-        const userData = profileRes.data;
+        // Fetch user profile - UPDATED API CALL
+        const profileRes = await api.get('/api/users/profile/me');
+        const userData = profileRes.data; // Assuming profile data is directly in res.data
         setUser(userData);
 
-        // Fetch analytics
-        const analyticsRes = await getAnalytics(userData.id);
+        // Fetch analytics - UPDATED API CALL
+        const analyticsRes = await api.get(`/api/progress/analytics/${userData.id}`);
         setAnalytics(analyticsRes.data.data);
 
         // Initialize form
@@ -38,7 +38,8 @@ export default function UserProfile() {
 
   const handleSave = async () => {
     try {
-      const res = await updateProfile(user.id, formData);
+      // UPDATED API CALL
+      const res = await api.post(`/api/users/update/${user.id}`, formData);
       setUser(res.data.data);
       setEditMode(false);
     } catch (err) {

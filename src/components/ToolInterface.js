@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getTool } from "../services/api";
+import api from "../apiService"; // CORRECTED IMPORT
 
 export default function ToolInterface() {
   const { toolId } = useParams();
@@ -16,7 +16,8 @@ export default function ToolInterface() {
     async function fetchTool() {
       setLoading(true);
       try {
-        const res = await getTool(toolId);
+        // UPDATED API CALL
+        const res = await api.get(`/api/tools/${toolId}`);
         setTool(res.data.data);
       } catch (err) {
         console.error("Tool loading error:", err);

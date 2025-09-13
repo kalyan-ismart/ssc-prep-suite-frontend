@@ -1,4 +1,4 @@
-import API from '../config';
+import API from '../services/api';
 
 // Authentication
 export const register = (data) => API.post('/api/users/register', data);

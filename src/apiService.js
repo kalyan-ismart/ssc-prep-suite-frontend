@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 // Set your backend base URL here
-const API_BASE_URL = 'https://ssc-prep-suite-backend-123.onrender.com';
+// FIXED: Added the /api prefix
+const API_BASE_URL = 'https://ssc-prep-suite-backend-123.onrender.com/api';
 
 // Create axios instance with defaults
 const api = axios.create({

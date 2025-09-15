@@ -1,12 +1,10 @@
-// src/apiService.js  
-// Place this file directly in the src folder (NOT in components folder)
-
+// src/apiService.js - Updated with longer timeout for AI calls
 import axios from 'axios';
 
 // Create axios instance with backend URL
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL || 'https://ssc-prep-suite-backend-123.onrender.com',
-  timeout: 10000, // 10 second timeout
+  timeout: 30000, // ✅ INCREASED: 30 seconds for AI calls (was 10 seconds)
   headers: {
     'Content-Type': 'application/json',
   }
@@ -41,8 +39,6 @@ api.interceptors.response.use(
       console.warn('🔒 Unauthorized - clearing session');
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      // Uncomment if you have a login route
-      // window.location.href = '/login';
     }
     
     // Handle network errors

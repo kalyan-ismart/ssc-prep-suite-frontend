@@ -1,4 +1,4 @@
-// Enhanced AuthPage.js with better timeout handling and UX
+// Enhanced AuthPage.js with fixed login/register fields
 import React, { useState } from 'react';
 import api from '../apiService';
 
@@ -41,13 +41,16 @@ export default function AuthPage() {
 
     try {
       if (mode === 'login') {
-        if (!form.username || !form.password) throw new Error('Username and password are required.');
+        // ✅ FIXED: Login requires email, not username
+        if (!form.email || !form.password) {
+          throw new Error('Email and password are required.');
+        }
         
         // Show backend wake-up message
-        setSuccessMsg('Connecting to server...');
+        setSuccessMsg('🔐 Logging you in...');
         
         const res = await api.post('/api/users/login', { 
-          username: form.username, 
+          email: form.email,        // ✅ Changed from username to email
           password: form.password 
         });
         
@@ -60,19 +63,24 @@ export default function AuthPage() {
           throw new Error(res.data.message || 'Login failed');
         }
       } else {
-        // Register mode
-        if (!form.username || !form.email || !form.password || !form.fullName)
+        // Register mode - Enhanced validation
+        if (!form.fullName || !form.email || !form.username || !form.password) {
           throw new Error('All fields are required for registration.');
-          
-        // Show backend wake-up message
-        setSuccessMsg('🚀 Waking up server... This may take 30-60 seconds on first request.');
+        }
         
+        setSuccessMsg('📝 Creating your account...');
         const res = await api.post('/api/users/register', form);
         
         if (res.data?.data?.token) {
           localStorage.setItem('token', res.data.data.token);
           localStorage.setItem('user', JSON.stringify(res.data.data.user));
-          setSuccessMsg('✅ Registration successful! Welcome to SarkariSuccess Hub!');
+          setSuccessMsg('🎉 Registration successful! Welcome to SarkariSuccess Hub!');
+          setTimeout(() => window.location.reload(), 2000);
+        } else if (res.data?.success && res.data?.accessToken) {
+          // Handle different response format
+          localStorage.setItem('token', res.data.accessToken);
+          localStorage.setItem('user', JSON.stringify(res.data.user));
+          setSuccessMsg('🎉 Registration successful! Welcome to SarkariSuccess Hub!');
           setTimeout(() => window.location.reload(), 2000);
         } else {
           throw new Error(res.data.message || 'Registration failed');
@@ -91,7 +99,7 @@ export default function AuthPage() {
 
   return (
     <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '85vh' }}>
-      <div className="card shadow-lg" style={{ maxWidth: 420, width: '100%', padding: 32 }}>
+      <div className="card shadow-lg" style={{ maxWidth: 450, width: '100%', padding: 32 }}>
         <h2 className="text-center mb-4">{mode === 'login' ? '🔐 Login' : '📝 Register'}</h2>
         
         {/* Backend Status Info */}
@@ -121,40 +129,71 @@ export default function AuthPage() {
           {mode === 'register' && (
             <>
               <div className="mb-3">
-                <label className="form-label">Full Name</label>
+                <label className="form-label">Full Name *</label>
                 <input
                   type="text" className="form-control" name="fullName"
                   value={form.fullName} onChange={handleChange} autoFocus
                   disabled={loading} placeholder="Your Full Name"
+                  required
                 />
+                <small className="text-muted">Enter your complete name</small>
               </div>
               <div className="mb-3">
-                <label className="form-label">Email</label>
+                <label className="form-label">Email *</label>
                 <input
                   type="email" className="form-control" name="email"
                   value={form.email} onChange={handleChange}
                   disabled={loading} placeholder="your@email.com"
+                  required
                 />
+                <small className="text-muted">Valid email address required</small>
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Username *</label>
+                <input
+                  type="text" className="form-control" name="username"
+                  value={form.username} onChange={handleChange}
+                  disabled={loading} placeholder="Choose a unique username"
+                  minLength={3}
+                  required
+                />
+                <small className="text-muted">3+ characters, letters, numbers, underscore allowed</small>
               </div>
             </>
           )}
+
+          {/* ✅ FIXED: Different fields for login vs register */}
+          {mode === 'login' && (
+            <div className="mb-3">
+              <label className="form-label">Email *</label>
+              <input
+                type="email" className="form-control" name="email"
+                value={form.email} onChange={handleChange}
+                disabled={loading} placeholder="your@email.com"
+                autoFocus required
+              />
+              <small className="text-muted">Enter your registered email address</small>
+            </div>
+          )}
+
           <div className="mb-3">
-            <label className="form-label">Username</label>
-            <input
-              type="text" className="form-control" name="username"
-              value={form.username} onChange={handleChange}
-              disabled={loading} placeholder="Choose a username"
-              autoFocus={mode === 'login'}
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Password</label>
+            <label className="form-label">Password *</label>
             <input
               type="password" className="form-control" name="password"
               value={form.password} onChange={handleChange}
-              disabled={loading} placeholder="Enter password" autoComplete="new-password"
+              disabled={loading} 
+              placeholder={mode === 'register' ? 'Strong password (8+ chars, mixed case, numbers, symbols)' : 'Enter your password'}
+              autoComplete="new-password"
+              minLength={mode === 'register' ? 8 : 1}
+              required
             />
+            {mode === 'register' && (
+              <small className="text-muted">
+                Must contain: uppercase, lowercase, number, special character
+              </small>
+            )}
           </div>
+          
           <button type="submit" className="btn btn-primary w-100 mt-2" disabled={loading}>
             {loading ? (
               <>
@@ -174,6 +213,15 @@ export default function AuthPage() {
               : "Already have an account? Login"}
           </button>
         </div>
+
+        {/* Quick Test Credentials */}
+        {mode === 'login' && (
+          <div className="alert alert-light mt-3" style={{ fontSize: '0.85em' }}>
+            <strong>🧪 Test Credentials:</strong><br/>
+            Email: <code>kalyan.success2025@gmail.com</code><br/>
+            Password: <code>SarkariHub123!</code>
+          </div>
+        )}
         
         {/* Quick Server Wake Button */}
         <div className="text-center mt-2">

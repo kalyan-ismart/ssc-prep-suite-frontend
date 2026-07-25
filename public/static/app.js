@@ -3020,13 +3020,17 @@ Format in clean HTML.`
     }
   }
 
-  // Intercept fetch to inject API key header & route to backend port 5000 if running on port 3000
+  // Intercept fetch to inject API key header & route to correct backend
+  const BACKEND_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? (window.location.port === '3000' ? 'http://localhost:5000' : '')
+    : 'https://ssc-prep-suite-backend-123.onrender.com';
+
   const originalFetch = window.fetch
   window.fetch = function(url, options = {}) {
     let targetUrl = url
     if (typeof url === 'string' && (url.startsWith('/api/') || url.startsWith('/modules/') || url.startsWith('/users/'))) {
-      if (window.location.port === '3000') {
-        targetUrl = 'http://localhost:5000' + url
+      if (BACKEND_URL) {
+        targetUrl = BACKEND_URL + url
       }
       if (!options.headers) options.headers = {}
       options.headers['X-API-Key'] = STATE.apiKey

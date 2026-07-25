@@ -91,45 +91,69 @@
   }
 
   const TOOLS = {
-    'performance-dashboard':   { name: 'Performance Dashboard', icon: 'fa-chart-line', desc: 'Track your progress and scores', cat: 'Dashboard' },
-    'daily-goals':             { name: 'Daily Goals', icon: 'fa-bullseye', desc: 'Your daily practice checklist', cat: 'Dashboard' },
-    'ai-mock-test':            { name: 'AI Mock Test', icon: 'fa-file-alt', desc: 'Full-length timed mock test', cat: 'Dashboard' },
-    'question-generator':      { name: 'Question Generator', icon: 'fa-question-circle', desc: 'Generate targeted MCQs', cat: 'Dashboard' },
-    'interactive-smart-revision': { name: 'Smart Revision', icon: 'fa-brain', desc: 'AI-curated revision plan', cat: 'Dashboard' },
-    'quant-solver':            { name: 'Quant Solver', icon: 'fa-calculator', desc: 'Solve quantitative problems', cat: 'Practice' },
-    'reasoning-solver':        { name: 'Reasoning Solver', icon: 'fa-puzzle-piece', desc: 'Practice reasoning problems', cat: 'Practice' },
-    'para-jumble-solver':      { name: 'Para Jumble', icon: 'fa-random', desc: 'Practice para-jumble exercises', cat: 'Practice' },
-    'vocabulary':              { name: 'Vocabulary Builder', icon: 'fa-book', desc: 'Expand your word power', cat: 'Practice' },
-    'writing-assistant':       { name: 'Writing Assistant', icon: 'fa-pen-fancy', desc: 'Improve English writing', cat: 'Practice' },
-    'essay-scorer':            { name: 'Essay Scorer', icon: 'fa-star-half-alt', desc: 'Get your essay evaluated', cat: 'Practice' },
-    'rc-practice':             { name: 'RC Practice', icon: 'fa-glasses', desc: 'Reading comprehension practice', cat: 'Practice' },
-    'current-affairs':         { name: 'Current Affairs', icon: 'fa-newspaper', desc: 'Latest news & exam relevance', cat: 'Knowledge' },
-    'static-gk':               { name: 'Static GK', icon: 'fa-globe', desc: 'General knowledge notes', cat: 'Knowledge' },
-    'concept-explainer':       { name: 'Concept Explainer', icon: 'fa-lightbulb', desc: 'Understand any concept', cat: 'Knowledge' },
-    'compare-contrast':        { name: 'Compare & Contrast', icon: 'fa-balance-scale', desc: 'Compare two topics', cat: 'Knowledge' },
-    'acronym-explainer':       { name: 'Acronyms', icon: 'fa-font', desc: 'Decode important acronyms', cat: 'Knowledge' },
-    'ca-linker':               { name: 'CA Linker', icon: 'fa-link', desc: 'Link current affairs to static GK', cat: 'Knowledge' },
-    'flashcards':              { name: 'Flashcards', icon: 'fa-layer-group', desc: 'Active recall flashcards', cat: 'Study Aids' },
-    'mind-map-generator':      { name: 'Mind Map', icon: 'fa-project-diagram', desc: 'Visual mind maps', cat: 'Study Aids' },
-    'mnemonic-generator':      { name: 'Mnemonics', icon: 'fa-magic', desc: 'Create memory aids', cat: 'Study Aids' },
-    'document-summarizer':     { name: 'Summarizer', icon: 'fa-compress-alt', desc: 'Summarize notes & articles', cat: 'Study Aids' },
-    'revision-sheet':          { name: 'Revision Sheet', icon: 'fa-clipboard-list', desc: 'Quick revision cheatsheet', cat: 'Study Aids' },
-    'tts':                     { name: 'Audio Revision', icon: 'fa-headphones', desc: 'Listen to your notes', cat: 'Study Aids' },
-    'ai-tutor':                { name: 'AI Tutor', icon: 'fa-chalkboard-teacher', desc: 'Personalised tutoring chat', cat: 'Interactive' },
-    'study-buddy':             { name: 'Study Buddy', icon: 'fa-user-friends', desc: 'Motivation & support', cat: 'Interactive' },
-    'debate-simulator':        { name: 'Debate Simulator', icon: 'fa-comments', desc: 'Sharpen your reasoning', cat: 'Interactive' },
-    'interview-simulator':     { name: 'Interview Sim', icon: 'fa-user-tie', desc: 'Mock government job interview', cat: 'Interactive' },
-    'gk-story-weaver':         { name: 'GK Story Weaver', icon: 'fa-book-open', desc: 'Learn GK through stories', cat: 'Interactive' },
-    'hobby-connector':         { name: 'Hobby Connector', icon: 'fa-heart', desc: 'Connect hobbies to GK', cat: 'Interactive' },
-    'history-logs':            { name: 'History & Logs', icon: 'fa-history', desc: 'Review past sessions', cat: 'Interactive' },
-    'bookmarks':               { name: 'Bookmarks', icon: 'fa-bookmark', desc: 'Saved responses for revision', cat: 'Saved' },
-    'formula-bank':            { name: 'Formula Bank', icon: 'fa-superscript', desc: 'Quant & Reasoning shortcut formulas', cat: 'Practice' },
-    'pyq-analyser':            { name: 'PYQ Analyser', icon: 'fa-archive', desc: 'Previous year questions with analysis', cat: 'Practice' },
-    'error-log':               { name: 'Error Log', icon: 'fa-exclamation-circle', desc: 'Track your mistakes & weak spots', cat: 'Dashboard' },
-    'pomodoro-timer':          { name: 'Study Timer', icon: 'fa-stopwatch', desc: 'Pomodoro focus timer for study sessions', cat: 'Dashboard' },
+    // 📊 Overview & Stats
+    'performance-dashboard':   { name: 'Performance Dashboard', icon: 'fa-chart-line', desc: 'Track your preparation & overall stats', cat: '📊 Overview & Stats' },
+    'daily-goals':             { name: 'Daily Goals Checklist', icon: 'fa-bullseye', desc: 'Your daily study checklist & targets', cat: '📊 Overview & Stats' },
+    'error-log':               { name: 'Mistake & Error Log', icon: 'fa-exclamation-circle', desc: 'Track mistakes & weak problem areas', cat: '📊 Overview & Stats' },
+    'pomodoro-timer':          { name: 'Focus Study Timer', icon: 'fa-stopwatch', desc: 'Pomodoro focus timer for study sessions', cat: '📊 Overview & Stats' },
+
+    // 📐 Quant (Maths)
+    'quant-solver':            { name: 'Quant Problem Solver', icon: 'fa-calculator', desc: 'Step-by-step math problem solutions with shortcuts', cat: '📐 Quant (Maths)' },
+    'formula-bank':            { name: 'Shortcut Formula Bank', icon: 'fa-superscript', desc: 'Essential Quant & Reasoning formulas', cat: '📐 Quant (Maths)' },
+    'pyq-analyser':            { name: 'PYQ Exam Analyser', icon: 'fa-archive', desc: 'Previous year questions with detailed breakdown', cat: '📐 Quant (Maths)' },
+
+    // 🧩 Reasoning
+    'reasoning-solver':        { name: 'Reasoning Solver', icon: 'fa-puzzle-piece', desc: 'Solve verbal & non-verbal reasoning problems', cat: '🧩 Reasoning' },
+    'para-jumble-solver':      { name: 'Para Jumble Solver', icon: 'fa-random', desc: 'Master sentence rearrangement & logic', cat: '🧩 Reasoning' },
+    'debate-simulator':        { name: 'Debate Simulator', icon: 'fa-comments', desc: 'Sharpen logic & critical reasoning through debate', cat: '🧩 Reasoning' },
+
+    // 📖 English Language
+    'vocabulary':              { name: 'Vocabulary Builder', icon: 'fa-book', desc: 'Expand word power, synonyms & antonyms', cat: '📖 English Language' },
+    'rc-practice':             { name: 'RC Comprehension', icon: 'fa-glasses', desc: 'Reading comprehension passages & practice', cat: '📖 English Language' },
+    'writing-assistant':       { name: 'English Writing Assistant', icon: 'fa-pen-fancy', desc: 'Improve grammar & writing skills', cat: '📖 English Language' },
+    'essay-scorer':            { name: 'Essay & Letter Evaluator', icon: 'fa-star-half-alt', desc: 'Get detailed scoring & feedback on essays', cat: '📖 English Language' },
+
+    // 🌍 General Awareness (GK)
+    'current-affairs':         { name: 'Current Affairs Digest', icon: 'fa-newspaper', desc: 'Latest exam-relevant news & daily updates', cat: '🌍 General Awareness (GK)' },
+    'static-gk':               { name: 'Static GK Repository', icon: 'fa-globe', desc: 'High-yield notes on History, Polity & Science', cat: '🌍 General Awareness (GK)' },
+    'ca-linker':               { name: 'CA to Static Linker', icon: 'fa-link', desc: 'Connect current news to static concepts', cat: '🌍 General Awareness (GK)' },
+    'acronym-explainer':       { name: 'Acronym Decrypter', icon: 'fa-font', desc: 'Decode key government & exam acronyms', cat: '🌍 General Awareness (GK)' },
+    'gk-story-weaver':         { name: 'GK Story Weaver', icon: 'fa-book-open', desc: 'Memorize complex GK topics through stories', cat: '🌍 General Awareness (GK)' },
+    'hobby-connector':         { name: 'Hobby to GK Connector', icon: 'fa-heart', desc: 'Relate personal hobbies to exam GK', cat: '🌍 General Awareness (GK)' },
+
+    // 🧠 Test Prep & Revision
+    'ai-mock-test':            { name: 'Full AI Mock Test', icon: 'fa-file-alt', desc: 'Full-length timed mock tests with analysis', cat: '🧠 Test Prep & Revision' },
+    'question-generator':      { name: 'Target Question Generator', icon: 'fa-question-circle', desc: 'Generate topic-wise MCQs with detailed explanations', cat: '🧠 Test Prep & Revision' },
+    'concept-explainer':       { name: 'Concept Explainer', icon: 'fa-lightbulb', desc: 'Deep-dive explanation of any exam concept', cat: '🧠 Test Prep & Revision' },
+    'interactive-smart-revision': { name: 'Smart Revision Planner', icon: 'fa-brain', desc: 'AI-curated weak-area revision plan', cat: '🧠 Test Prep & Revision' },
+    'compare-contrast':        { name: 'Compare & Contrast', icon: 'fa-balance-scale', desc: 'Side-by-side comparison of confusing topics', cat: '🧠 Test Prep & Revision' },
+    'flashcards':              { name: 'Active Recall Flashcards', icon: 'fa-layer-group', desc: 'Interactive flashcards for fast retrieval', cat: '🧠 Test Prep & Revision' },
+    'mind-map-generator':      { name: 'Visual Mind Maps', icon: 'fa-project-diagram', desc: 'Generate structured visual mind maps', cat: '🧠 Test Prep & Revision' },
+    'mnemonic-generator':      { name: 'Memory Mnemonics', icon: 'fa-magic', desc: 'Create memorable mnemonics for hard facts', cat: '🧠 Test Prep & Revision' },
+    'document-summarizer':     { name: 'Document Summarizer', icon: 'fa-compress-alt', desc: 'Summarize long articles & study notes', cat: '🧠 Test Prep & Revision' },
+    'revision-sheet':          { name: 'Quick Revision Cheatsheet', icon: 'fa-clipboard-list', desc: 'One-page summary sheets for fast revision', cat: '🧠 Test Prep & Revision' },
+    'tts':                     { name: 'Audio Revision (TTS)', icon: 'fa-headphones', desc: 'Listen to audio versions of your notes', cat: '🧠 Test Prep & Revision' },
+
+    // 🤖 AI Tutors & Mentors
+    'ai-tutor':                { name: '24/7 AI Tutor Chat', icon: 'fa-chalkboard-teacher', desc: 'Personalized 1-on-1 exam tutor', cat: '🤖 AI Tutors & Mentors' },
+    'study-buddy':             { name: 'Study Buddy & Motivator', icon: 'fa-user-friends', desc: 'Exam strategy, guidance & encouragement', cat: '🤖 AI Tutors & Mentors' },
+    'interview-simulator':     { name: 'Mock Interview Simulator', icon: 'fa-user-tie', desc: 'Simulated government job interviews', cat: '🤖 AI Tutors & Mentors' },
+
+    // 📁 Saved & History
+    'history-logs':            { name: 'History & Session Logs', icon: 'fa-history', desc: 'Review all past AI practice sessions', cat: '📁 Saved & History' },
+    'bookmarks':               { name: 'Saved Bookmarks', icon: 'fa-bookmark', desc: 'Your bookmarked answers & key notes', cat: '📁 Saved & History' },
   }
 
-  const CATEGORIES = ['Dashboard', 'Practice', 'Knowledge', 'Study Aids', 'Interactive', 'Saved']
+  const CATEGORIES = [
+    '📊 Overview & Stats',
+    '📐 Quant (Maths)',
+    '🧩 Reasoning',
+    '📖 English Language',
+    '🌍 General Awareness (GK)',
+    '🧠 Test Prep & Revision',
+    '🤖 AI Tutors & Mentors',
+    '📁 Saved & History'
+  ]
 
   // ═══════════════════════════════════════════════════════════
   // INIT
@@ -143,13 +167,8 @@
     // Poll every minute: re-check date in case user leaves app open past midnight
     setInterval(fetchTodayDate, 60 * 1000)
 
-    if (!STATE.apiKey) {
-      document.getElementById('api-modal').style.display = 'flex'
-    } else {
-      document.getElementById('api-modal').style.display = 'none'
-      document.getElementById('streak-display').textContent = STATE.studyStreak
-      switchTool('performance-dashboard')
-    }
+    document.getElementById('streak-display').textContent = STATE.studyStreak
+    switchTool('performance-dashboard')
   }
 
   function loadState() {
@@ -197,24 +216,8 @@
     }
   }
 
-  function saveApiKey() {
-    const key = document.getElementById('api-key-input').value.trim()
-    if (!key || key.length < 10) {
-      showToast('Please enter a valid API key', 'error')
-      return
-    }
-    STATE.apiKey = key
-    localStorage.setItem('cgl_api_key', key)
-    document.getElementById('api-modal').style.display = 'none'
-    document.getElementById('streak-display').textContent = STATE.studyStreak
-    switchTool('performance-dashboard')
-    showToast('API key saved! Welcome to CGL Prep Pro 🎉')
-  }
-
-  function showApiModal() {
-    document.getElementById('api-modal').style.display = 'flex'
-    document.getElementById('api-key-input').value = STATE.apiKey
-  }
+  function saveApiKey() {}
+  function showApiModal() {}
 
   function updateClock() {
     const now = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' })
@@ -226,18 +229,26 @@
   // ═══════════════════════════════════════════════════════════
   function buildNav() {
     const nav = document.getElementById('nav-menu')
+    if (!nav) return
     nav.innerHTML = ''
     CATEGORIES.forEach(cat => {
       const tools = Object.entries(TOOLS).filter(([_, t]) => t.cat === cat)
+      if (tools.length === 0) return
       const section = document.createElement('div')
+      section.style.marginBottom = '14px'
       section.innerHTML = `
-        <div class="nav-section-label">${cat}</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 8px 5px;font-size:10px;font-weight:800;color:#38BDF8;letter-spacing:0.04em">
+          <span>${cat}</span>
+          <span style="font-size:9px;background:rgba(56,189,248,0.15);border:1px solid rgba(56,189,248,0.25);padding:1px 6px;border-radius:99px;color:#7DD3FC">${tools.length}</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px">
         ${tools.map(([id, t]) => `
           <button onclick="switchTool('${id}')" id="nav-${id}" class="nav-tool-btn">
             <span class="nav-icon"><i class="fas ${t.icon}" style="font-size:10.5px"></i></span>
-            <span class="truncate" style="flex:1;min-width:0">${t.name}</span>
+            <span class="truncate" style="flex:1;min-width:0;font-size:12.5px;font-weight:600">${t.name}</span>
           </button>
         `).join('')}
+        </div>
       `
       nav.appendChild(section)
     })
@@ -340,13 +351,10 @@
   function friendlyError(msg) {
     if (!msg) return 'Something went wrong. Please try again.'
     if (msg.includes('Rate limit') || msg.includes('quota') || msg.includes('RESOURCE_EXHAUSTED')) {
-      return '⏳ Rate limit reached. The free Gemini tier has request limits. Please wait 30–60 seconds and try again, or upgrade your Google AI Studio plan.'
+      return '⏳ Rate limit reached. The free Gemini tier has request limits. Please wait 30–60 seconds and try again.'
     }
-    if (msg.includes('API key error') || msg.includes('API_KEY_INVALID')) {
-      return '🔑 Invalid API key. Please click your name → Change API Key and re-enter your key.'
-    }
-    if (msg.includes('No API key')) {
-      return '🔑 No API key set. Please enter your Google Gemini API key to get started.'
+    if (msg.includes('API key error') || msg.includes('API_KEY_INVALID') || msg.includes('No API key')) {
+      return '🔑 API key missing or invalid. Please add your GEMINI_API_KEY to the backend/.env file.'
     }
     return msg
   }
@@ -391,27 +399,28 @@
   // HISTORY MODAL
   // ═══════════════════════════════════════════════════════════
   function openHistoryModal(id) {
-    const entry = STATE.historyLog.find(e => e.id === id)
+    const entry = STATE.historyLog.find(e => String(e.id) === String(id))
     if (!entry) return
     const modal = document.getElementById('history-modal')
     if (!modal) return
-    document.getElementById('hm-title').textContent = entry.tool
+    document.getElementById('hm-title').textContent = (entry.tool || 'History Log') + ' Question & Solution'
     document.getElementById('hm-meta').textContent =
-      new Date(entry.timestamp).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) +
-      '  ·  Input: ' + (entry.input || '').slice(0, 60)
+      (entry.timestamp ? new Date(entry.timestamp).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) : 'History Record') +
+      '  ·  Question: ' + (entry.input || entry.prompt || 'Generated Practice Question').slice(0, 70)
     const contentEl = document.getElementById('hm-content')
-    if (entry.outputHTML) {
-      contentEl.innerHTML = entry.outputHTML
-    } else {
-      contentEl.innerHTML = `<p class="text-slate-400 text-sm">${entry.output || 'No detail available.'}</p>`
-    }
+    const rawContent = entry.outputHTML || entry.output || entry.input || 'No detail available.'
+    contentEl.innerHTML = sanitizeAIHTML(rawContent, false)
     modal.style.display = 'flex'
+    modal.classList.add('open')
     document.body.style.overflow = 'hidden'
   }
 
   function closeHistoryModal() {
     const modal = document.getElementById('history-modal')
-    if (modal) modal.style.display = 'none'
+    if (modal) {
+      modal.style.display = 'none'
+      modal.classList.remove('open')
+    }
     document.body.style.overflow = ''
   }
 
@@ -424,7 +433,7 @@
     const contentEl = document.getElementById('content-' + id)
     const contentHTML = contentEl ? contentEl.innerHTML : ''
 
-    const existing = STATE.bookmarks.findIndex(b => b.id === id)
+    const existing = STATE.bookmarks.findIndex(b => String(b.id) === String(id))
     if (existing > -1) {
       // Remove bookmark
       STATE.bookmarks.splice(existing, 1)
@@ -454,18 +463,18 @@
   }
 
   function openBookmarkModal(id) {
-    const entry = STATE.bookmarks.find(b => b.id === id)
+    const entry = STATE.bookmarks.find(b => String(b.id) === String(id))
     if (!entry) return
     const modal = document.getElementById('history-modal')
     if (!modal) return
-    document.getElementById('hm-title').textContent = '📌 ' + entry.tool
+    document.getElementById('hm-title').textContent = (entry.tool || 'Saved Bookmark') + ' Question & Solution'
     document.getElementById('hm-meta').textContent =
-      new Date(entry.timestamp).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+      entry.timestamp ? new Date(entry.timestamp).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) : 'Saved Bookmark'
     const contentEl = document.getElementById('hm-content')
-    contentEl.innerHTML = entry.contentHTML
-      ? `<div class="prose max-w-none">${entry.contentHTML}</div>`
-      : `<p class="text-slate-400 text-sm">No content saved.</p>`
+    const rawContent = entry.contentHTML || entry.outputHTML || entry.output || 'No content saved.'
+    contentEl.innerHTML = sanitizeAIHTML(rawContent, false)
     modal.style.display = 'flex'
+    modal.classList.add('open')
     document.body.style.overflow = 'hidden'
   }
 
@@ -473,8 +482,93 @@
     STATE.bookmarks = STATE.bookmarks.filter(b => b.id !== id)
     saveState()
     delete STATE.toolCache['bookmarks']
-    renderTool('bookmarks', document.getElementById('tool-container'))
-    showToast('Bookmark removed', 'info')
+    delete STATE.toolCache['saved-bookmarks']
+    if (STATE.activeTool === 'bookmarks') {
+      renderTool('bookmarks', document.getElementById('tool-container'))
+    }
+    showToast('🗑️ Question removed from Saved Bookmarks!', 'info')
+  }
+
+  function removeHistoryItem(id) {
+    STATE.historyLog = STATE.historyLog.filter(h => String(h.id) !== String(id))
+    saveState()
+    delete STATE.toolCache['history-logs']
+    delete STATE.toolCache['history-log']
+    if (STATE.activeTool === 'history-logs') {
+      renderTool('history-logs', document.getElementById('tool-container'))
+    }
+    showToast('🗑️ History entry deleted!', 'info')
+  }
+
+  function viewItemInTool(toolId, promptText, htmlContent, sourceTag = 'Saved Bookmarks') {
+    if (!toolId || !TOOLS[toolId]) toolId = 'quant-solver'
+    switchTool(toolId)
+    
+    setTimeout(() => {
+      const inputIdMap = {
+        'quant-solver': 'quant-input',
+        'reasoning-solver': 'reasoning-input',
+        'vocabulary': 'vocab-input',
+        'pyq-analyser': 'pyq-input',
+        'formula-bank': 'formula-input',
+        'current-affairs': 'ca-input',
+        'concept-explainer': 'concept-input',
+        'question-generator': 'qgen-input',
+        'revision-sheet': 'rev-input',
+        'error-log': 'err-q-input',
+        'para-jumble-solver': 'pj-input',
+        'debate-simulator': 'debate-input',
+        'rc-practice': 'rc-input',
+        'writing-assistant': 'writing-input',
+        'essay-scorer': 'essay-input',
+        'ca-linker': 'cal-input',
+        'static-gk': 'sgk-input',
+        'acronym-explainer': 'acro-input',
+        'gk-story-weaver': 'story-input',
+        'hobby-connector': 'hobby-name',
+        'ai-mock-test': 'mock-input',
+        'compare-contrast': 'cc-input',
+        'flashcards': 'flash-input',
+        'mind-map-generator': 'mm-input',
+        'mnemonic-generator': 'mnem-input',
+        'document-summarizer': 'doc-input',
+        'tts': 'tts-input'
+      }
+      const inputId = inputIdMap[toolId] || (toolId + '-input')
+      const inputEl = document.getElementById(inputId)
+      if (inputEl && promptText) {
+        inputEl.value = promptText
+        inputEl.style.height = 'auto'
+        if (inputEl.scrollHeight) inputEl.style.height = inputEl.scrollHeight + 'px'
+      }
+
+      const outputId = toolId + '-output'
+      const outEl = document.getElementById(outputId) || document.getElementById('error-ai-output')
+      if (outEl && htmlContent) {
+        const cleanContent = sanitizeAIHTML(htmlContent, false)
+        outEl.innerHTML = `
+        <div class="output-card card-3d animate-fade-in" style="border:1.5px solid rgba(56,189,248,0.45);box-shadow:0 10px 30px rgba(0,0,0,0.6);margin-top:16px">
+          <div class="output-card-header" style="padding-bottom:12px;margin-bottom:14px;border-bottom:1px solid rgba(56,189,248,0.2);display:flex;align-items:center;justify-content:space-between">
+            <div class="output-card-label" style="display:flex;align-items:center;gap:10px">
+              <div style="width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#0EA5E9,#7C3AED);display:flex;align-items:center;justify-content:center;box-shadow:0 0 10px rgba(14,165,233,0.4)">
+                <i class="fas fa-eye" style="color:#FFF;font-size:12px"></i>
+              </div>
+              <div>
+                <span style="font-size:14px;font-weight:800;color:#F0F6FF">${TOOLS[toolId].name} Response</span>
+                <span class="highlight-pill-3d" style="background:rgba(56,189,248,0.2);color:#7DD3FC;border:1px solid rgba(56,189,248,0.4);margin-left:8px">📌 Loaded from ${sourceTag}</span>
+              </div>
+            </div>
+            <button onclick="copyOutputText('view-loaded')" class="card-action-btn" title="Copy response">
+              <i class="fas fa-copy" style="font-size:11px;color:#38BDF8"></i> Copy
+            </button>
+          </div>
+          <div class="prose" id="content-view-loaded">${cleanContent}</div>
+        </div>`
+        outEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+
+      showToast(`📖 Loaded inside ${TOOLS[toolId].name}`, 'success')
+    }, 60)
   }
 
   // ═══════════════════════════════════════════════════════════
@@ -682,27 +776,28 @@
     if (!cleanHTML || !cleanHTML.trim()) {
       cleanHTML = '<p style="color:#94AAC8;font-size:13px">No response received. Please try again.</p>'
     }
-    return `<div class="output-card" data-entry-id="${bkmId}">
+    return `<div class="output-card card-3d" data-entry-id="${bkmId}">
       <div class="output-card-header">
         <div class="output-card-label">
-          <div style="width:18px;height:18px;border-radius:5px;background:rgba(14,165,233,0.15);display:flex;align-items:center;justify-content:center">
-            <i class="fas fa-robot" style="font-size:9px;color:#38BDF8"></i>
+          <div style="width:24px;height:24px;border-radius:7px;background:linear-gradient(135deg,#0EA5E9,#7C3AED);display:flex;align-items:center;justify-content:center;box-shadow:0 0 10px rgba(14,165,233,0.4)">
+            <i class="fas fa-robot" style="font-size:11px;color:#FFF"></i>
           </div>
-          AI Response
+          <span style="font-size:13px;font-weight:800;color:#F0F6FF">AI Output Studio</span>
+          <span class="highlight-pill-3d" style="background:rgba(56,189,248,0.15);color:#7DD3FC;border:1px solid rgba(56,189,248,0.3)">⚡ Verified Response</span>
         </div>
-        <div style="display:flex;align-items:center;gap:6px">
+        <div style="display:flex;align-items:center;gap:8px">
           <button onclick="copyOutputText('${bkmId}')" class="card-action-btn" title="Copy output text">
-            <i class="fas fa-copy" style="font-size:10.5px"></i>
+            <i class="fas fa-copy" style="font-size:11px;color:#38BDF8"></i>
             <span>Copy</span>
           </button>
           <button onclick="toggleEditOutput('${bkmId}', this)" class="card-action-btn" title="Edit output text">
-            <i class="fas fa-edit" style="font-size:10.5px"></i>
+            <i class="fas fa-edit" style="font-size:11px;color:#A78BFA"></i>
             <span class="edit-label">Edit</span>
           </button>
           <button onclick="toggleBookmark('${bkmId}', this)"
                   class="bookmark-btn ${isBookmarked ? 'bookmarked' : ''}"
                   title="Bookmark this response">
-            <i class="fas fa-bookmark" style="font-size:10.5px"></i>
+            <i class="fas fa-bookmark" style="font-size:11px"></i>
             <span>${isBookmarked ? 'Saved' : 'Save'}</span>
           </button>
         </div>
@@ -711,43 +806,159 @@
     </div>`
   }
 
-  function inputArea({ id, placeholder, label, btn, onSubmit, type = 'text', rows = 3 }) {
+  function applyPreset(inputId, text) {
+    const el = document.getElementById(inputId)
+    if (el) {
+      el.value = text
+      el.style.height = 'auto'
+      el.style.height = el.scrollHeight + 'px'
+      el.focus()
+      showToast(`Selected: "${text.slice(0,35)}${text.length>35?'…':''}"`, 'info')
+    }
+  }
+
+  const CAT_THEMES = {
+    '📐 Quant (Maths)': {
+      accent: '#38BDF8',
+      bgGrad: 'linear-gradient(135deg, rgba(14,165,233,0.15), rgba(15,22,41,0.92))',
+      border: '1.5px solid rgba(56,189,248,0.35)',
+      iconGrad: 'linear-gradient(135deg, #0EA5E9, #2563EB)',
+      glow: '0 6px 24px rgba(14,165,233,0.25)',
+      badgeBg: 'rgba(56,189,248,0.14)',
+      badgeText: '#7DD3FC'
+    },
+    '🧩 Reasoning': {
+      accent: '#A78BFA',
+      bgGrad: 'linear-gradient(135deg, rgba(139,92,246,0.15), rgba(15,22,41,0.92))',
+      border: '1.5px solid rgba(139,92,246,0.35)',
+      iconGrad: 'linear-gradient(135deg, #8B5CF6, #6366F1)',
+      glow: '0 6px 24px rgba(139,92,246,0.25)',
+      badgeBg: 'rgba(167,139,250,0.14)',
+      badgeText: '#DDD6FE'
+    },
+    '📖 English Language': {
+      accent: '#FCD34D',
+      bgGrad: 'linear-gradient(135deg, rgba(245,158,11,0.15), rgba(15,22,41,0.92))',
+      border: '1.5px solid rgba(245,158,11,0.35)',
+      iconGrad: 'linear-gradient(135deg, #F59E0B, #D97706)',
+      glow: '0 6px 24px rgba(245,158,11,0.25)',
+      badgeBg: 'rgba(252,211,77,0.14)',
+      badgeText: '#FDE68A'
+    },
+    '🌍 General Awareness (GK)': {
+      accent: '#34D399',
+      bgGrad: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(15,22,41,0.92))',
+      border: '1.5px solid rgba(16,185,129,0.35)',
+      iconGrad: 'linear-gradient(135deg, #10B981, #059669)',
+      glow: '0 6px 24px rgba(16,185,129,0.25)',
+      badgeBg: 'rgba(52,211,153,0.14)',
+      badgeText: '#A7F3D0'
+    },
+    '🧠 Test Prep & Revision': {
+      accent: '#FB7185',
+      bgGrad: 'linear-gradient(135deg, rgba(244,63,94,0.15), rgba(15,22,41,0.92))',
+      border: '1.5px solid rgba(244,63,94,0.35)',
+      iconGrad: 'linear-gradient(135deg, #F43F5E, #E11D48)',
+      glow: '0 6px 24px rgba(244,63,94,0.25)',
+      badgeBg: 'rgba(251,113,133,0.14)',
+      badgeText: '#FECDD3'
+    },
+    '🤖 AI Tutors & Mentors': {
+      accent: '#818CF8',
+      bgGrad: 'linear-gradient(135deg, rgba(99,102,241,0.15), rgba(15,22,41,0.92))',
+      border: '1.5px solid rgba(99,102,241,0.35)',
+      iconGrad: 'linear-gradient(135deg, #6366F1, #4F46E5)',
+      glow: '0 6px 24px rgba(99,102,241,0.25)',
+      badgeBg: 'rgba(129,140,248,0.14)',
+      badgeText: '#C7D2FE'
+    },
+    '📌 Saved & History': {
+      accent: '#38BDF8',
+      bgGrad: 'linear-gradient(135deg, rgba(2,132,199,0.15), rgba(15,22,41,0.92))',
+      border: '1.5px solid rgba(2,132,199,0.35)',
+      iconGrad: 'linear-gradient(135deg, #0284C7, #0369A1)',
+      glow: '0 6px 24px rgba(2,132,199,0.25)',
+      badgeBg: 'rgba(56,189,248,0.14)',
+      badgeText: '#7DD3FC'
+    }
+  }
+
+  function getToolTheme(toolId = '', category = '') {
+    const tool = TOOLS[toolId] || {}
+    const catName = category || tool.cat || '📐 Quant (Maths)'
+    return CAT_THEMES[catName] || CAT_THEMES['📐 Quant (Maths)']
+  }
+
+  function inputArea({ id, placeholder, label = 'Enter Topic, Question, or Concept', btn, onSubmit, type = 'text', rows = 3, toolId = '', triggerFn = '' }) {
     const minRows = type === 'textarea' ? Math.max(rows, 3) : 2
-    return `<div style="display:flex;flex-direction:column;gap:8px">
+    const theme = getToolTheme(toolId)
+    return `<div class="card-dark" style="padding:22px 24px;display:flex;flex-direction:column;gap:14px;margin-bottom:20px;border:1.5px solid ${theme.accent}40 !important;background:rgba(17,28,53,0.95);box-shadow:0 6px 24px rgba(0,0,0,0.4)">
+      ${label ? `<div style="display:flex;align-items:center;justify-content:space-between">
+        <label style="font-size:13px;font-weight:800;color:#F0F6FF;letter-spacing:0.01em;display:flex;align-items:center;gap:7px">
+          <i class="fas fa-edit" style="font-size:12px;color:${theme.accent}"></i> ${label}
+        </label>
+        <span style="font-size:11px;color:#94AAC8;font-weight:500">Press Enter to run</span>
+      </div>` : ''}
       <div style="position:relative">
         <textarea id="${id}" placeholder="${placeholder}" rows="${minRows}"
-          style="min-height:${minRows * 24 + 28}px;padding:12px 14px 34px 14px;font-size:13.5px;line-height:1.6"
+          style="min-height:${minRows * 24 + 32}px;padding:14px 16px 42px 16px;font-size:13.5px;line-height:1.65;background:rgba(10,15,30,0.95);border:1.5px solid ${theme.accent}35;border-radius:12px;color:#F0F6FF;box-shadow:inset 0 2px 4px rgba(0,0,0,0.5)"
           class="w-full resize-none overflow-hidden"
           oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"
           onkeydown="if(event.key==='Enter'&&!event.shiftKey&&${minRows}<=2){event.preventDefault();${onSubmit}}"
         ></textarea>
-        <div style="position:absolute;bottom:7px;right:9px;display:flex;gap:5px;z-index:2">
-          <button type="button" onclick="copyInputText('${id}')" class="card-action-btn" style="padding:2px 7px;font-size:10.5px;background:rgba(15,22,41,0.85)" title="Copy input prompt">
-            <i class="fas fa-copy" style="font-size:9.5px"></i> Copy
+        <div style="position:absolute;bottom:10px;right:12px;display:flex;gap:8px;z-index:2">
+          <button type="button" onclick="copyInputText('${id}')" class="card-action-btn" title="Copy prompt text">
+            <i class="fas fa-copy" style="font-size:10px;color:${theme.accent}"></i> Copy
           </button>
-          <button type="button" onclick="clearOrEditInput('${id}')" class="card-action-btn" style="padding:2px 7px;font-size:10.5px;background:rgba(15,22,41,0.85)" title="Clear/Edit input prompt">
-            <i class="fas fa-pen-square" style="font-size:9.5px"></i> Clear/Edit
+          <button type="button" onclick="clearOrEditInput('${id}')" class="card-action-btn" title="Clear prompt text">
+            <i class="fas fa-trash-alt" style="font-size:10px;color:#F87171"></i> Clear
           </button>
         </div>
       </div>
-      <button onclick="${onSubmit}" class="btn-primary w-full" style="padding:11px 16px;font-size:13px">
-        <i class="fas fa-paper-plane" style="font-size:12px"></i>
-        ${btn}
-      </button>
+      <div style="display:flex;align-items:center;gap:12px">
+        <button onclick="${onSubmit}" class="btn-primary" style="flex:1;padding:12px 20px;font-size:13.5px;font-weight:700;background:${theme.iconGrad} !important;border:none !important">
+          <i class="fas fa-paper-plane" style="font-size:12px"></i>
+          ${btn}
+        </button>
+        ${toolId && triggerFn ? surpriseBtn(toolId, id, triggerFn) : ''}
+      </div>
     </div>`
   }
 
   function surpriseBtn(toolId, inputId, triggerFn) {
+    const theme = getToolTheme(toolId)
     return `<button onclick="surpriseMe('${toolId}','${inputId}','${triggerFn}')"
-      style="display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:99px;
-             background:linear-gradient(135deg,rgba(167,139,250,0.18),rgba(56,189,248,0.14));
-             border:1.5px solid rgba(167,139,250,0.35);color:#C4B5FD;font-size:12px;font-weight:700;
+      style="display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:99px;
+             background:linear-gradient(135deg,${theme.accent}22,rgba(15,22,41,0.9));
+             border:1.5px solid ${theme.accent}50;color:${theme.badgeText};font-size:12.5px;font-weight:700;
              cursor:pointer;transition:all 0.18s;letter-spacing:0.02em;white-space:nowrap"
-      onmouseover="this.style.background='linear-gradient(135deg,rgba(167,139,250,0.28),rgba(56,189,248,0.22))';this.style.borderColor='rgba(167,139,250,0.6)';this.style.color='#DDD6FE';this.style.transform='translateY(-1px)'"
-      onmouseout="this.style.background='linear-gradient(135deg,rgba(167,139,250,0.18),rgba(56,189,248,0.14))';this.style.borderColor='rgba(167,139,250,0.35)';this.style.color='#C4B5FD';this.style.transform='translateY(0)'"
+      onmouseover="this.style.background='${theme.iconGrad}';this.style.color='#FFFFFF';this.style.transform='translateY(-1px)'"
+      onmouseout="this.style.background='linear-gradient(135deg,${theme.accent}22,rgba(15,22,41,0.9))';this.style.color='${theme.badgeText}';this.style.transform='translateY(0)'"
       title="Generate a fresh surprise instantly — no topic needed!">
       🎲 <span>Surprise Me!</span>
     </button>`
+  }
+
+  function toolFooter(relatedTools = [], tips = [], toolId = '') {
+    const theme = getToolTheme(toolId)
+    return `<div style="margin-top:24px;padding:18px 22px;border-radius:14px;background:rgba(17,28,53,0.9);border:1.5px solid ${theme.accent}35;display:flex;flex-direction:column;gap:12px">
+      ${tips && tips.length > 0 ? `
+      <div style="display:flex;align-items:flex-start;gap:10px;font-size:12.5px;color:#CBD5E1">
+        <i class="fas fa-lightbulb" style="color:#FCD34D;font-size:14px;margin-top:2px;flex-shrink:0"></i>
+        <div><strong style="color:#F0F6FF;font-weight:700">Exam Strategy Tip:</strong> ${tips[Math.floor(Math.random() * tips.length)]}</div>
+      </div>` : ''}
+      ${relatedTools && relatedTools.length > 0 ? `
+      <div style="display:flex;align-items:center;gap:8px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08);flex-wrap:wrap">
+        <span style="font-size:11.5px;font-weight:800;color:${theme.accent};letter-spacing:0.02em;display:inline-flex;align-items:center;gap:5px">
+          <i class="fas fa-link" style="font-size:10px"></i> Complementary Tools:
+        </span>
+        ${relatedTools.map(tId => {
+          const t = TOOLS[tId]
+          if (!t) return ''
+          return `<button type="button" onclick="switchTool('${tId}')" class="related-tool-chip" style="border-color:${theme.accent}40 !important"><i class="fas ${t.icon}" style="font-size:10px;color:${theme.accent}"></i><span>${t.name}</span></button>`
+        }).join('')}
+      </div>` : ''}
+    </div>`
   }
 
   function surpriseMe(toolId, inputId, triggerFn) {
@@ -881,41 +1092,49 @@
     el.innerHTML = `
     <div style="display:flex;flex-direction:column;gap:16px" class="animate-fade-in">
 
-      <!-- Top row: Quote + Countdown -->
-      <div style="display:grid;grid-template-columns:1fr auto;gap:14px;align-items:stretch">
-        <div style="padding:16px 18px;border-radius:14px;background:linear-gradient(135deg,rgba(124,58,237,0.1),rgba(14,165,233,0.07));border:1px solid rgba(124,58,237,0.2);display:flex;align-items:flex-start;gap:12px">
-          <i class="fas fa-quote-left" style="color:rgba(139,92,246,0.7);font-size:18px;margin-top:2px;flex-shrink:0"></i>
-          <div>
-            <p style="color:#E2E8F0;font-size:13.5px;font-style:italic;line-height:1.65;margin:0">"${todayQuote.q}"</p>
-            <p style="font-size:11px;color:var(--text-muted);margin-top:6px">— ${todayQuote.a}</p>
+      <!-- Top row: Quote + Countdown 3D Hero Banner -->
+      <div class="tool-hero-header-3d card-3d" style="background:linear-gradient(135deg,rgba(17,28,53,0.98),rgba(10,15,30,0.95)) !important;border:1.5px solid rgba(56,189,248,0.4) !important">
+        <div style="display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center">
+          <div style="display:flex;align-items:flex-start;gap:16px">
+            <div class="tool-header-icon-3d" style="background:linear-gradient(135deg,#7C3AED,#0EA5E9) !important">
+              <i class="fas fa-quote-left" style="color:#FFF;font-size:20px"></i>
+            </div>
+            <div>
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+                <h2 class="font-headline" style="font-size:18px;font-weight:800;color:#F0F6FF">SSC CGL Aspirant Daily Motivation</h2>
+                <span class="highlight-pill-3d" style="background:rgba(124,58,237,0.18);color:#C7D2FE;border:1px solid rgba(124,58,237,0.35)">✨ Daily Inspiration</span>
+              </div>
+              <p style="color:#E2E8F0;font-size:14px;font-style:italic;line-height:1.65;margin:0">"${todayQuote.q}"</p>
+              <p style="font-size:11.5px;font-weight:700;color:#38BDF8;margin-top:6px">— ${todayQuote.a}</p>
+            </div>
           </div>
-        </div>
-        <div style="padding:16px 20px;border-radius:14px;background:linear-gradient(135deg,rgba(249,115,22,0.1),rgba(239,68,68,0.06));border:1px solid rgba(249,115,22,0.2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-width:110px;text-align:center">
-          <div style="font-size:36px;font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;color:#FB923C;line-height:1">${daysLeft}</div>
-          <div style="font-size:10px;font-weight:700;color:#FED7AA;letter-spacing:0.03em">DAYS LEFT</div>
-          <div style="font-size:9.5px;color:var(--text-muted);margin-top:2px">${nextExam.label}</div>
-          <div style="font-size:16px;margin-top:4px">🎯</div>
+
+          <div class="stat-3d-box" style="background:linear-gradient(135deg,rgba(249,115,22,0.18),rgba(10,15,30,0.95)) !important;border:1.5px solid rgba(249,115,22,0.4) !important;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 24px !important;min-width:140px;text-align:center">
+            <div style="font-size:38px;font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;color:#FB923C;line-height:1;text-shadow:0 0 16px rgba(251,146,60,0.4)">${daysLeft}</div>
+            <div style="font-size:10px;font-weight:800;color:#FED7AA;letter-spacing:0.06em;margin-top:4px">DAYS REMAINING</div>
+            <span class="highlight-pill-3d" style="background:rgba(249,115,22,0.2);color:#FDBA74;border:1px solid rgba(249,115,22,0.4);margin-top:6px;font-size:10px">${nextExam.label}</span>
+          </div>
         </div>
       </div>
 
       <!-- Stat cards -->
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
-        <div class="stat-card stat-teal" style="text-align:center">
+      <div class="stat-card-grid">
+        <div class="stat-card stat-teal">
           <div class="stat-card-orb" style="background:#0EA5E9"></div>
           <div style="font-size:28px;font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;color:#38BDF8;position:relative;z-index:1">${history.length}</div>
           <div style="font-size:11px;color:var(--text-muted);margin-top:4px;font-weight:500;position:relative;z-index:1">Mock Tests</div>
         </div>
-        <div class="stat-card stat-coral" style="text-align:center">
+        <div class="stat-card stat-coral">
           <div class="stat-card-orb" style="background:#F97316"></div>
           <div style="font-size:28px;font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;color:#FB923C;position:relative;z-index:1">${STATE.studyStreak}</div>
           <div style="font-size:11px;color:var(--text-muted);margin-top:4px;font-weight:500;position:relative;z-index:1">Day Streak 🔥</div>
         </div>
-        <div class="stat-card stat-amber" style="text-align:center">
+        <div class="stat-card stat-amber">
           <div class="stat-card-orb" style="background:#F59E0B"></div>
           <div style="font-size:28px;font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;color:#FCD34D;position:relative;z-index:1">${STATE.historyLog.length}</div>
           <div style="font-size:11px;color:var(--text-muted);margin-top:4px;font-weight:500;position:relative;z-index:1">Activities</div>
         </div>
-        <div class="stat-card stat-violet" style="text-align:center">
+        <div class="stat-card stat-violet">
           <div class="stat-card-orb" style="background:#8B5CF6"></div>
           <div style="font-size:28px;font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;color:#A78BFA;position:relative;z-index:1">${getAvgScore()}</div>
           <div style="font-size:11px;color:var(--text-muted);margin-top:4px;font-weight:500;position:relative;z-index:1">Avg Score %</div>
@@ -944,12 +1163,15 @@
       ${renderTopicStrengths()}
 
       <!-- Daily Goals -->
-      <div class="card-dark" style="padding:18px 20px">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
-          <h3 class="font-headline" style="font-size:13.5px;font-weight:700;color:var(--text-primary)">Today's Goals</h3>
-          <span class="chip ${goalPct === 100 ? 'chip-green' : goalPct >= 50 ? 'chip-amber' : 'chip-muted'}">${completedGoals}/${STATE.dailyGoals.length}</span>
+      <div class="card-dark" style="padding:22px 24px;border:1.5px solid rgba(56,189,248,0.28);background:rgba(17,28,53,0.95);box-shadow:0 6px 24px rgba(0,0,0,0.4)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(56,189,248,0.18)">
+          <div style="display:flex;align-items:center;gap:10px">
+            <i class="fas fa-tasks" style="color:#38BDF8;font-size:15px"></i>
+            <h3 class="font-headline" style="font-size:15px;font-weight:800;color:#F0F6FF">Today's SSC CGL Preparation Goals</h3>
+          </div>
+          <span class="chip ${goalPct === 100 ? 'chip-green' : goalPct >= 50 ? 'chip-amber' : 'chip-muted'}" style="font-size:11px;font-weight:700;padding:4px 10px">${completedGoals}/${STATE.dailyGoals.length} Completed</span>
         </div>
-        <div style="display:flex;flex-direction:column;gap:5px">
+        <div style="display:flex;flex-direction:column;gap:8px">
           ${STATE.dailyGoals.map((g, i) => {
             const cnt  = typeof g.count  === 'number' ? g.count  : 0
             const tgt  = typeof g.target === 'number' ? g.target : 1
@@ -957,26 +1179,82 @@
             const isOne = tgt === 1
             const pct  = Math.min(Math.round(cnt / tgt * 100), 100)
             return `
-            <div style="padding:7px 10px;border-radius:8px;background:${done ? 'rgba(16,185,129,0.07)' : 'var(--bg-elevated)'};border:1px solid ${done ? 'rgba(16,185,129,0.2)' : 'var(--border-subtle)'}">
-              <div style="display:flex;align-items:center;gap:8px">
-                <div style="width:16px;height:16px;border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;${done ? 'background:#10B981' : 'border:1.5px solid rgba(14,165,233,0.35)'}">
-                  ${done ? '<i class="fas fa-check" style="color:#fff;font-size:7px"></i>' : ''}
+            <div class="goal-card-item ${done ? 'completed' : ''}" style="background:${done ? 'linear-gradient(135deg,rgba(16,185,129,0.1),rgba(10,15,30,0.95))' : 'linear-gradient(135deg,rgba(17,28,53,0.95),rgba(10,15,30,0.9))'} !important">
+              <div style="display:flex;align-items:center;gap:12px;flex:1;min-width:0">
+                <div onclick="toggleGoal(${i})" style="width:22px;height:22px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;${done ? 'background:#10B981;box-shadow:0 0 8px rgba(16,185,129,0.4)' : 'border:2px solid rgba(56,189,248,0.4);background:rgba(56,189,248,0.08)'}">
+                  ${done ? '<i class="fas fa-check" style="color:#fff;font-size:10px"></i>' : ''}
                 </div>
-                <span style="flex:1;font-size:12px;${done ? 'text-decoration:line-through;color:var(--text-muted)' : 'color:var(--text-secondary)'}">${g.text}</span>
-                ${!isOne ? `<span style="font-size:10.5px;font-weight:700;color:${done ? '#34D399' : 'var(--accent)'};flex-shrink:0">${cnt}/${tgt}</span>` : ''}
+                <span style="font-size:13.5px;font-weight:700;${done ? 'text-decoration:line-through;color:#94A3B8' : 'color:#F0F6FF'}">${g.text}</span>
               </div>
-              ${!isOne ? `
-              <div style="margin-top:5px;margin-left:24px;height:3px;border-radius:99px;background:rgba(255,255,255,0.06);overflow:hidden">
-                <div style="height:100%;width:${pct}%;border-radius:99px;background:${done ? 'linear-gradient(90deg,#10B981,#34D399)' : 'linear-gradient(90deg,#38BDF8,#818CF8)'};transition:width 0.4s"></div>
-              </div>` : ''}
+              <span class="goal-target-badge ${done ? 'done' : ''}">
+                ${cnt}/${tgt} Target
+              </span>
             </div>`
           }).join('')}
         </div>
-        <div style="margin-top:12px">
-          <div class="prog-track" style="height:4px">
-            <div class="prog-fill prog-accent" style="width:${goalPct}%"></div>
+        <div style="margin-top:16px;padding-top:12px;border-top:1px solid rgba(56,189,248,0.18)">
+          <div class="prog-track" style="height:6px;border-radius:99px">
+            <div class="prog-fill prog-accent" style="width:${goalPct}%;border-radius:99px"></div>
           </div>
-          <p style="font-size:11px;color:var(--text-muted);margin-top:5px">${goalPct}% complete · ${STATE.dailyGoals.length - completedGoals} remaining</p>
+          <p style="font-size:11.5px;font-weight:600;color:#94AAC8;margin-top:6px;display:flex;justify-content:space-between">
+            <span>Overall Daily Progress</span>
+            <span style="color:#38BDF8;font-weight:800">${goalPct}% Complete · ${STATE.dailyGoals.length - completedGoals} Remaining</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Structured Tool Suite Quick Explorer -->
+      <div class="card-dark" style="padding:24px 26px;border:1.5px solid rgba(56,189,248,0.3);background:rgba(17,28,53,0.95);box-shadow:0 8px 32px rgba(0,0,0,0.5)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid rgba(56,189,248,0.2)">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#0EA5E9,#7C3AED);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(56,189,248,0.4)">
+              <i class="fas fa-th-large" style="color:#FFF;font-size:15px"></i>
+            </div>
+            <div>
+              <h3 class="font-headline" style="font-size:16px;font-weight:800;color:#F0F6FF;letter-spacing:-0.01em">CGL Prep Suite — Structured Tool Directory</h3>
+              <p style="font-size:12px;color:#94AAC8;margin-top:2px">All 35 tools organized into 8 subject modules with dedicated cards & controls</p>
+            </div>
+          </div>
+          <span class="chip chip-primary" style="font-size:11px;padding:5px 12px">35 Tools Active</span>
+        </div>
+
+        <div class="directory-grid">
+          ${CATEGORIES.filter(c => !c.includes('Overview')).map(cat => {
+            const tools = Object.entries(TOOLS).filter(([_, t]) => t.cat === cat)
+            const catIcons = {
+              '📐 Quant (Maths)': 'fa-calculator',
+              '🧩 Reasoning': 'fa-puzzle-piece',
+              '📖 English Language': 'fa-book-open',
+              '🌍 General Awareness (GK)': 'fa-globe-asia',
+              '🧠 Test Prep & Revision': 'fa-brain',
+              '🤖 AI Tutors & Mentors': 'fa-user-astronaut',
+              '📌 Saved & History': 'fa-bookmark'
+            }
+            const icon = catIcons[cat] || 'fa-folder'
+            return `
+            <div class="module-card">
+              <div class="module-card-header">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <i class="fas ${icon}" style="color:#38BDF8;font-size:14px"></i>
+                  <span style="font-size:13px;font-weight:800;color:#F0F6FF">${cat}</span>
+                </div>
+                <span style="font-size:10px;font-weight:700;background:rgba(56,189,248,0.14);border:1px solid rgba(56,189,248,0.28);padding:2px 8px;border-radius:99px;color:#7DD3FC">${tools.length} Tools</span>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:8px">
+                ${tools.map(([id, t]) => `
+                  <button type="button" onclick="switchTool('${id}')" class="tool-link-card">
+                    <div style="width:28px;height:28px;border-radius:7px;background:rgba(56,189,248,0.14);border:1px solid rgba(56,189,248,0.28);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                      <i class="fas ${t.icon}" style="font-size:11px;color:#38BDF8"></i>
+                    </div>
+                    <span style="font-size:12.5px;font-weight:600;color:#F0F6FF;flex:1;min-width:0" class="truncate">${t.name}</span>
+                    <i class="fas fa-chevron-right" style="font-size:10px;color:#38BDF8;opacity:0.7"></i>
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+            `
+          }).join('')}
         </div>
       </div>
     </div>
@@ -1053,55 +1331,78 @@
   // DAILY GOALS
   // ═══════════════════════════════════════════════════════════
   function renderDailyGoals(el) {
+    const completedGoals = STATE.dailyGoals.filter(g => g.completed).length
+    const goalPct = Math.round((completedGoals / STATE.dailyGoals.length) * 100)
+    const tips = [
+      "Consistency is king: completing 8 micro-goals daily leads to 240 completed topic revisions every month."
+    ]
+
     el.innerHTML = `
-    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column;gap:14px">
-      <div>
-        <h2 class="font-headline" style="font-size:18px;font-weight:800;color:var(--text-primary)">Daily Goals</h2>
-        <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Complete these every day to build a consistent study habit.</p>
-      </div>
-      <div class="card-dark" style="padding:16px 18px;display:flex;flex-direction:column;gap:8px" id="goals-list">
-        ${STATE.dailyGoals.map((g, i) => {
-          const cnt    = typeof g.count  === 'number' ? g.count  : 0
-          const tgt    = typeof g.target === 'number' ? g.target : 1
-          const pct    = Math.min(Math.round(cnt / tgt * 100), 100)
-          const done   = g.completed || cnt >= tgt
-          const isOne  = tgt === 1
-          return `
-          <div style="padding:10px 12px;border-radius:10px;background:${done ? 'rgba(16,185,129,0.07)' : 'var(--bg-elevated)'};border:1px solid ${done ? 'rgba(16,185,129,0.2)' : 'var(--border-subtle)'};transition:all 0.15s">
-            <div style="display:flex;align-items:center;gap:10px">
-              <div onclick="toggleGoal(${i})" style="width:20px;height:20px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;${done ? 'background:#10B981' : 'border:1.5px solid rgba(14,165,233,0.4)'}">
-                ${done ? '<i class="fas fa-check" style="color:#fff;font-size:8px"></i>' : ''}
-              </div>
-              <span style="flex:1;font-size:13px;${done ? 'text-decoration:line-through;color:var(--text-muted)' : 'color:var(--text-secondary)'}">${g.text}</span>
-              ${!isOne ? `<span style="font-size:11px;font-weight:700;color:${done ? '#34D399' : 'var(--accent)'};flex-shrink:0">${cnt}/${tgt}</span>` : ''}
-              <button onclick="event.stopPropagation();switchTool('${g.tool}')" style="font-size:11px;color:var(--accent);background:none;border:none;cursor:pointer;flex-shrink:0;padding:2px 6px;border-radius:4px" onmouseover="this.style.background='rgba(14,165,233,0.1)'" onmouseout="this.style.background='none'">Open →</button>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-tasks', "Today's SSC CGL Preparation Goals", 'Track your daily study target checklist and build consistent study habits.', '📊 Overview & Stats')}
+      
+      <div class="card-dark card-3d" style="padding:24px 26px;margin-bottom:20px;border:1.5px solid rgba(56,189,248,0.35)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(56,189,248,0.2)">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0EA5E9,#7C3AED);display:flex;align-items:center;justify-content:center;box-shadow:0 0 10px rgba(56,189,248,0.4)">
+              <i class="fas fa-check-double" style="color:#FFF;font-size:15px"></i>
             </div>
-            ${!isOne && !done ? `
-            <div style="margin-top:7px;margin-left:30px">
-              <div style="height:4px;border-radius:99px;background:rgba(255,255,255,0.06);overflow:hidden">
-                <div style="height:100%;width:${pct}%;border-radius:99px;background:linear-gradient(90deg,#38BDF8,#818CF8);transition:width 0.4s ease"></div>
-              </div>
-            </div>` : ''}
-            ${!isOne && done ? `
-            <div style="margin-top:7px;margin-left:30px">
-              <div style="height:4px;border-radius:99px;background:rgba(255,255,255,0.06);overflow:hidden">
-                <div style="height:100%;width:100%;border-radius:99px;background:linear-gradient(90deg,#10B981,#34D399)"></div>
-              </div>
-            </div>` : ''}
-          </div>`
-        }).join('')}
-      </div>
-      <div class="card-dark-sm" style="padding:14px 16px">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:9px">
-          <span style="font-size:12.5px;font-weight:600;color:var(--text-secondary)">Daily Progress</span>
-          <span style="font-size:13px;font-weight:800;color:var(--accent)">${STATE.dailyGoals.filter(g=>g.completed).length}/${STATE.dailyGoals.length} done</span>
+            <div>
+              <h3 style="font-size:15.5px;font-weight:800;color:#F0F6FF">Daily Goal Execution Checklist</h3>
+              <p style="font-size:12px;color:#94AAC8;margin-top:2px">Click checkmark or Open Tool to jump directly into the target tool</p>
+            </div>
+          </div>
+          <span class="highlight-pill-3d" style="background:${goalPct === 100 ? 'rgba(16,185,129,0.2)' : 'rgba(56,189,248,0.2)'};color:${goalPct === 100 ? '#34D399' : '#7DD3FC'};border:1px solid ${goalPct === 100 ? 'rgba(16,185,129,0.4)' : 'rgba(56,189,248,0.4)'}">
+            ${completedGoals}/${STATE.dailyGoals.length} Completed
+          </span>
         </div>
-        <div class="prog-track" style="height:5px">
-          <div class="prog-fill prog-accent" style="width:${(STATE.dailyGoals.filter(g=>g.completed).length/STATE.dailyGoals.length*100).toFixed(0)}%"></div>
+
+        <div style="display:flex;flex-direction:column;gap:10px" id="goals-list">
+          ${STATE.dailyGoals.map((g, i) => {
+            const cnt    = typeof g.count  === 'number' ? g.count  : 0
+            const tgt    = typeof g.target === 'number' ? g.target : 1
+            const pct    = Math.min(Math.round(cnt / tgt * 100), 100)
+            const done   = g.completed || cnt >= tgt
+            const isOne  = tgt === 1
+            return `
+            <div class="goal-card-row card-3d" style="background:${done ? 'linear-gradient(135deg,rgba(16,185,129,0.12),rgba(10,15,30,0.95))' : 'linear-gradient(135deg,rgba(17,28,53,0.95),rgba(10,15,30,0.9))'};border:1.5px solid ${done ? 'rgba(16,185,129,0.4)' : 'rgba(56,189,248,0.25)'}">
+              <div class="goal-card-left">
+                <div onclick="toggleGoal(${i})" style="width:24px;height:24px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;${done ? 'background:#10B981;box-shadow:0 0 10px rgba(16,185,129,0.5)' : 'border:2px solid rgba(56,189,248,0.4);background:rgba(56,189,248,0.08)'}">
+                  ${done ? '<i class="fas fa-check" style="color:#fff;font-size:11px"></i>' : ''}
+                </div>
+                <div style="flex:1;min-width:0">
+                  <span style="font-size:13.5px;font-weight:700;${done ? 'text-decoration:line-through;color:#94A3B8' : 'color:#F0F6FF'}">${g.text}</span>
+                  ${!isOne ? `
+                  <div style="margin-top:6px;height:5px;border-radius:99px;background:rgba(255,255,255,0.08);overflow:hidden;max-width:280px">
+                    <div style="height:100%;width:${pct}%;border-radius:99px;background:${done ? 'linear-gradient(90deg,#10B981,#34D399)' : 'linear-gradient(90deg,#38BDF8,#818CF8)'};transition:width 0.4s"></div>
+                  </div>` : ''}
+                </div>
+              </div>
+              <div class="goal-card-right">
+                <span class="goal-target-badge ${done ? 'done' : ''}">
+                  ${cnt}/${tgt} Target
+                </span>
+                <button type="button" onclick="switchTool('${g.tool}')" class="goal-open-btn">
+                  Open Tool <i class="fas fa-arrow-right" style="font-size:10px;margin-left:4px"></i>
+                </button>
+              </div>
+            </div>`
+          }).join('')}
         </div>
-        ${STATE.dailyGoals.every(g=>g.completed) ? '<p style="color:#34D399;font-weight:700;text-align:center;margin-top:10px;font-size:13px">🎉 All goals complete! Excellent work today!</p>' : ''}
+
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(56,189,248,0.2)">
+          <div class="prog-track" style="height:8px;border-radius:99px">
+            <div class="prog-fill prog-accent" style="width:${goalPct}%;border-radius:99px;background:linear-gradient(90deg,#0EA5E9,#10B981)"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+            <span style="font-size:12px;font-weight:700;color:#94AAC8">Overall Today Progress: <strong style="color:#F0F6FF">${goalPct}% Complete</strong></span>
+            <button onclick="resetGoals()" class="card-action-btn" style="border-color:rgba(239,68,68,0.35);color:#FCA5A5">
+              <i class="fas fa-undo" style="font-size:9.5px;color:#F87171"></i> Reset Today's Goals
+            </button>
+          </div>
+        </div>
       </div>
-      <button onclick="resetGoals()" style="font-size:11px;color:var(--text-faint);background:none;border:none;cursor:pointer;align-self:flex-start;padding:4px 0" onmouseover="this.style.color='#F87171'" onmouseout="this.style.color='var(--text-faint)'">Reset today's goals</button>
+      ${toolFooter(['performance-dashboard', 'focus-study-timer', 'ai-mock-test'], tips)}
     </div>`
   }
 
@@ -1127,16 +1428,38 @@
   // ═══════════════════════════════════════════════════════════
   // QUESTION GENERATOR
   // ═══════════════════════════════════════════════════════════
-  function toolHeader(icon, title, desc, chipText = '', chipClass = 'chip-primary') {
-    return `<div style="margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--border-subtle)">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-        <div style="width:32px;height:32px;border-radius:9px;background:rgba(14,165,233,0.12);border:1px solid rgba(14,165,233,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-          <i class="fas ${icon}" style="color:#38BDF8;font-size:13px"></i>
+  function toolHeader(icon, title, desc, category = '', presets = []) {
+    const tool = Object.values(TOOLS).find(t => t.name === title) || {}
+    const catName = category || tool.cat || '📐 Quant (Maths)'
+    const theme = CAT_THEMES[catName] || CAT_THEMES['📐 Quant (Maths)']
+
+    return `<div class="tool-hero-header-3d" style="background:${theme.bgGrad} !important;border:${theme.border} !important;box-shadow:${theme.glow} !important">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px">
+        <div style="display:flex;align-items:center;gap:16px">
+          <div class="tool-header-icon-3d" style="background:${theme.iconGrad} !important">
+            <i class="fas ${icon}" style="color:#FFF;font-size:21px"></i>
+          </div>
+          <div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <h2 class="font-headline" style="font-size:20px;font-weight:800;color:#F0F6FF;letter-spacing:-0.015em">${title}</h2>
+              <span class="highlight-pill-3d" style="background:${theme.badgeBg};color:${theme.badgeText};border:1px solid ${theme.accent}40">${catName}</span>
+            </div>
+            <p style="font-size:13px;color:#CBD5E1;margin-top:4px">${desc}</p>
+          </div>
         </div>
-        <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">${title}</h2>
-        ${chipText ? `<span class="chip ${chipClass}" style="flex-shrink:0">${chipText}</span>` : ''}
       </div>
-      <p style="font-size:12.5px;color:var(--text-muted);padding-left:42px">${desc}</p>
+      ${presets && presets.length > 0 ? `
+      <div style="display:flex;align-items:center;gap:8px;margin-top:4px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);flex-wrap:wrap">
+        <span style="font-size:11.5px;font-weight:800;color:${theme.accent};letter-spacing:0.02em;display:inline-flex;align-items:center;gap:5px">
+          <i class="fas fa-bolt" style="color:#FCD34D;font-size:11px"></i> Quick Presets:
+        </span>
+        ${presets.map(p => {
+          const inputId = p.inputId || ''
+          const txt = typeof p === 'string' ? p : (p.text || '')
+          const label = typeof p === 'string' ? p : (p.label || p.text || '')
+          return `<button type="button" onclick="applyPreset('${inputId}','${txt.replace(/'/g, "\\'")}')" class="preset-chip" style="border-color:${theme.accent}60 !important;color:${theme.badgeText} !important"><i class="fas fa-tag" style="font-size:9.5px;color:${theme.accent}"></i> ${label}</button>`
+        }).join('')}
+      </div>` : ''}
     </div>`
   }
 
@@ -1312,29 +1635,50 @@
   // MOCK TEST
   // ═══════════════════════════════════════════════════════════
   function renderMockTest(el) {
+    const presets = [
+      { inputId: 'mock-topic', text: 'Mixed Tier-1 (Quant + Reasoning + English + GA)', label: 'Full Tier-1 Practice' },
+      { inputId: 'mock-topic', text: 'Quantitative Aptitude (Algebra, Geometry, Profit & Loss)', label: 'Quant Special' },
+      { inputId: 'mock-topic', text: 'Reasoning (Syllogism, Analogy, Coding-Decoding)', label: 'Reasoning Special' },
+      { inputId: 'mock-topic', text: 'English Language (Grammar, Vocabulary, Synonyms)', label: 'English Special' },
+      { inputId: 'mock-topic', text: 'General Awareness (History, Polity, Current Affairs)', label: 'GA Special' }
+    ]
+    const tips = [
+      "In Tier-1, spend no more than 35-40 seconds per question. Skip immediately if stuck for over 60 seconds.",
+      "Attempt General Awareness and English first to build momentum before tackling Quant and Reasoning."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">📝 AI Mock Test Generator</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Generate a timed mini mock test with MCQs across subjects.</p>
-      <div class="card-dark p-5 space-y-4">
-        <div>
-          <label class="block text-sm font-medium text-slate-400 mb-1">Topic / Subject</label>
-          <input type="text" id="mock-topic" placeholder="e.g. Mixed (Quant + English + GK)" class="w-full px-4 py-2.5 text-sm">
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-pen-to-square', 'AI Mock Test Generator', 'Generate a timed mini mock test with MCQs across subjects with instant score analytics.', '🧠 Test Prep & Revision', presets)}
+      
+      <div class="card-dark" style="padding:22px 24px;display:flex;flex-direction:column;gap:14px;margin-bottom:20px;border:1.5px solid rgba(244,63,94,0.35);background:rgba(17,28,53,0.95);box-shadow:0 6px 24px rgba(0,0,0,0.4)">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <label style="font-size:13px;font-weight:800;color:#F0F6FF;letter-spacing:0.01em;display:flex;align-items:center;gap:7px">
+            <i class="fas fa-sliders" style="color:#FB7185"></i> Configure Mock Test
+          </label>
+          <span style="font-size:11px;color:#94AAC8">Timed Simulation</span>
         </div>
-        <div>
-          <label class="block text-sm font-medium text-slate-400 mb-1">Number of Questions</label>
-          <select id="mock-count" class="w-full px-4 py-2.5 text-sm">
-            <option value="5">5 Questions</option>
-            <option value="10" selected>10 Questions</option>
-            <option value="15">15 Questions</option>
-            <option value="20">20 Questions</option>
-          </select>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div>
+            <label style="display:block;font-size:11.5px;font-weight:700;color:#CBD5E1;margin-bottom:6px">Test Subject / Topic Focus</label>
+            <input type="text" id="mock-topic" placeholder="e.g. Mixed Tier-1, Geometry, Modern History..."
+              style="width:100%;padding:11px 14px;font-size:13px;background:rgba(10,15,30,0.95);border:1.5px solid rgba(244,63,94,0.3);border-radius:10px;color:#F0F6FF">
+          </div>
+          <div>
+            <label style="display:block;font-size:11.5px;font-weight:700;color:#CBD5E1;margin-bottom:6px">Number of MCQs</label>
+            <select id="mock-count" style="width:100%;padding:11px 14px;font-size:13px;background:rgba(10,15,30,0.95);border:1.5px solid rgba(244,63,94,0.3);border-radius:10px;color:#F0F6FF">
+              <option value="5">5 Questions (Express)</option>
+              <option value="10" selected>10 Questions (Standard)</option>
+              <option value="15">15 Questions (Intensive)</option>
+              <option value="20">20 Questions (Full Drill)</option>
+            </select>
+          </div>
         </div>
-        <button onclick="generateMockTest()" class="btn-primary w-full py-3 text-sm font-semibold">
-          <i class="fas fa-play mr-2"></i>Start Mock Test
+        <button onclick="generateMockTest()" class="btn-primary" style="padding:12px;font-size:13.5px;font-weight:700;background:linear-gradient(135deg,#F43F5E,#E11D48) !important;border:none !important">
+          <i class="fas fa-play" style="font-size:12px;margin-right:6px"></i> Start Timed Mock Test
         </button>
       </div>
       <div id="mock-output"></div>
+      ${toolFooter(['formula-bank', 'pyq-analyser', 'error-log'], tips, '🧠 Test Prep & Revision')}
     </div>`
   }
 
@@ -1366,12 +1710,20 @@
   // SMART REVISION
   // ═══════════════════════════════════════════════════════════
   function renderSmartRevision(el) {
+    const presets = [
+      { inputId: 'rev-topics', text: 'Geometry (Triangles), Profit & Loss, Indian Polity Articles', label: 'Quant & Polity Weak Areas' },
+      { inputId: 'rev-topics', text: 'Synonyms & Antonyms, Error Spotting, Reading Comprehension', label: 'English Comprehension' },
+      { inputId: 'rev-topics', text: 'Syllogism, Blood Relations, Seating Arrangement', label: 'Reasoning Weak Areas' }
+    ]
+    const tips = [
+      "Target high-weightage weak topics first during 7-day revision sprints for maximum score multiplier."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">🧠 Smart Revision Plan</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Get an AI-curated revision plan based on your weak areas.</p>
-      ${inputArea({ id: 'rev-topics', placeholder: 'Enter weak topics (e.g. Geometry, Synonyms, Indian History)...', btn: 'Generate Plan', onSubmit: 'generateRevisionPlan()' })}
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-brain', 'Smart Revision Planner', 'Get an AI-curated weak-area revision plan personalized to your focus topics.', '🧠 Test Prep & Revision', presets)}
+      ${inputArea({ id: 'rev-topics', placeholder: 'Enter weak topics (e.g. Geometry, Synonyms, Indian History)...', label: 'Weak Topics or Focus Areas', btn: 'Generate Smart 7-Day Plan', onSubmit: 'generateRevisionPlan()', toolId: 'interactive-smart-revision', triggerFn: 'generateRevisionPlan' })}
       <div id="rev-output"></div>
+      ${toolFooter(['ai-mock-test', 'flashcards', 'error-log'], tips)}
     </div>`
   }
 
@@ -1379,7 +1731,7 @@
     const topics = document.getElementById('rev-topics').value.trim()
     if (!topics) return showToast('Please enter weak topics', 'error')
     const out = document.getElementById('rev-output')
-    out.innerHTML = loadingHTML()
+    out.innerHTML = loadingHTML('Curating 7-day revision plan...')
     try {
       const res = await callGeneric(todayContext() + `Create a structured 7-day smart revision plan for an SSC CGL aspirant focusing on these weak areas: ${topics}. 
       Include: daily time allocation, specific subtopics, practice suggestions, and tips. Format in clean HTML.`)
@@ -1393,13 +1745,22 @@
   // QUANT SOLVER
   // ═══════════════════════════════════════════════════════════
   function renderQuantSolver(el) {
+    const presets = [
+      { inputId: 'quant-input', text: 'If cost price of 15 articles is equal to selling price of 12 articles, find the profit percentage.', label: 'Profit & Loss' },
+      { inputId: 'quant-input', text: 'A and B can do a work in 12 and 18 days respectively. A works for 4 days then B joins. In how many days is work completed?', label: 'Time & Work' },
+      { inputId: 'quant-input', text: 'A sum of money at compound interest doubles itself in 4 years. In how many years will it become 8 times itself?', label: 'Compound Interest' },
+      { inputId: 'quant-input', text: 'In a triangle ABC, angle B = 90 deg, AB = 6 cm, BC = 8 cm. Find the radius of its incircle.', label: 'Geometry' }
+    ]
+    const tips = [
+      "Always check if option elimination or value assumption (e.g. x = 0 or x = 1) can solve the problem in 10 seconds before starting algebraic expansion.",
+      "For Compound Interest, use the net percentage change formula (x + y + xy/100) for rapid calculation."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">🔢 Quant Solver</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Paste any Quant problem and get step-by-step solutions with shortcuts.</p>
-      ${inputArea({ id: 'quant-input', placeholder: 'Paste your quantitative problem here...', btn: 'Solve', onSubmit: 'solveQuant()', type: 'textarea', rows: 3 })}
-      <div style="margin-top:4px">${surpriseBtn('quant-solver','quant-input','solveQuant')}</div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-calculator', 'Quant Problem Solver', 'Solve quantitative aptitude problems step-by-step with instant shortcut tricks.', '📐 Quant (Maths)', presets)}
+      ${inputArea({ id: 'quant-input', placeholder: 'Paste your quantitative problem here or select a quick preset above...', label: 'Quantitative Problem or Math Question', btn: 'Solve Step-by-Step', onSubmit: 'solveQuant()', type: 'textarea', rows: 3, toolId: 'quant-solver', triggerFn: 'solveQuant' })}
       <div id="quant-output"></div>
+      ${toolFooter(['formula-bank', 'pyq-analyser', 'interactive-smart-revision'], tips)}
     </div>`
   }
 
@@ -1407,7 +1768,7 @@
     const raw = document.getElementById('quant-input').value.trim()
     if (!raw) showToast('🎲 Generating a surprise quant problem…', 'info')
     const out = document.getElementById('quant-output')
-    out.innerHTML = loadingHTML('Solving...')
+    out.innerHTML = loadingHTML('Solving problem with shortcut methods...')
     try {
       const prompt = raw
         ? `Solve this SSC CGL Quantitative Aptitude problem:
@@ -1446,13 +1807,22 @@ Use normal math symbols (√x, a/b, 25 × 4, x²). Format in clean HTML.`
   // REASONING SOLVER
   // ═══════════════════════════════════════════════════════════
   function renderReasoningSolver(el) {
+    const presets = [
+      { inputId: 'reason-input', text: 'Pointing to a photograph, A says "He is the son of the only daughter of my mother". How is A related to the person?', label: 'Blood Relations' },
+      { inputId: 'reason-input', text: 'Statements: All dogs are cats. Some cats are birds. Conclusion I: Some dogs are birds. II: No dog is a bird.', label: 'Syllogism' },
+      { inputId: 'reason-input', text: 'In a certain code, MONKEY is written as XDJMNL. How is TIGER written in that code?', label: 'Coding-Decoding' },
+      { inputId: 'reason-input', text: 'Find the next number in series: 7, 10, 16, 28, 52, ?', label: 'Number Series' }
+    ]
+    const tips = [
+      "For Syllogisms, draw a quick 2-circle Venn diagram or check 100-50 distribution rules for 100% accuracy.",
+      "For Coding-Decoding, quickly jot down letter positions (A=1...Z=26) to spot addition/subtraction patterns."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">🧩 Reasoning Solver</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Solve any reasoning problem with step-by-step explanation.</p>
-      ${inputArea({ id: 'reason-input', placeholder: 'Paste your reasoning problem here...', btn: 'Solve', onSubmit: 'solveReasoning()', type: 'textarea', rows: 3 })}
-      <div style="margin-top:4px">${surpriseBtn('reasoning-solver','reason-input','solveReasoning')}</div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-puzzle-piece', 'Reasoning Solver', 'Solve verbal, non-verbal, and logical reasoning problems with detailed shortcut breakdowns.', '🧩 Reasoning', presets)}
+      ${inputArea({ id: 'reason-input', placeholder: 'Paste your reasoning problem here or select a quick preset above...', label: 'Reasoning Problem or Logical Question', btn: 'Solve Reasoning Problem', onSubmit: 'solveReasoning()', type: 'textarea', rows: 3, toolId: 'reasoning-solver', triggerFn: 'solveReasoning' })}
       <div id="reason-output"></div>
+      ${toolFooter(['para-jumble-solver', 'debate-simulator', 'pyq-analyser'], tips)}
     </div>`
   }
 
@@ -1460,7 +1830,7 @@ Use normal math symbols (√x, a/b, 25 × 4, x²). Format in clean HTML.`
     const raw = document.getElementById('reason-input').value.trim()
     if (!raw) showToast('🎲 Generating a surprise reasoning problem…', 'info')
     const out = document.getElementById('reason-output')
-    out.innerHTML = loadingHTML()
+    out.innerHTML = loadingHTML('Analyzing logical patterns...')
     try {
       const prompt = raw
         ? `Solve this SSC CGL Reasoning problem:
@@ -1497,16 +1867,18 @@ Format in clean HTML.`
   // PARA JUMBLE
   // ═══════════════════════════════════════════════════════════
   function renderParaJumble(el) {
+    const presets = [
+      { inputId: 'pj-input', text: 'A. However, modern research suggests otherwise.\nB. People used to believe that the Earth was flat.\nC. This shift in perspective revolutionized navigation.\nD. Ships can now sail around the globe using satellite GPS.', label: 'Sample Para Jumble' }
+    ]
+    const tips = [
+      "Find mandatory pairs first (pronoun referencing, cause & effect) to eliminate 2–3 options immediately."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">🔀 Para-Jumble Solver</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Arrange jumbled sentences or get practice paragraphs.</p>
-      ${inputArea({ id: 'pj-input', placeholder: 'Paste jumbled sentences (one per line) or ask for practice...', btn: 'Solve', onSubmit: 'solveParaJumble()', type: 'textarea', rows: 4 })}
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:4px">
-        <button onclick="generateParaJumble()" class="text-sm text-primary hover:underline">Generate a practice para-jumble →</button>
-        ${surpriseBtn('para-jumble-solver','pj-input','generateParaJumble')}
-      </div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-random', 'Para Jumble Solver', 'Master sentence rearrangement & paragraph logic with step-by-step explanations.', '🧩 Reasoning', presets)}
+      ${inputArea({ id: 'pj-input', placeholder: 'Paste jumbled sentences (one per line) or use preset above...', label: 'Jumbled Sentences (A-D)', btn: 'Solve & Rearrange', onSubmit: 'solveParaJumble()', type: 'textarea', rows: 4, toolId: 'para-jumble-solver', triggerFn: 'generateParaJumble' })}
       <div id="pj-output"></div>
+      ${toolFooter(['vocabulary', 'rc-practice', 'writing-assistant'], tips)}
     </div>`
   }
 
@@ -1539,16 +1911,22 @@ Format in clean HTML.`
   // VOCABULARY
   // ═══════════════════════════════════════════════════════════
   function renderVocabulary(el) {
+    const presets = [
+      { inputId: 'vocab-input', text: 'Ephemeral', label: 'Ephemeral' },
+      { inputId: 'vocab-input', text: 'Garrulous', label: 'Garrulous' },
+      { inputId: 'vocab-input', text: 'Munificent', label: 'Munificent' },
+      { inputId: 'vocab-input', text: 'Obstinate', label: 'Obstinate' },
+      { inputId: 'vocab-input', text: 'Pugnacious', label: 'Pugnacious' }
+    ]
+    const tips = [
+      "Learn words in root-word clusters (e.g. Bene = Good -> Benevolent, Benefactor, Beneficial) to double your recall speed."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">📖 Vocabulary Builder</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Deep-dive into any English word with exam-relevant context.</p>
-      ${inputArea({ id: 'vocab-input', placeholder: 'Enter a word (e.g. Ephemeral, Garrulous, Munificent)...', btn: 'Learn', onSubmit: 'buildVocabulary()' })}
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:4px">
-        <button onclick="learnRandomWord()" class="text-sm text-primary hover:underline">Learn a random SSC word →</button>
-        ${surpriseBtn('vocabulary','vocab-input','buildVocabulary')}
-      </div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-book', 'Vocabulary Builder', 'Expand word power, synonyms, antonyms, memory tricks, and real exam sentences.', '📖 English Language', presets)}
+      ${inputArea({ id: 'vocab-input', placeholder: 'Enter an English word (e.g. Ephemeral, Garrulous)...', label: 'English Word or Vocabulary Topic', btn: 'Analyze Word & Context', onSubmit: 'buildVocabulary()', type: 'text', rows: 2, toolId: 'vocabulary', triggerFn: 'learnRandomWord' })}
       <div id="vocab-output"></div>
+      ${toolFooter(['rc-practice', 'writing-assistant', 'essay-scorer'], tips)}
     </div>`
   }
 
@@ -1556,7 +1934,7 @@ Format in clean HTML.`
     const raw = document.getElementById('vocab-input').value.trim()
     if (!raw) { learnRandomWord(); return }
     const out = document.getElementById('vocab-output')
-    out.innerHTML = loadingHTML()
+    out.innerHTML = loadingHTML('Analyzing word etymology & synonyms...')
     try {
       const res = await callGeneric(todayContext() + `Provide a comprehensive analysis of the word "${raw}" for SSC CGL English preparation:
       1) Meaning and definition, 2) Etymology/origin, 3) Synonyms (5+), 4) Antonyms (5+), 5) Usage in an SSC-style sentence, 
@@ -1571,7 +1949,7 @@ Format in clean HTML.`
 
   async function learnRandomWord() {
     const out = document.getElementById('vocab-output')
-    out.innerHTML = loadingHTML()
+    out.innerHTML = loadingHTML('Selecting random high-yield word...')
     const randomWords = ['Eloquent', 'Tenacious', 'Pragmatic', 'Obstinate', 'Ameliorate', 'Ephemeral', 'Parsimonious', 'Vociferous', 'Magnanimous', 'Sycophant']
     const word = randomWords[Math.floor(Math.random() * randomWords.length)]
     document.getElementById('vocab-input').value = word
@@ -1590,12 +1968,19 @@ Format in clean HTML.`
   // WRITING ASSISTANT
   // ═══════════════════════════════════════════════════════════
   function renderWritingAssistant(el) {
+    const presets = [
+      { inputId: 'write-input', text: 'Neither the manager nor the employees was aware about the new safety rule.', label: 'Sample Sentence 1' },
+      { inputId: 'write-input', text: 'He discussed about the matter with his friend yesterday.', label: 'Sample Sentence 2' }
+    ]
+    const tips = [
+      "Pay special attention to Subject-Verb Agreement and Preposition errors as they account for over 40% of Error Spotting questions in Tier-1 & Tier-2."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">✍️ Writing Assistant</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Get grammar corrections and writing improvements.</p>
-      ${inputArea({ id: 'write-input', placeholder: 'Paste your text here for grammar check and improvement...', btn: 'Improve', onSubmit: 'improveWriting()', type: 'textarea', rows: 5 })}
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-pen-fancy', 'English Writing Assistant', 'Get instant grammar corrections, error breakdowns, and tone enhancements.', '📖 English Language', presets)}
+      ${inputArea({ id: 'write-input', placeholder: 'Paste your sentence or essay paragraph here for grammar check...', label: 'Text for Grammar & Improvement Analysis', btn: 'Check Grammar & Improve', onSubmit: 'improveWriting()', type: 'textarea', rows: 4, toolId: 'writing-assistant', triggerFn: 'improveWriting' })}
       <div id="write-output"></div>
+      ${toolFooter(['vocabulary', 'essay-scorer', 'rc-practice'], tips)}
     </div>`
   }
 
@@ -1603,7 +1988,7 @@ Format in clean HTML.`
     const text = document.getElementById('write-input').value.trim()
     if (!text) return showToast('Please enter text to improve', 'error')
     const out = document.getElementById('write-output')
-    out.innerHTML = loadingHTML()
+    out.innerHTML = loadingHTML('Analyzing grammar & structure...')
     try {
       const res = await callGeneric(todayContext() + `As an SSC CGL English expert, analyse this text: "${text}"
       Provide: 1) Grammar corrections with explanations, 2) Improved version, 3) Vocabulary enhancements, 4) Common mistakes identified, 5) Tips for SSC CGL English section.
@@ -1618,18 +2003,31 @@ Format in clean HTML.`
   // ESSAY SCORER
   // ═══════════════════════════════════════════════════════════
   function renderEssayScorer(el) {
+    const presets = [
+      { inputId: 'essay-topic', text: 'Impact of Digital India on Governance and Economy', label: 'Digital India' },
+      { inputId: 'essay-topic', text: 'Climate Change: Challenges and India\'s Commitments', label: 'Climate Change' }
+    ]
+    const tips = [
+      "Always structure your essay into 4 distinct paragraphs: Introduction, Key Arguments & Examples, Challenges/Solution, and Conclusion."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">⭐ Essay Scorer</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Get AI feedback and score on your essays.</p>
-      <div class="space-y-3">
-        <input type="text" id="essay-topic" placeholder="Essay topic (e.g. India's Digital Revolution)..." class="w-full px-4 py-2.5 text-sm">
-        <textarea id="essay-text" placeholder="Paste your essay here..." rows="8" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary resize-none"></textarea>
-        <button onclick="scoreEssay()" class="btn-primary w-full py-3 text-sm font-semibold">
-          <i class="fas fa-star mr-2"></i>Score My Essay
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-star-half-alt', 'Essay & Letter Evaluator', 'Get detailed scoring breakdown, content feedback, and grammatical corrections.', '📖 English Language', presets)}
+      <div class="card-dark" style="padding:18px 20px;display:flex;flex-direction:column;gap:12px;margin-bottom:16px">
+        <div>
+          <label style="font-size:12px;font-weight:700;color:#38BDF8;letter-spacing:0.02em">Essay or Letter Topic</label>
+          <input type="text" id="essay-topic" placeholder="e.g. India's Digital Revolution, Renewable Energy..." style="margin-top:6px;padding:11px 14px;font-size:13.5px;background:rgba(10,15,30,0.9);border:1.5px solid rgba(56,189,248,0.22);border-radius:10px;color:#F0F6FF" class="w-full">
+        </div>
+        <div>
+          <label style="font-size:12.5px;font-weight:700;color:#38BDF8;letter-spacing:0.02em">Essay / Letter Content</label>
+          <textarea id="essay-text" placeholder="Paste your essay draft here..." rows="7" style="margin-top:6px;padding:12px 14px;font-size:13.5px;line-height:1.6;background:rgba(10,15,30,0.9);border:1.5px solid rgba(56,189,248,0.22);border-radius:10px;color:#F0F6FF" class="w-full resize-none"></textarea>
+        </div>
+        <button onclick="scoreEssay()" class="btn-primary w-full" style="padding:12px 18px;font-size:13.5px;font-weight:700">
+          <i class="fas fa-star" style="font-size:12px"></i> Score & Evaluate Essay
         </button>
       </div>
       <div id="essay-output"></div>
+      ${toolFooter(['writing-assistant', 'vocabulary'], tips)}
     </div>`
   }
 
@@ -1638,7 +2036,7 @@ Format in clean HTML.`
     const text = document.getElementById('essay-text').value.trim()
     if (!text) return showToast('Please write your essay', 'error')
     const out = document.getElementById('essay-output')
-    out.innerHTML = loadingHTML('Evaluating...')
+    out.innerHTML = loadingHTML('Evaluating essay parameters & scoring...')
     try {
       const res = await callGeneric(todayContext() + `Evaluate this essay on "${topic || 'the given topic'}" for SSC CGL preparation:
       Essay: ${text}
@@ -1655,23 +2053,20 @@ Format in clean HTML.`
   // RC PRACTICE
   // ═══════════════════════════════════════════════════════════
   function renderRCPractice(el) {
+    const presets = [
+      { inputId: 'rc-topic', text: 'Climate Change & Global Economy', label: 'Economy & Climate' },
+      { inputId: 'rc-topic', text: 'Artificial Intelligence in Education', label: 'Technology' },
+      { inputId: 'rc-topic', text: 'Indian Freedom Movement & Social Reforms', label: 'History' }
+    ]
+    const tips = [
+      "Read the RC questions first before reading the passage to know exactly which keywords to locate."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">👓 Reading Comprehension</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Practice RC with AI-generated passages and questions.</p>
-      <div class="card-dark p-5 space-y-3">
-        <div>
-          <label class="block text-sm font-medium text-slate-400 mb-1">Topic/Genre</label>
-          <input type="text" id="rc-topic" placeholder="e.g. Environment, Economy, Science, History..." class="w-full px-4 py-2.5 text-sm">
-        </div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button onclick="generateRC()" class="btn-primary py-3 px-6 text-sm font-semibold" style="flex:1">
-            <i class="fas fa-glasses mr-2"></i>Generate RC Exercise
-          </button>
-          ${surpriseBtn('rc-practice','rc-topic','generateRC')}
-        </div>
-      </div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-glasses', 'RC Comprehension', 'Practice Reading Comprehension with AI-generated exam-level passages & questions.', '📖 English Language', presets)}
+      ${inputArea({ id: 'rc-topic', placeholder: 'Enter RC genre or topic (e.g. Environment, Economy, History)...', label: 'Reading Comprehension Genre / Topic', btn: 'Generate RC Passage & Quiz', onSubmit: 'generateRC()', type: 'text', rows: 2, toolId: 'rc-practice', triggerFn: 'generateRC' })}
       <div id="rc-output"></div>
+      ${toolFooter(['vocabulary', 'para-jumble-solver', 'writing-assistant'], tips)}
     </div>`
   }
 
@@ -1691,18 +2086,21 @@ Format in clean HTML.`
   // CURRENT AFFAIRS
   // ═══════════════════════════════════════════════════════════
   function renderCurrentAffairs(el) {
+    const presets = [
+      { inputId: 'ca-input', text: 'Union Budget Key Highlights & Tax Slabs', label: 'Union Budget' },
+      { inputId: 'ca-input', text: 'ISRO Space Missions & Gaganyaan', label: 'ISRO & Space' },
+      { inputId: 'ca-input', text: 'National Sports Awards & Winners', label: 'Sports Awards' },
+      { inputId: 'ca-input', text: 'Government Welfare Schemes & Portals', label: 'Govt Schemes' }
+    ]
+    const tips = [
+      "For Current Affairs, focus heavily on Appointments, Schemes, Awards, and Defense Exercises from the last 6–8 months."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">📰 Current Affairs</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Get exam-relevant current affairs on any topic.</p>
-      ${inputArea({ id: 'ca-input', placeholder: 'Enter a topic (e.g. Union Budget 2025, G20, ISRO missions)...', btn: 'Get Notes', onSubmit: 'getCurrentAffairs()' })}
-      <div style="margin-top:-4px">${surpriseBtn('current-affairs','ca-input','getCurrentAffairs')}</div>
-      <div class="flex flex-wrap gap-2" id="ca-chips">
-        ${['Union Budget', 'Indian Economy', 'Space Missions', 'International Relations', 'Sports Awards', 'Government Schemes'].map(t => `
-          <button onclick="quickCA('${t}')" class="text-xs bg-primary/10 text-primary px-3 py-1.5 rounded-full hover:bg-primary/20 transition-colors">${t}</button>
-        `).join('')}
-      </div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-newspaper', 'Current Affairs Digest', 'Get exam-relevant current affairs notes with static GK links and high-yield facts.', '🌍 General Awareness (GK)', presets)}
+      ${inputArea({ id: 'ca-input', placeholder: 'Enter a topic (e.g. Union Budget, ISRO Missions)...', label: 'Current Affairs Topic or News Event', btn: 'Fetch Exam Notes', onSubmit: 'getCurrentAffairs()', type: 'text', rows: 2, toolId: 'current-affairs', triggerFn: 'getCurrentAffairs' })}
       <div id="ca-output"></div>
+      ${toolFooter(['static-gk', 'ca-linker', 'acronym-explainer'], tips)}
     </div>`
   }
 
@@ -1711,7 +2109,7 @@ Format in clean HTML.`
     const topic = raw || 'a recent trending national or international event relevant to SSC CGL General Awareness (pick something important and recent)'
     if (!raw) showToast('🎲 Fetching a surprise current affairs topic…', 'info')
     const out = document.getElementById('ca-output')
-    out.innerHTML = loadingHTML()
+    out.innerHTML = loadingHTML('Searching latest exam-relevant news...')
     try {
       const curYear = new Date(TODAY.iso).getFullYear() || new Date().getFullYear()
       const prevYear = curYear - 1
@@ -1734,18 +2132,21 @@ Format in clean HTML.`
   // STATIC GK
   // ═══════════════════════════════════════════════════════════
   function renderStaticGK(el) {
+    const presets = [
+      { inputId: 'gk-input', text: 'Fundamental Rights and Articles 12-35', label: 'Polity: Fundamental Rights' },
+      { inputId: 'gk-input', text: 'Major Rivers of India and their Tributaries', label: 'Geography: Rivers' },
+      { inputId: 'gk-input', text: 'Important Battles in Medieval & Modern Indian History', label: 'History: Battles' },
+      { inputId: 'gk-input', text: 'Vitamins and Deficiency Diseases', label: 'Science: Biology' }
+    ]
+    const tips = [
+      "In Indian Polity, memorize Articles 14–32 (Fundamental Rights) and Articles 52–151 (Union Government) thoroughly."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">🌍 Static GK</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Quick revision notes on any Static GK topic.</p>
-      ${inputArea({ id: 'gk-input', placeholder: 'Enter a topic (e.g. Indian Rivers, National Parks, Constitutional Articles)...', btn: 'Get Notes', onSubmit: 'getStaticGK()' })}
-      <div style="margin-top:-4px">${surpriseBtn('static-gk','gk-input','getStaticGK')}</div>
-      <div class="flex flex-wrap gap-2">
-        ${['Indian Geography', 'History', 'Polity', 'Economics', 'Science & Tech', 'Awards & Prizes'].map(t => `
-          <button onclick="quickGK('${t}')" class="chip chip-primary cursor-pointer hover:opacity-80 transition-opacity">${t}</button>
-        `).join('')}
-      </div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-globe', 'Static GK Repository', 'Comprehensive revision notes on History, Polity, Geography, Science & Economy.', '🌍 General Awareness (GK)', presets)}
+      ${inputArea({ id: 'gk-input', placeholder: 'Enter a topic (e.g. Indian Rivers, Fundamental Rights)...', label: 'Static GK Topic or Subject', btn: 'Fetch Revision Notes', onSubmit: 'getStaticGK()', type: 'text', rows: 2, toolId: 'static-gk', triggerFn: 'getStaticGK' })}
       <div id="gk-output"></div>
+      ${toolFooter(['current-affairs', 'ca-linker', 'gk-story-weaver'], tips)}
     </div>`
   }
 
@@ -1754,7 +2155,7 @@ Format in clean HTML.`
     const topic = raw || 'a random static GK topic from SSC CGL syllabus (pick something from: History, Geography, Polity, Economy, Science & Tech, or Awards)'
     if (!raw) showToast('🎲 Generating a surprise GK topic…', 'info')
     const out = document.getElementById('gk-output')
-    out.innerHTML = loadingHTML()
+    out.innerHTML = loadingHTML('Compiling static GK notes...')
     try {
       const res = await callGeneric(todayContext() + `Create comprehensive static GK revision notes on "${topic}" for SSC CGL:
       Include: key facts, important figures/data, exam-tested questions, and memory tips.
@@ -1774,13 +2175,20 @@ Format in clean HTML.`
   // CONCEPT EXPLAINER
   // ═══════════════════════════════════════════════════════════
   function renderConceptExplainer(el) {
+    const presets = [
+      { inputId: 'concept-input', text: 'Trigonometric Identities & Quadrants', label: 'Trigonometry' },
+      { inputId: 'concept-input', text: 'Syllogism 100-50 Method', label: 'Syllogism Method' },
+      { inputId: 'concept-input', text: 'Inflation: CPI vs WPI', label: 'Economics: Inflation' }
+    ]
+    const tips = [
+      "Understand the core concept first before attempting shortcut memorization for long-term retention."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">💡 Concept Explainer</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Get simple, clear explanations of any concept.</p>
-      ${inputArea({ id: 'concept-input', placeholder: 'Enter a concept (e.g. Compound Interest, Blood Relations, Tenses)...', btn: 'Explain', onSubmit: 'explainConcept()' })}
-      <div style="margin-top:4px">${surpriseBtn('concept-explainer','concept-input','explainConcept')}</div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-lightbulb', 'Concept Explainer', 'Get deep, simple, step-by-step explanations of complex exam concepts.', '🧠 Test Prep & Revision', presets)}
+      ${inputArea({ id: 'concept-input', placeholder: 'Enter a concept (e.g. Compound Interest, Syllogism, Tenses)...', label: 'Concept to Explain', btn: 'Explain Concept', onSubmit: 'explainConcept()', type: 'text', rows: 2, toolId: 'concept-explainer', triggerFn: 'explainConcept' })}
       <div id="concept-output"></div>
+      ${toolFooter(['mind-map-generator', 'revision-sheet', 'compare-contrast'], tips)}
     </div>`
   }
 
@@ -1789,7 +2197,7 @@ Format in clean HTML.`
     const concept = raw || 'a random SSC CGL concept (pick something interesting from Quant, Reasoning, or English sections)'
     if (!raw) showToast('🎲 Picking a surprise concept…', 'info')
     const out = document.getElementById('concept-output')
-    out.innerHTML = loadingHTML()
+    out.innerHTML = loadingHTML('Breaking down concept step-by-step...')
     try {
       const res = await callFlow('explain', { concept, _apiKey: STATE.apiKey })
       const eid = 'bkm_' + Date.now()
@@ -1802,18 +2210,33 @@ Format in clean HTML.`
   // COMPARE CONTRAST
   // ═══════════════════════════════════════════════════════════
   function renderCompareContrast(el) {
+    const presets = [
+      { inputId: 'cmp-a', text: 'Lok Sabha', label: 'Lok Sabha vs Rajya Sabha' },
+      { inputId: 'cmp-b', text: 'Rajya Sabha', label: '' }
+    ]
+    const tips = [
+      "Comparison tables are extremely effective for confusing Polity and History concepts."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">⚖️ Compare & Contrast</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Get a clear comparison between two concepts or topics.</p>
-      <div class="card-dark p-5 space-y-3">
-        <input type="text" id="cmp-a" placeholder="First topic (e.g. Lok Sabha)..." class="w-full px-4 py-2.5 text-sm">
-        <input type="text" id="cmp-b" placeholder="Second topic (e.g. Rajya Sabha)..." class="w-full px-4 py-2.5 text-sm">
-        <button onclick="compareTopics()" class="btn-primary w-full py-3 text-sm font-semibold">
-          <i class="fas fa-balance-scale mr-2"></i>Compare
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-balance-scale', 'Compare & Contrast', 'Side-by-side comparative analysis of confusing topics or exam concepts.', '🧠 Test Prep & Revision', presets)}
+      <div class="card-dark" style="padding:18px 20px;display:flex;flex-direction:column;gap:12px;margin-bottom:16px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div>
+            <label style="font-size:12px;font-weight:700;color:#38BDF8">First Topic</label>
+            <input type="text" id="cmp-a" placeholder="e.g. Lok Sabha, Simple Interest..." style="margin-top:6px;padding:11px 14px;font-size:13.5px;background:rgba(10,15,30,0.9);border:1.5px solid rgba(56,189,248,0.22);border-radius:10px;color:#F0F6FF" class="w-full">
+          </div>
+          <div>
+            <label style="font-size:12px;font-weight:700;color:#38BDF8">Second Topic</label>
+            <input type="text" id="cmp-b" placeholder="e.g. Rajya Sabha, Compound Interest..." style="margin-top:6px;padding:11px 14px;font-size:13.5px;background:rgba(10,15,30,0.9);border:1.5px solid rgba(56,189,248,0.22);border-radius:10px;color:#F0F6FF" class="w-full">
+          </div>
+        </div>
+        <button onclick="compareTopics()" class="btn-primary w-full" style="padding:12px 18px;font-size:13.5px;font-weight:700">
+          <i class="fas fa-balance-scale" style="font-size:12px"></i> Generate Comparison Table
         </button>
       </div>
       <div id="cmp-output"></div>
+      ${toolFooter(['concept-explainer', 'static-gk'], tips)}
     </div>`
   }
 
@@ -1822,7 +2245,7 @@ Format in clean HTML.`
     const b = document.getElementById('cmp-b').value.trim()
     if (!a || !b) return showToast('Please enter both topics', 'error')
     const out = document.getElementById('cmp-output')
-    out.innerHTML = loadingHTML()
+    out.innerHTML = loadingHTML('Building comparison matrix...')
     try {
       const res = await callGeneric(todayContext() + `Create a comprehensive comparison table for SSC CGL between "${a}" and "${b}":
       Include: definition, key features, similarities, differences, exam-relevant facts, and memory tips.
@@ -1837,16 +2260,21 @@ Format in clean HTML.`
   // ACRONYMS
   // ═══════════════════════════════════════════════════════════
   function renderAcronyms(el) {
+    const presets = [
+      { inputId: 'acro-input', text: 'NABARD', label: 'NABARD' },
+      { inputId: 'acro-input', text: 'IRDAI', label: 'IRDAI' },
+      { inputId: 'acro-input', text: 'NITI Aayog', label: 'NITI Aayog' },
+      { inputId: 'acro-input', text: 'UNICEF', label: 'UNICEF' }
+    ]
+    const tips = [
+      "Look out for full forms of financial regulatory bodies and international organizations in SSC CGL Tier-1 GA."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">🔤 Acronym Explainer</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Decode important acronyms and abbreviations for SSC CGL.</p>
-      ${inputArea({ id: 'acro-input', placeholder: 'Enter an acronym (e.g. NABARD, SEBI, IRDAI, NATO)...', btn: 'Decode', onSubmit: 'explainAcronym()' })}
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:4px">
-        <button onclick="listImportantAcronyms()" class="text-sm text-primary hover:underline">Show top 20 SSC CGL acronyms →</button>
-        ${surpriseBtn('acronym-explainer','acro-input','explainAcronym')}
-      </div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-font', 'Acronym Decrypter', 'Decode important abbreviations, government bodies, and international organizations.', '🌍 General Awareness (GK)', presets)}
+      ${inputArea({ id: 'acro-input', placeholder: 'Enter an acronym (e.g. NABARD, SEBI, IRDAI)...', label: 'Acronym or Abbreviation', btn: 'Decode & Explain', onSubmit: 'explainAcronym()', type: 'text', rows: 2, toolId: 'acronym-explainer', triggerFn: 'listImportantAcronyms' })}
       <div id="acro-output"></div>
+      ${toolFooter(['current-affairs', 'static-gk'], tips)}
     </div>`
   }
 
@@ -1855,7 +2283,7 @@ Format in clean HTML.`
     const acronym = raw || 'a random important acronym from the SSC CGL General Awareness syllabus (pick a financial, scientific, or governmental body acronym)'
     if (!raw) showToast('🎲 Picking a surprise acronym…', 'info')
     const out = document.getElementById('acro-output')
-    out.innerHTML = loadingHTML()
+    out.innerHTML = loadingHTML('Decoding acronym & fetching facts...')
     try {
       const res = await callGeneric(todayContext() + `Explain the acronym "${acronym}" for SSC CGL:
       1) Full form, 2) What it does/represents, 3) When established, 4) Headquarters (if applicable), 5) Key exam-relevant facts.
@@ -1868,7 +2296,7 @@ Format in clean HTML.`
 
   async function listImportantAcronyms() {
     const out = document.getElementById('acro-output')
-    out.innerHTML = loadingHTML()
+    out.innerHTML = loadingHTML('Compiling top 25 exam acronyms...')
     try {
       const res = await callGeneric(todayContext() + `List the 25 most important acronyms for SSC CGL General Awareness in a clean HTML table with columns: Acronym, Full Form, Brief Note.`)
       const eid = 'bkm_' + Date.now()
@@ -1881,13 +2309,19 @@ Format in clean HTML.`
   // CA LINKER
   // ═══════════════════════════════════════════════════════════
   function renderCALinker(el) {
+    const presets = [
+      { inputId: 'link-input', text: 'India launches new satellite Chandrayaan-4 mission.', label: 'Space Mission' },
+      { inputId: 'link-input', text: 'Supreme Court bench rules on Electoral Bonds validity.', label: 'Polity & Judiciary' }
+    ]
+    const tips = [
+      "SSC examiners frequently frame Static GK questions based on recent news events (e.g. asking about Constitutional Articles related to a recent court ruling)."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">🔗 Current Affairs Linker</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Link current events to static GK for deeper understanding.</p>
-      ${inputArea({ id: 'link-input', placeholder: 'Enter a current affairs article/topic...', btn: 'Link to Static', onSubmit: 'linkCAtoStatic()', type: 'textarea', rows: 3 })}
-      <div style="margin-top:4px">${surpriseBtn('ca-linker','link-input','linkCAtoStatic')}</div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-link', 'CA to Static Linker', 'Connect recent news headlines to underlying static GK concepts for 360° preparation.', '🌍 General Awareness (GK)', presets)}
+      ${inputArea({ id: 'link-input', placeholder: 'Enter a current news event or headline...', label: 'Current News Headline or Event', btn: 'Link News to Static GK', onSubmit: 'linkCAtoStatic()', type: 'textarea', rows: 3, toolId: 'ca-linker', triggerFn: 'linkCAtoStatic' })}
       <div id="link-output"></div>
+      ${toolFooter(['current-affairs', 'static-gk'], tips)}
     </div>`
   }
 
@@ -1909,18 +2343,26 @@ Format in clean HTML.`
   }
 
   // ═══════════════════════════════════════════════════════════
+  // ═══════════════════════════════════════════════════════════
   // FLASHCARDS
   // ═══════════════════════════════════════════════════════════
   let flashcards = [], fcIndex = 0, fcFlipped = false
 
   function renderFlashcards(el) {
+    const presets = [
+      { inputId: 'fc-topic', text: 'Important Constitutional Articles & Schedules', label: 'Polity Articles' },
+      { inputId: 'fc-topic', text: 'High-Frequency SSC CGL Synonyms & Antonyms', label: 'Vocab Flashcards' },
+      { inputId: 'fc-topic', text: 'Quant Mensuration 2D & 3D Formulas', label: 'Quant Formulas' }
+    ]
+    const tips = [
+      "Use spaced repetition: test yourself on cards you got wrong 24 hours later to lock facts into long-term memory."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">🗂️ Flashcards</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Generate and study active recall flashcards.</p>
-      ${inputArea({ id: 'fc-topic', placeholder: 'Enter a topic (e.g. Indian Rivers, Idioms, Percentage Formulas)...', btn: 'Create Cards', onSubmit: 'generateFlashcards()' })}
-      <div style="margin-top:4px">${surpriseBtn('flashcards','fc-topic','generateFlashcards')}</div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-layer-group', 'Active Recall Flashcards', 'Generate digital flashcards for fast retrieval and spaced repetition study.', '🧠 Test Prep & Revision', presets)}
+      ${inputArea({ id: 'fc-topic', placeholder: 'Enter a topic (e.g. Indian Rivers, Vocab, Formulas)...', label: 'Flashcard Topic or Subject', btn: 'Generate 10 Flashcards', onSubmit: 'generateFlashcards()', type: 'text', rows: 2, toolId: 'flashcards', triggerFn: 'generateFlashcards' })}
       <div id="fc-output"></div>
+      ${toolFooter(['mind-map-generator', 'mnemonic-generator', 'interactive-smart-revision'], tips)}
     </div>`
   }
 
@@ -1989,13 +2431,20 @@ Format in clean HTML.`
   // MIND MAP
   // ═══════════════════════════════════════════════════════════
   function renderMindMap(el) {
+    const presets = [
+      { inputId: 'mm-input', text: 'Indian Constitution Architecture & Sources', label: 'Polity Map' },
+      { inputId: 'mm-input', text: 'Mughal Empire Rulers & Achievements', label: 'History Map' },
+      { inputId: 'mm-input', text: 'Algebraic Identities & Formulas', label: 'Maths Map' }
+    ]
+    const tips = [
+      "Visual mind maps improve retention by 40% compared to reading linear textbook paragraphs."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">🗺️ Mind Map Generator</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Get structured mind maps to visualise complex topics.</p>
-      ${inputArea({ id: 'mm-input', placeholder: 'Enter a topic (e.g. Indian Constitution, Profit & Loss)...', btn: 'Create Map', onSubmit: 'generateMindMap()' })}
-      <div style="margin-top:4px">${surpriseBtn('mind-map-generator','mm-input','generateMindMap')}</div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-project-diagram', 'Visual Mind Maps', 'Generate structured visual mind maps to grasp complex topic hierarchies.', '🧠 Test Prep & Revision', presets)}
+      ${inputArea({ id: 'mm-input', placeholder: 'Enter a topic (e.g. Indian Constitution, Profit & Loss)...', label: 'Mind Map Topic', btn: 'Generate Visual Mind Map', onSubmit: 'generateMindMap()', type: 'text', rows: 2, toolId: 'mind-map-generator', triggerFn: 'generateMindMap' })}
       <div id="mm-output"></div>
+      ${toolFooter(['concept-explainer', 'revision-sheet', 'flashcards'], tips)}
     </div>`
   }
 
@@ -2004,7 +2453,7 @@ Format in clean HTML.`
     const topic = raw || 'a random SSC CGL topic suitable for a mind map (pick from: Indian Polity, History, Science, Maths concepts, or Economics)'
     if (!raw) showToast('🎲 Building a surprise mind map…', 'info')
     const out = document.getElementById('mm-output')
-    out.innerHTML = loadingHTML()
+    out.innerHTML = loadingHTML('Building visual mind map structure...')
     try {
       const res = await callGeneric(todayContext() + `Create a detailed mind map for "${topic}" for SSC CGL preparation. 
       Format it as a well-structured HTML mind map with the central topic in the centre, main branches, and sub-branches. 
@@ -2019,13 +2468,20 @@ Format in clean HTML.`
   // MNEMONICS
   // ═══════════════════════════════════════════════════════════
   function renderMnemonics(el) {
+    const presets = [
+      { inputId: 'mnem-input', text: 'Names of Fundamental Rights Articles 14-32', label: 'Fundamental Rights' },
+      { inputId: 'mnem-input', text: '9 Neighboring Countries of India', label: 'India Neighbors' },
+      { inputId: 'mnem-input', text: 'Order of Taxonomical Classification (Kingdom, Phylum...)', label: 'Biology Classification' }
+    ]
+    const tips = [
+      "Rhyming and acronym mnemonics are best for memorizing long ordered lists."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">🪄 Mnemonic Generator</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Create memorable mnemonics to remember any list or concept.</p>
-      ${inputArea({ id: 'mnem-input', placeholder: 'Enter what you need to remember (e.g. Planet names in order, Types of soil)...', btn: 'Create Mnemonic', onSubmit: 'generateMnemonic()' })}
-      <div style="margin-top:4px">${surpriseBtn('mnemonic-generator','mnem-input','generateMnemonic')}</div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-magic', 'Memory Mnemonics', 'Create catchy memory aids and acronym tricks for hard-to-remember facts.', '🧠 Test Prep & Revision', presets)}
+      ${inputArea({ id: 'mnem-input', placeholder: 'Enter what you need to remember (e.g. Planet names, Soil types)...', label: 'Concept or List to Memorize', btn: 'Generate Mnemonics', onSubmit: 'generateMnemonic()', type: 'text', rows: 2, toolId: 'mnemonic-generator', triggerFn: 'generateMnemonic' })}
       <div id="mnem-output"></div>
+      ${toolFooter(['flashcards', 'acronym-explainer', 'gk-story-weaver'], tips)}
     </div>`
   }
 
@@ -2034,7 +2490,7 @@ Format in clean HTML.`
     const input = raw || 'a random list or concept from the SSC CGL syllabus that is commonly hard to memorise (e.g. Constitutional Schedules, Vitamins, Indian dance forms, Trigonometry identities)'
     if (!raw) showToast('🎲 Generating a surprise mnemonic…', 'info')
     const out = document.getElementById('mnem-output')
-    out.innerHTML = loadingHTML()
+    out.innerHTML = loadingHTML('Crafting memory tricks...')
     try {
       const res = await callGeneric(todayContext() + `Create 2-3 creative, memorable mnemonics to help an SSC CGL aspirant remember: "${input}"
       Include: acronym-based, story-based, and visual mnemonics if applicable. Explain how each mnemonic works.
@@ -2049,12 +2505,18 @@ Format in clean HTML.`
   // SUMMARIZER
   // ═══════════════════════════════════════════════════════════
   function renderSummarizer(el) {
+    const presets = [
+      { inputId: 'summ-input', text: 'The Reserve Bank of India (RBI) is India\'s central bank and regulatory body responsible for regulation of the Indian banking system. It is under the ownership of Ministry of Finance, Government of India. It is responsible for the control, issue and maintaining supply of the Indian rupee.', label: 'Sample RBI Text' }
+    ]
+    const tips = [
+      "Summarizing long editorials daily boosts your reading speed for Tier-2 English."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">📋 Document Summarizer</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Paste any text and get a concise summary with key points.</p>
-      ${inputArea({ id: 'summ-input', placeholder: 'Paste your notes, article, or text here...', btn: 'Summarize', onSubmit: 'summarizeDocument()', type: 'textarea', rows: 6 })}
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-compress-alt', 'Document Summarizer', 'Paste long articles, study notes, or news editorials for high-yield summaries.', '🧠 Test Prep & Revision', presets)}
+      ${inputArea({ id: 'summ-input', placeholder: 'Paste your notes or article text here...', label: 'Article / Notes Text to Summarize', btn: 'Summarize Text', onSubmit: 'summarizeDocument()', type: 'textarea', rows: 5, toolId: 'document-summarizer', triggerFn: 'summarizeDocument' })}
       <div id="summ-output"></div>
+      ${toolFooter(['revision-sheet', 'rc-practice'], tips)}
     </div>`
   }
 
@@ -2075,13 +2537,20 @@ Format in clean HTML.`
   // REVISION SHEET
   // ═══════════════════════════════════════════════════════════
   function renderRevisionSheet(el) {
+    const presets = [
+      { inputId: 'rev-sheet-input', text: 'Trigonometry Ratios, Identities & Heights', label: 'Trigonometry Cheatsheet' },
+      { inputId: 'rev-sheet-input', text: 'Indian Polity Articles, Schedules & Amendments', label: 'Polity Cheatsheet' },
+      { inputId: 'rev-sheet-input', text: 'SSC CGL Tier-1 English Grammar Rules & Prepositions', label: 'Grammar Cheatsheet' }
+    ]
+    const tips = [
+      "Print or screenshot revision sheets and review them 30 minutes before taking any Mock Test."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">📃 Revision Sheet Generator</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Get a quick-reference cheatsheet on any topic.</p>
-      ${inputArea({ id: 'rev-sheet-input', placeholder: 'Enter topics (e.g. Trigonometry formulas, Prepositions, Presidents of India)...', btn: 'Create Sheet', onSubmit: 'generateRevisionSheet()' })}
-      <div style="margin-top:4px">${surpriseBtn('revision-sheet','rev-sheet-input','generateRevisionSheet')}</div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-clipboard-list', 'Quick Revision Cheatsheet', 'Generate dense, high-yield one-page cheatsheets for fast pre-exam revision.', '🧠 Test Prep & Revision', presets)}
+      ${inputArea({ id: 'rev-sheet-input', placeholder: 'Enter topics (e.g. Trigonometry formulas, Polity Articles)...', label: 'Cheatsheet Topics or Subject', btn: 'Generate Revision Cheatsheet', onSubmit: 'generateRevisionSheet()', type: 'text', rows: 2, toolId: 'revision-sheet', triggerFn: 'generateRevisionSheet' })}
       <div id="rev-sheet-output"></div>
+      ${toolFooter(['formula-bank', 'mind-map-generator', 'document-summarizer'], tips)}
     </div>`
   }
 
@@ -2090,7 +2559,7 @@ Format in clean HTML.`
     const topics = raw || 'a random high-value SSC CGL topic (pick something frequently tested: Formulas, Grammar rules, GK facts, or Polity)'
     if (!raw) showToast('🎲 Creating a surprise revision sheet…', 'info')
     const out = document.getElementById('rev-sheet-output')
-    out.innerHTML = loadingHTML()
+    out.innerHTML = loadingHTML('Compiling one-page cheatsheet...')
     try {
       const res = await callGeneric(todayContext() + `Create a concise, print-ready revision sheet for "${topics}" for SSC CGL.
       Include: formulas, key facts, shortcuts, important dates/numbers, and common question types.
@@ -2106,12 +2575,18 @@ Format in clean HTML.`
   // TTS
   // ═══════════════════════════════════════════════════════════
   function renderTTS(el) {
+    const presets = [
+      { inputId: 'tts-input', text: 'Fundamental Rights under Article 12 to 35 of the Indian Constitution guarantee civil liberties to all citizens.', label: 'Sample Audio Text' }
+    ]
+    const tips = [
+      "Listening to audio revisions while commuting or resting helps build passive recall of GK facts."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">🎧 Audio Revision</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Listen to your notes with text-to-speech.</p>
-      ${inputArea({ id: 'tts-input', placeholder: 'Paste text to convert to audio...', btn: 'Listen', onSubmit: 'playTTS()', type: 'textarea', rows: 4 })}
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-headphones', 'Audio Revision (TTS)', 'Convert your notes and facts into clear audio playback for hands-free study.', '🧠 Test Prep & Revision', presets)}
+      ${inputArea({ id: 'tts-input', placeholder: 'Paste text or notes to convert to audio...', label: 'Text to Play as Audio', btn: 'Play Audio Revision', onSubmit: 'playTTS()', type: 'textarea', rows: 4, toolId: 'tts', triggerFn: 'playTTS' })}
       <div id="tts-output"></div>
+      ${toolFooter(['document-summarizer', 'revision-sheet'], tips)}
     </div>`
   }
 
@@ -2180,65 +2655,68 @@ Format in clean HTML.`
   }
 
   function chatUI(title, icon, desc, historyKey, type, inputId, btnLabel) {
-    const history = STATE[historyKey]
+    const history = STATE[historyKey] || []
+    const presets = [
+      { inputId, text: 'Explain the most important short-tricks for Mensuration & Geometry in SSC CGL.', label: 'Math Shortcuts' },
+      { inputId, text: 'Give me 5 high-frequency vocabulary words with mnemonics for SSC CGL Tier-1.', label: 'Vocab Boost' },
+      { inputId, text: 'Explain Article 32 of Indian Constitution and its 5 Writs with memory tricks.', label: 'Polity Writs' },
+      { inputId, text: 'How should I structure my last 30 days revision for Tier-1 to maximize score?', label: 'Strategy Guide' }
+    ]
     return `
-    <div style="display:flex;flex-direction:column;height:72vh;width:100%">
-      <div style="margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--border-subtle)">
-        <div>
-          <div style="display:flex;align-items:center;gap:8px">
-            <span style="font-size:18px">${icon}</span>
-            <h2 class="font-headline" style="font-size:16px;font-weight:800;color:var(--text-primary)">${title}</h2>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-user-astronaut', title, desc, '🤖 AI Tutors & Mentors', presets)}
+      <div class="card-dark" style="padding:22px 24px;border:1.5px solid rgba(99,102,241,0.35);background:rgba(17,28,53,0.95);box-shadow:0 6px 24px rgba(0,0,0,0.4)">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid rgba(99,102,241,0.2)">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#6366F1,#4F46E5);display:flex;align-items:center;justify-content:center;box-shadow:0 0 10px rgba(99,102,241,0.4)">
+              <span style="font-size:16px">${icon}</span>
+            </div>
+            <div>
+              <span style="font-size:14px;font-weight:800;color:#F0F6FF">${title} Workspace</span>
+              <div style="font-size:11px;color:#C7D2FE">Live AI Session Active</div>
+            </div>
           </div>
-          <p style="font-size:12px;color:var(--text-muted);margin-top:2px;padding-left:26px">${desc}</p>
+          <button onclick="clearChat('${historyKey}')" class="card-action-btn" style="border-color:rgba(239,68,68,0.4);color:#FCA5A5" title="Clear chat history">
+            <i class="fas fa-trash-alt" style="font-size:10.5px;color:#F87171"></i> Clear Chat
+          </button>
         </div>
-        <button onclick="clearChat('${historyKey}')" class="btn-ghost" style="font-size:11.5px;padding:6px 10px;color:var(--text-muted)">
-          <i class="fas fa-trash" style="font-size:10px"></i> Clear
-        </button>
-      </div>
-      <div style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:4px 2px" id="chat-${type}">
-        ${history.length === 0
-          ? `<div style="display:flex;align-items:center;justify-content:center;flex:1;color:var(--text-muted);font-size:13px">
-               <div style="text-align:center">
-                 <i class="fas fa-comments" style="font-size:28px;margin-bottom:10px;opacity:0.3;display:block"></i>
-                 Start the conversation…
-               </div>
-             </div>`
-          : history.map(msg => `
+
+        <div id="chat-${type}" style="min-height:300px;max-height:480px;overflow-y:auto;padding:16px 12px;display:flex;flex-direction:column;gap:14px;margin-top:12px">
+          ${history.length === 0 ? `
+            <div style="text-align:center;padding:40px 20px;color:#94AAC8">
+              <div style="font-size:32px;margin-bottom:10px">${icon}</div>
+              <p style="font-size:13.5px;font-weight:700;color:#F0F6FF">Start a conversation with your ${title}</p>
+              <p style="font-size:12px;color:#94AAC8;margin-top:4px">Select a quick prompt preset above or type your question below!</p>
+            </div>
+          ` : history.map((msg) => `
             <div style="display:flex;justify-content:${msg.role === 'user' ? 'flex-end' : 'flex-start'}" class="animate-fade-in">
-              <div style="max-width:78%;padding:10px 14px" class="${msg.role === 'user' ? 'chat-bubble-user' : 'chat-bubble-model'}">
-                <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:5px">
-                  <span style="font-size:10.5px;font-weight:700;color:${msg.role === 'user' ? '#38BDF8' : 'var(--text-muted)'}">
-                    ${msg.role === 'user' ? 'You' : title}
+              <div style="max-width:82%;padding:14px 18px;border-radius:14px;background:${msg.role === 'user' ? 'linear-gradient(135deg,rgba(99,102,241,0.25),rgba(56,189,248,0.18))' : 'rgba(10,15,30,0.92)'};border:1.5px solid ${msg.role === 'user' ? 'rgba(99,102,241,0.45)' : 'rgba(56,189,248,0.22)'};box-shadow:0 4px 16px rgba(0,0,0,0.3)">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px">
+                  <span style="font-size:11px;font-weight:800;color:${msg.role === 'user' ? '#818CF8' : '#38BDF8'}">
+                    ${msg.role === 'user' ? '👤 You' : `${icon} ${title}`}
                   </span>
-                  <div style="display:flex;align-items:center;gap:4px">
-                    <button onclick="copyMsgText(this)" class="card-action-btn" style="padding:1px 6px;font-size:9.5px" title="Copy message">
-                      <i class="fas fa-copy"></i>
-                    </button>
-                    <button onclick="toggleEditMsg(this)" class="card-action-btn" style="padding:1px 6px;font-size:9.5px" title="Edit message">
-                      <i class="fas fa-edit"></i>
-                    </button>
-                  </div>
+                  <button onclick="copyMsgText(this)" class="card-action-btn" style="padding:2px 7px;font-size:10px" title="Copy message">
+                    <i class="fas fa-copy" style="font-size:9px"></i>
+                  </button>
                 </div>
                 <div class="prose" style="font-size:13px">${msg.role === 'user' ? msg.content[0].text : sanitizeAIHTML(msg.content[0].text)}</div>
               </div>
             </div>
           `).join('')}
-        <div id="chat-end-${type}"></div>
+          <div id="chat-end-${type}"></div>
+        </div>
+
+        <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+          <input type="text" id="${inputId}" placeholder="Ask your ${title} anything about SSC CGL..."
+            style="flex:1;padding:12px 16px;font-size:13.5px;background:rgba(10,15,30,0.95);border:1.5px solid rgba(99,102,241,0.35);border-radius:10px;color:#F0F6FF"
+            onkeydown="if(event.key==='Enter') sendChat('${historyKey}', '${type}', '${inputId}')">
+          <button onclick="sendChat('${historyKey}', '${type}', '${inputId}')"
+            class="btn-primary" style="padding:12px 22px;flex-shrink:0;font-weight:700;background:linear-gradient(135deg,#6366F1,#4F46E5) !important;border:none !important">
+            <i class="fas fa-paper-plane" style="font-size:12px"></i> ${btnLabel || 'Send'}
+          </button>
+        </div>
       </div>
-      <div style="margin-top:10px;display:flex;gap:6px">
-        <input type="text" id="${inputId}" placeholder="Type your message…"
-          style="flex:1;padding:10px 14px;font-size:13.5px;border-radius:8px"
-          onkeydown="if(event.key==='Enter') sendChat('${historyKey}', '${type}', '${inputId}')">
-        <button type="button" onclick="copyInputText('${inputId}')" class="card-action-btn" style="padding:9px 12px" title="Copy input text">
-          <i class="fas fa-copy"></i> Copy
-        </button>
-        <button type="button" onclick="clearOrEditInput('${inputId}')" class="card-action-btn" style="padding:9px 12px" title="Clear/Edit input text">
-          <i class="fas fa-pen-square"></i> Clear/Edit
-        </button>
-        <button onclick="sendChat('${historyKey}', '${type}', '${inputId}')"
-          class="btn-primary" style="padding:10px 18px;flex-shrink:0">
-          <i class="fas fa-paper-plane" style="font-size:12px"></i>
-        </button>
+      ${toolFooter(['ai-tutor', 'study-buddy', 'debate-simulator', 'interview-simulator'], ['Break down complex subjects into 10-minute micro-study sessions to maximize memory retention.'], '🤖 AI Tutors & Mentors')}
     </div>`
   }
 
@@ -2304,13 +2782,20 @@ Format in clean HTML.`
   // GK STORY WEAVER
   // ═══════════════════════════════════════════════════════════
   function renderGKStory(el) {
+    const presets = [
+      { inputId: 'story-input', text: 'India\'s Space Programme & ISRO Achievements', label: 'ISRO History' },
+      { inputId: 'story-input', text: 'Revolt of 1857 & Freedom Struggle Pioneers', label: 'Revolt of 1857' },
+      { inputId: 'story-input', text: 'The Journey of Indian Constitution Framing', label: 'Constitution Story' }
+    ]
+    const tips = [
+      "Narrative memory anchors make history dates and polity facts 3x easier to recall in exam situations."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">📚 GK Story Weaver</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Learn GK through engaging stories – great for retention!</p>
-      ${inputArea({ id: 'story-input', placeholder: 'Enter a GK topic (e.g. India\'s Space Programme, British Raj, Indian Rivers)...', btn: 'Weave Story', onSubmit: 'generateGKStory()' })}
-      <div style="margin-top:4px">${surpriseBtn('gk-story-weaver','story-input','generateGKStory')}</div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-book-open', 'GK Story Weaver', 'Learn complex General Awareness topics through engaging, memorable narrative stories.', '🤖 AI Tutors & Mentors', presets)}
+      ${inputArea({ id: 'story-input', placeholder: 'Enter a GK topic (e.g. India\'s Space Programme, British Raj, Indian Rivers)...', label: 'GK Topic or Historical Event', btn: 'Weave Story', onSubmit: 'generateGKStory()', type: 'text', rows: 2, toolId: 'gk-story-weaver', triggerFn: 'generateGKStory' })}
       <div id="story-output"></div>
+      ${toolFooter(['static-gk', 'current-affairs', 'mnemonic-generator'], tips)}
     </div>`
   }
 
@@ -2334,18 +2819,34 @@ Format in clean HTML.`
   // HOBBY CONNECTOR
   // ═══════════════════════════════════════════════════════════
   function renderHobbyConnector(el) {
+    const presets = [
+      { inputId: 'hobby-name', text: 'Cricket', label: 'Cricket' },
+      { inputId: 'hobby-name', text: 'Photography', label: 'Photography' },
+      { inputId: 'hobby-name', text: 'Cooking', label: 'Cooking' }
+    ]
+    const tips = [
+      "Connecting personal interests to syllabus topics builds natural curiosity and effortless retention."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">❤️ Hobby Connector</h2>
-      <p style="font-size:12.5px;color:var(--text-muted);margin-top:3px">Connect your hobbies to SSC CGL topics for interesting answers.</p>
-      <div class="card-dark p-5 space-y-3">
-        <input type="text" id="hobby-name" placeholder="Your hobby (e.g. Cricket, Cooking, Photography)..." class="w-full px-4 py-2.5 text-sm">
-        <input type="text" id="hobby-topic" placeholder="GK topic to connect to (e.g. Geography, Science)..." class="w-full px-4 py-2.5 text-sm">
-        <button onclick="connectHobby()" class="btn-primary w-full py-3 text-sm font-semibold">
-          <i class="fas fa-heart mr-2"></i>Connect & Learn
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-heart', 'Hobby Connector', 'Connect your hobbies and interests to SSC CGL General Awareness & exam concepts.', '🤖 AI Tutors & Mentors', presets)}
+      
+      <div class="card-dark" style="padding:20px 22px;display:flex;flex-direction:column;gap:14px;margin-bottom:16px;border:1px solid rgba(56,189,248,0.18)">
+        <div>
+          <label style="font-size:12px;font-weight:700;color:#38BDF8">Your Hobby or Interest</label>
+          <input type="text" id="hobby-name" placeholder="e.g. Cricket, Cooking, Photography, Gaming..." style="margin-top:4px;padding:11px 14px;font-size:13.5px;background:rgba(10,15,30,0.9);border:1.5px solid rgba(56,189,248,0.22);border-radius:10px;color:#F0F6FF" class="w-full">
+        </div>
+        <div>
+          <label style="font-size:12px;font-weight:700;color:#38BDF8">SSC CGL Subject / Topic (Optional)</label>
+          <input type="text" id="hobby-topic" placeholder="e.g. Physics, Geography, Indian Economy..." style="margin-top:4px;padding:11px 14px;font-size:13.5px;background:rgba(10,15,30,0.9);border:1.5px solid rgba(56,189,248,0.22);border-radius:10px;color:#F0F6FF" class="w-full">
+        </div>
+        <button onclick="connectHobby()" class="btn-primary" style="padding:12px 18px;font-size:13.5px;font-weight:700">
+          <i class="fas fa-link" style="font-size:12px"></i> Connect Hobby to SSC Syllabus
         </button>
       </div>
+
       <div id="hobby-output"></div>
+      ${toolFooter(['static-gk', 'gk-story-weaver'], tips)}
     </div>`
   }
 
@@ -2369,44 +2870,76 @@ Format in clean HTML.`
   // HISTORY LOGS
   // ═══════════════════════════════════════════════════════════
   function renderHistoryLogs(el) {
-    const logs = STATE.historyLog
+    const logs = STATE.historyLog || []
+    const tips = [
+      "Reviewing past generated questions helps reinforce long-term memory and prevents repeating past mistakes."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:14px">
-      <div class="flex items-center justify-between">
-        <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">📜 History & Logs</h2>
-        <button onclick="clearHistory()" class="text-xs text-red-400 hover:text-red-300 px-3 py-1.5 rounded-lg transition-colors">
-          <i class="fas fa-trash mr-1"></i>Clear All
-        </button>
-      </div>
-      <p class="text-xs text-slate-500">Click any entry to view full details.</p>
-      ${logs.length === 0 ? `<div class="text-center py-16 text-slate-500"><i class="fas fa-history text-4xl block mb-3" style="color:rgba(14,165,233,0.3)"></i><p>No history yet. Start using the tools!</p></div>` :
-        logs.map(entry => `
-          <div class="card-dark-sm p-4 cursor-pointer hover:border-sky-500/50 hover:shadow-sky-900/20 hover:shadow-lg transition-all group" onclick="openHistoryModal(${entry.id})">
-            <div class="flex items-start justify-between gap-3">
-              <div class="flex-1 min-w-0">
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="chip chip-primary">${entry.tool}</span>
-                  <span class="text-xs text-slate-500">${new Date(entry.timestamp).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</span>
-                </div>
-                <p class="text-sm text-slate-400 truncate"><span class="text-slate-600">Input:</span> ${entry.input}</p>
-                <p class="text-sm text-slate-500 truncate"><span class="text-slate-600">Output:</span> ${entry.output?.slice(0, 80)}...</p>
-              </div>
-              <div class="opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 flex items-center gap-1 text-sky-400">
-                <i class="fas fa-eye text-sm"></i>
-                <span class="text-xs">View</span>
-              </div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-history', 'History & Session Logs', 'Complete history of all generated practice questions, solutions & sessions.', '📁 Saved & History')}
+      
+      <div class="card-dark card-3d" style="padding:24px 26px;border:1.5px solid rgba(56,189,248,0.35);margin-bottom:20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(56,189,248,0.2)">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0284C7,#0369A1);display:flex;align-items:center;justify-content:center;box-shadow:0 0 10px rgba(56,189,248,0.4)">
+              <i class="fas fa-history" style="color:#FFF;font-size:16px"></i>
+            </div>
+            <div>
+              <h3 style="font-size:15.5px;font-weight:800;color:#F0F6FF">Session History Record</h3>
+              <p style="font-size:12px;color:#94AAC8;margin-top:2px">Hover over any question box to reveal <b>View</b> and <b>Remove</b> options</p>
             </div>
           </div>
-        `).join('')}
+          ${logs.length > 0 ? `
+          <button onclick="clearHistory()" class="btn-danger-3d">
+            <i class="fas fa-trash-alt"></i> Clear All History
+          </button>` : ''}
+        </div>
+
+        <div style="max-height:620px;overflow-y:auto;padding-right:8px;display:flex;flex-direction:column;gap:12px">
+          ${logs.length === 0 ? `
+          <div style="text-align:center;padding:54px 20px;color:#94AAC8">
+            <i class="fas fa-history" style="font-size:42px;color:rgba(56,189,248,0.3);margin-bottom:14px;display:block"></i>
+            <p style="font-size:16px;font-weight:800;color:#F0F6FF">No practice history recorded yet</p>
+            <p style="font-size:13px;margin-top:4px">Solve questions using any tool and your history will be logged here automatically.</p>
+          </div>` :
+          logs.map(entry => {
+            const promptText = entry.input || entry.prompt || 'Generated Question'
+            const dateStr = entry.timestamp ? new Date(entry.timestamp).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) : 'Recent'
+            return `
+            <div class="history-card-box card-3d" onclick="openHistoryModal('${entry.id}')">
+              <div style="display:flex;flex-direction:column;gap:6px;flex:1;min-width:0">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <span class="highlight-pill-3d" style="background:rgba(56,189,248,0.18);color:#7DD3FC;border:1px solid rgba(56,189,248,0.35)">${entry.tool || 'AI Practice'}</span>
+                  <span style="font-size:11.5px;color:#94AAC8;font-weight:500"><i class="fas fa-clock" style="font-size:10px;margin-right:4px"></i>${dateStr}</span>
+                </div>
+                <div style="font-size:13.5px;color:#F0F6FF;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+                  <span style="color:#38BDF8;font-size:11.5px;text-transform:uppercase;letter-spacing:0.04em;font-weight:800">Question:</span> ${promptText}
+                </div>
+              </div>
+              <div class="history-card-actions">
+                <button type="button" onclick="event.stopPropagation(); openHistoryModal('${entry.id}')" class="btn-view-3d">
+                  <i class="fas fa-eye" style="font-size:10px"></i> View
+                </button>
+                <button type="button" onclick="event.stopPropagation(); removeHistoryItem('${entry.id}')" class="btn-danger-3d" style="min-width:80px !important">
+                  <i class="fas fa-trash-alt" style="font-size:10px"></i> Remove
+                </button>
+              </div>
+            </div>`
+          }).join('')}
+        </div>
+      </div>
+      ${toolFooter(['bookmarks', 'performance-dashboard'], tips)}
     </div>`
   }
 
   function clearHistory() {
-    if (confirm('Clear all history?')) {
+    if (confirm('Clear all history entries?')) {
       STATE.historyLog = []
       saveState()
       delete STATE.toolCache['history-logs']
-      switchTool('history-logs')
+      delete STATE.toolCache['history-log']
+      renderTool('history-logs', document.getElementById('tool-container'))
+      showToast('All history entries cleared', 'info')
     }
   }
 
@@ -2414,75 +2947,74 @@ Format in clean HTML.`
   // BOOKMARKS SECTION
   // ═══════════════════════════════════════════════════════════
   function renderBookmarks(el) {
-    const bkms = STATE.bookmarks
-    const grouped = {}
-    bkms.forEach(b => {
-      if (!grouped[b.tool]) grouped[b.tool] = []
-      grouped[b.tool].push(b)
-    })
-
+    const bkms = STATE.bookmarks || []
+    const tips = [
+      "Targeted revision of saved bookmarks 48 hours before mock tests significantly increases conceptual accuracy."
+    ]
     el.innerHTML = `
-    <div class="w-full space-y-5 animate-fade-in">
-      <div class="flex items-center justify-between">
-        <div>
-          <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">📌 Bookmarks</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Saved responses for quick revision. Click to open, unbookmark to remove.</p>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-bookmark', 'Saved Bookmarks', 'Your saved questions, solutions & notes for quick revision.', '📁 Saved & History')}
+      
+      <div class="card-dark card-3d" style="padding:24px 26px;border:1.5px solid rgba(56,189,248,0.35);margin-bottom:20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(56,189,248,0.2)">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#F59E0B,#D97706);display:flex;align-items:center;justify-content:center;box-shadow:0 0 10px rgba(245,158,11,0.4)">
+              <i class="fas fa-bookmark" style="color:#FFF;font-size:16px"></i>
+            </div>
+            <div>
+              <h3 style="font-size:15.5px;font-weight:800;color:#F0F6FF">Saved Bookmarks Repository</h3>
+              <p style="font-size:12px;color:#94AAC8;margin-top:2px">Hover over any question box to reveal <b>View</b> and <b>Remove</b> options</p>
+            </div>
+          </div>
+          ${bkms.length > 0 ? `
+          <button onclick="clearAllBookmarks()" class="btn-danger-3d">
+            <i class="fas fa-trash-alt"></i> Clear All Bookmarks
+          </button>` : ''}
         </div>
-        ${bkms.length > 0 ? `<button onclick="clearAllBookmarks()" class="text-xs text-red-400 hover:text-red-300 px-3 py-1.5 rounded-lg transition-colors"><i class="fas fa-trash mr-1"></i>Clear All</button>` : ''}
-      </div>
 
-      ${bkms.length === 0 ? `
-        <div class="text-center py-20 text-slate-500">
-          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center" style="background:rgba(14,165,233,0.08);border:1px solid rgba(14,165,233,0.15)">
-            <i class="fas fa-bookmark text-2xl text-sky-400/40"></i>
-          </div>
-          <p class="font-medium text-slate-400 mb-1">No bookmarks yet</p>
-          <p class="text-sm text-slate-600">Use any tool and click the <strong class="text-slate-500">Bookmark</strong> button on any response to save it here for revision.</p>
-        </div>
-      ` : Object.entries(grouped).map(([toolName, entries]) => `
-        <div class="space-y-3">
-          <div class="flex items-center gap-2">
-            <div class="w-2 h-2 rounded-full" style="background:#0EA5E9"></div>
-            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">${toolName}</span>
-            <span class="chip chip-primary">${entries.length}</span>
-          </div>
-          ${entries.map(bkm => `
-            <div class="card-dark-sm p-4 group cursor-pointer hover:border-amber-500/40 transition-all"
-                 onclick="openBookmarkModal('${bkm.id}')">
-              <div class="flex items-start justify-between gap-3">
-                <div class="flex-1 min-w-0">
-                  <div class="flex items-center gap-2 mb-2">
-                    <i class="fas fa-bookmark text-xs text-amber-400"></i>
-                    <span class="text-xs text-slate-500">${new Date(bkm.timestamp).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</span>
-                  </div>
-                  <div class="text-sm text-slate-300 line-clamp-2 prose-preview">
-                    ${(bkm.contentHTML || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 120)}...
-                  </div>
+        <div style="max-height:620px;overflow-y:auto;padding-right:8px;display:flex;flex-direction:column;gap:12px">
+          ${bkms.length === 0 ? `
+          <div style="text-align:center;padding:54px 20px;color:#94AAC8">
+            <i class="fas fa-bookmark" style="font-size:42px;color:rgba(252,211,77,0.3);margin-bottom:14px;display:block"></i>
+            <p style="font-size:16px;font-weight:800;color:#F0F6FF">No bookmarked questions saved yet</p>
+            <p style="font-size:13px;margin-top:4px">Click the <b>Save / Bookmark</b> button on any AI solution to save questions for revision.</p>
+          </div>` :
+          bkms.map(bkm => {
+            const promptText = bkm.prompt || bkm.title || bkm.tool || 'Saved Question'
+            const dateStr = bkm.timestamp ? new Date(bkm.timestamp).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) : 'Saved'
+            return `
+            <div class="history-card-box card-3d" onclick="openBookmarkModal('${bkm.id}')">
+              <div style="display:flex;flex-direction:column;gap:6px;flex:1;min-width:0">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <span class="highlight-pill-3d" style="background:rgba(252,211,77,0.18);color:#FDE68A;border:1px solid rgba(252,211,77,0.35)">${bkm.tool || 'Saved Note'}</span>
+                  <span style="font-size:11.5px;color:#94AAC8;font-weight:500"><i class="fas fa-clock" style="font-size:10px;margin-right:4px"></i>${dateStr}</span>
                 </div>
-                <div class="flex flex-col gap-2 flex-shrink-0">
-                  <div class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 text-sky-400 text-xs">
-                    <i class="fas fa-eye text-xs"></i>
-                    <span>Revise</span>
-                  </div>
-                  <button onclick="event.stopPropagation(); removeBookmark('${bkm.id}')"
-                    class="opacity-0 group-hover:opacity-100 transition-opacity text-red-400 hover:text-red-300 text-xs flex items-center gap-1">
-                    <i class="fas fa-times text-xs"></i>
-                    Remove
-                  </button>
+                <div style="font-size:13.5px;color:#F0F6FF;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+                  <span style="color:#FCD34D;font-size:11.5px;text-transform:uppercase;letter-spacing:0.04em;font-weight:800">Question:</span> ${promptText}
                 </div>
               </div>
-            </div>
-          `).join('')}
+              <div class="history-card-actions">
+                <button type="button" onclick="event.stopPropagation(); openBookmarkModal('${bkm.id}')" class="btn-view-3d">
+                  <i class="fas fa-eye" style="font-size:10px"></i> View
+                </button>
+                <button type="button" onclick="event.stopPropagation(); removeBookmark('${bkm.id}')" class="btn-danger-3d" style="min-width:80px !important">
+                  <i class="fas fa-trash-alt" style="font-size:10px"></i> Remove
+                </button>
+              </div>
+            </div>`
+          }).join('')}
         </div>
-      `).join('')}
+      </div>
+      ${toolFooter(['history-logs', 'performance-dashboard'], tips)}
     </div>`
   }
 
   function clearAllBookmarks() {
-    if (confirm('Remove all bookmarks?')) {
+    if (confirm('Remove all saved bookmarks?')) {
       STATE.bookmarks = []
       saveState()
       delete STATE.toolCache['bookmarks']
+      delete STATE.toolCache['saved-bookmarks']
       renderTool('bookmarks', document.getElementById('tool-container'))
       showToast('All bookmarks cleared', 'info')
     }
@@ -2511,19 +3043,21 @@ Format in clean HTML.`
   // FORMULA BANK
   // ═══════════════════════════════════════════════════════════
   function renderFormulaBank(el) {
-    const subjects = ['Quant - Arithmetic', 'Quant - Algebra', 'Quant - Geometry', 'Quant - Trigonometry', 'Quant - Mensuration', 'Reasoning - Series', 'Reasoning - Blood Relations', 'Reasoning - Coding-Decoding', 'English - Grammar Rules', 'Number System']
+    const presets = [
+      { inputId: 'formula-input', text: 'Quant - Mensuration 2D & 3D', label: 'Mensuration' },
+      { inputId: 'formula-input', text: 'Quant - Trigonometry Identities', label: 'Trigonometry' },
+      { inputId: 'formula-input', text: 'Quant - Algebra Shortcuts', label: 'Algebra' },
+      { inputId: 'formula-input', text: 'Reasoning - Coding & Series Shortcuts', label: 'Reasoning Series' }
+    ]
+    const tips = [
+      "Revise 2D/3D Mensuration formulas daily – 3-4 direct formula-based questions appear in Tier-1 every year."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <div>
-        <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">📐 Formula Bank</h2>
-        <p class="text-slate-500 text-sm mt-1">Instant access to all shortcuts & formulas for SSC CGL. Never miss a trick!</p>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        ${subjects.map(s => `<button onclick="loadFormulas('${s}')" class="chip chip-primary cursor-pointer hover:opacity-80 transition-opacity">${s}</button>`).join('')}
-      </div>
-      ${inputArea({ id: 'formula-input', placeholder: 'Or type a custom topic (e.g. Profit & Loss shortcuts, Pipes & Cisterns)...', btn: 'Get Formulas', onSubmit: 'loadFormulaCustom()' })}
-      <div style="margin-top:4px">${surpriseBtn('formula-bank','formula-input','loadFormulaCustom')}</div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-superscript', 'Shortcut Formula Bank', 'Instant access to all Quant & Reasoning shortcut formulas, theorems, and exam tricks.', '📐 Quant (Maths)', presets)}
+      ${inputArea({ id: 'formula-input', placeholder: 'Enter custom topic (e.g. Profit & Loss shortcuts, Pipes & Cisterns)...', label: 'Formula Topic or Math Branch', btn: 'Fetch Formula Sheet', onSubmit: 'loadFormulaCustom()', type: 'text', rows: 2, toolId: 'formula-bank', triggerFn: 'loadFormulaCustom' })}
       <div id="formula-output"></div>
+      ${toolFooter(['quant-solver', 'pyq-analyser', 'revision-sheet'], tips)}
     </div>`
   }
 
@@ -2558,19 +3092,20 @@ Format in clean HTML.`
   // PYQ ANALYSER
   // ═══════════════════════════════════════════════════════════
   function renderPYQAnalyser(el) {
-    const pyqTopics = ['Percentage & Profit', 'Trigonometry', 'Geometry Circles', 'Reading Comprehension', 'Cloze Test', 'Error Spotting', 'History Ancient', 'Indian Polity Articles', 'Science Biology', 'Current Affairs 2024']
+    const presets = [
+      { inputId: 'pyq-input', text: 'Percentage & Profit Loss 2021-2024', label: 'Profit & Loss PYQs' },
+      { inputId: 'pyq-input', text: 'Trigonometry & Heights 2020-2024', label: 'Trigonometry PYQs' },
+      { inputId: 'pyq-input', text: 'Indian Polity Fundamental Rights 2019-2024', label: 'Polity PYQs' }
+    ]
+    const tips = [
+      "Over 60% of SSC CGL Quant questions are direct pattern repetitions from previous 5 years' papers."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <div>
-        <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">📚 PYQ Analyser</h2>
-        <p class="text-slate-500 text-sm mt-1">Analyse SSC CGL previous year questions – understand patterns, difficulty, and what to expect.</p>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        ${pyqTopics.map(t => `<button onclick="analysePYQ('${t}')" class="chip chip-coral cursor-pointer hover:opacity-80 transition-opacity">${t}</button>`).join('')}
-      </div>
-      ${inputArea({ id: 'pyq-input', placeholder: 'Enter a topic to get PYQ-style questions + detailed analysis (e.g. Simple Interest 2019-2024)...', btn: 'Analyse PYQs', onSubmit: 'analysePYQCustom()' })}
-      <div style="margin-top:4px">${surpriseBtn('pyq-analyser','pyq-input','analysePYQCustom')}</div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-archive', 'PYQ Exam Analyser', 'Analyse real previous year questions (PYQs) with shift-wise breakdown & trend analysis.', '📐 Quant (Maths)', presets)}
+      ${inputArea({ id: 'pyq-input', placeholder: 'Enter a topic to get PYQs + detailed trend analysis...', label: 'Previous Year Question Topic or Subject', btn: 'Analyse Real PYQs', onSubmit: 'analysePYQCustom()', type: 'text', rows: 2, toolId: 'pyq-analyser', triggerFn: 'analysePYQCustom' })}
       <div id="pyq-output"></div>
+      ${toolFooter(['quant-solver', 'formula-bank', 'ai-mock-test'], tips)}
     </div>`
   }
 
@@ -2598,69 +3133,115 @@ Format in clean HTML.`
   async function analysePYQCustom() {
     const raw = document.getElementById('pyq-input')?.value?.trim()
     if (!raw) showToast('🎲 Picking a surprise PYQ topic…', 'info')
-    const topic = raw || 'a random high-frequency SSC CGL topic from previous years (pick from: Percentage, Trigonometry, Idioms, Indian Polity, Number Series, or Geometry)'
+    const topic = raw || 'a random high-frequency SSC CGL topic (pick from: Profit Loss, Geometry, Trigonometry, Reasoning Syllogism, or Indian Polity)'
     analysePYQ(topic)
   }
 
   // ═══════════════════════════════════════════════════════════
   // ERROR LOG (Mistake Tracker)
   // ═══════════════════════════════════════════════════════════
+  // ═══════════════════════════════════════════════════════════
+  // ERROR LOG (Mistake Tracker)
+  // ═══════════════════════════════════════════════════════════
   function renderErrorLog(el) {
     const logs = STATE.errorLog || []
+    const presets = [
+      { inputId: 'err-question', text: 'If 2x + 3y = 12 and xy = 4, find 4x² + 9y².', label: 'Sample Quant Mistake' },
+      { inputId: 'err-question', text: 'In a row of 40 students, A is 12th from left. What is his position from right?', label: 'Sample Reasoning Mistake' }
+    ]
+    const tips = [
+      "Reviewing your Error Log weekly is proven to increase score by 20+ marks by eliminating repeat mistakes."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:16px">
-      <div class="flex items-center justify-between">
-        <div>
-          <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">❌ Error Log</h2>
-          <p class="text-slate-500 text-sm mt-1">Track your mistakes. Review them daily. Never repeat them.</p>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-exclamation-circle', 'Mistake & Error Log', 'Track your wrong answers, identify recurring weak patterns, and analyze root causes.', '📊 Overview & Stats', presets)}
+      
+      <!-- Log New Mistake Card -->
+      <div class="card-dark" style="padding:20px 22px;display:flex;flex-direction:column;gap:14px;margin-bottom:18px">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <h3 style="font-size:14px;font-weight:800;color:#F0F6FF;letter-spacing:-0.01em;display:flex;align-items:center;gap:6px">
+            <i class="fas fa-plus-circle" style="color:#38BDF8"></i> Log a New Mistake
+          </h3>
+          <span style="font-size:11px;color:#94AAC8">Identify & Eliminate Weaknesses</span>
         </div>
-        ${logs.length > 0 ? `<button onclick="clearErrorLog()" class="text-xs text-red-400 hover:text-red-300 px-3 py-1.5 rounded-lg transition-colors"><i class="fas fa-trash mr-1"></i>Clear All</button>` : ''}
-      </div>
-      <div class="card-dark p-5 space-y-3">
-        <h3 class="text-sm font-semibold text-slate-300">Log a New Mistake</h3>
-        <input type="text" id="err-question" placeholder="The question you got wrong..." class="w-full px-4 py-2.5 text-sm">
-        <input type="text" id="err-wrong" placeholder="Your wrong answer..." class="w-full px-4 py-2.5 text-sm">
-        <input type="text" id="err-correct" placeholder="Correct answer..." class="w-full px-4 py-2.5 text-sm">
-        <select id="err-subject" class="w-full px-4 py-2.5 text-sm">
-          <option value="">Select Subject</option>
-          <option>Quantitative Aptitude</option>
-          <option>Reasoning</option>
-          <option>English Language</option>
-          <option>General Awareness</option>
-        </select>
-        <button onclick="addErrorEntry()" class="btn-coral w-full py-3 text-sm font-semibold">
-          <i class="fas fa-plus mr-2"></i>Add to Error Log
-        </button>
+        
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div>
+            <label style="font-size:12px;font-weight:700;color:#38BDF8">Question or Problem</label>
+            <input type="text" id="err-question" placeholder="Paste the question you got wrong..." style="margin-top:4px;padding:11px 14px;font-size:13.5px;background:rgba(10,15,30,0.9);border:1.5px solid rgba(56,189,248,0.22);border-radius:10px;color:#F0F6FF" class="w-full">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div>
+              <label style="font-size:12px;font-weight:700;color:#FB923C">Your Wrong Answer</label>
+              <input type="text" id="err-wrong" placeholder="What you selected..." style="margin-top:4px;padding:11px 14px;font-size:13.5px;background:rgba(10,15,30,0.9);border:1.5px solid rgba(251,146,60,0.3);border-radius:10px;color:#FED7AA" class="w-full">
+            </div>
+            <div>
+              <label style="font-size:12px;font-weight:700;color:#34D399">Correct Answer & Method</label>
+              <input type="text" id="err-correct" placeholder="Correct solution..." style="margin-top:4px;padding:11px 14px;font-size:13.5px;background:rgba(10,15,30,0.9);border:1.5px solid rgba(52,211,153,0.3);border-radius:10px;color:#A7F3D0" class="w-full">
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center">
+            <select id="err-subject" style="padding:11px 14px;font-size:13.5px;background:rgba(10,15,30,0.9);border:1.5px solid rgba(56,189,248,0.22);border-radius:10px;color:#F0F6FF">
+              <option value="">Select Subject Category</option>
+              <option value="Quantitative Aptitude">Quantitative Aptitude</option>
+              <option value="Reasoning">Reasoning</option>
+              <option value="English Language">English Language</option>
+              <option value="General Awareness">General Awareness</option>
+            </select>
+            <button onclick="addErrorEntry()" class="btn-coral" style="padding:11px 20px;font-size:13px;font-weight:700;white-space:nowrap">
+              <i class="fas fa-plus" style="font-size:11px"></i> Add Mistake
+            </button>
+          </div>
+        </div>
       </div>
 
-      ${logs.length === 0
-        ? `<div class="text-center py-16 text-slate-500"><i class="fas fa-clipboard-check text-4xl block mb-3" style="color:rgba(16,185,129,0.4)"></i><p class="text-slate-400 font-medium">No mistakes logged yet!</p><p class="text-sm mt-1">Start logging your wrong answers to identify patterns.</p></div>`
-        : `<div class="space-y-3">
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-sm text-slate-400 font-medium">${logs.length} mistake${logs.length>1?'s':''} logged</span>
-              <button onclick="getAIAnalysis()" class="ml-auto btn-secondary text-xs px-3 py-1.5"><i class="fas fa-brain mr-1"></i>AI Analysis</button>
-            </div>
-            ${logs.map((entry, i) => `
-              <div class="card-dark-sm p-4 group">
-                <div class="flex items-start justify-between">
-                  <div class="flex-1">
-                    <div class="flex items-center gap-2 mb-2">
-                      <span class="chip chip-red">${entry.subject || 'General'}</span>
-                      <span class="text-xs text-slate-500">${new Date(entry.timestamp).toLocaleDateString('en-IN')}</span>
-                    </div>
-                    <p class="text-sm text-slate-300 mb-2"><strong>Q:</strong> ${entry.question}</p>
-                    <p class="text-xs text-red-400 mb-1"><i class="fas fa-times mr-1"></i>Wrong: ${entry.wrong}</p>
-                    <p class="text-xs text-emerald-400"><i class="fas fa-check mr-1"></i>Correct: ${entry.correct}</p>
-                  </div>
-                  <button onclick="removeError(${i})" class="opacity-0 group-hover:opacity-100 transition-opacity text-red-400 text-xs ml-3">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
+      <!-- Logged Entries List -->
+      <div class="card-dark" style="padding:20px 22px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <h3 style="font-size:14px;font-weight:800;color:#F0F6FF">Logged Mistakes (${logs.length})</h3>
+            <span style="font-size:11px;color:#94AAC8">Review regularly</span>
+          </div>
+          ${logs.length > 0 ? `
+          <div style="display:flex;align-items:center;gap:8px">
+            <button onclick="getAIAnalysis()" class="btn-primary" style="padding:6px 12px;font-size:11.5px">
+              <i class="fas fa-brain" style="font-size:10px"></i> Run AI Error Analysis
+            </button>
+            <button onclick="clearErrorLog()" class="btn-ghost" style="padding:6px 10px;font-size:11px;color:#F87171">
+              <i class="fas fa-trash" style="font-size:10px"></i> Clear All
+            </button>
+          </div>` : ''}
+        </div>
+
+        ${logs.length === 0 ? `
+        <div style="text-align:center;padding:36px 20px">
+          <i class="fas fa-clipboard-check" style="font-size:36px;color:rgba(56,189,248,0.3);margin-bottom:10px;display:block"></i>
+          <p style="font-size:14px;font-weight:700;color:#F0F6FF">No mistakes logged yet!</p>
+          <p style="font-size:12px;color:#94AAC8;margin-top:4px">Start logging questions you answer wrong in mock tests to track weak topics.</p>
+        </div>
+        ` : `
+        <div style="display:flex;flex-direction:column;gap:10px">
+          ${logs.map((entry, i) => `
+          <div style="padding:14px 16px;border-radius:10px;background:rgba(15,22,41,0.8);border:1px solid rgba(56,189,248,0.18);display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span class="chip chip-primary" style="font-size:10px">${entry.subject || 'General'}</span>
+              <div style="display:flex;align-items:center;gap:10px">
+                <span style="font-size:11px;color:#637A96">${new Date(entry.timestamp).toLocaleDateString('en-IN')}</span>
+                <button onclick="removeError(${i})" style="color:#F87171;background:none;border:none;cursor:pointer;font-size:11px" title="Delete entry"><i class="fas fa-trash-alt"></i></button>
               </div>
-            `).join('')}
-          </div>`
-      }
-      <div id="error-ai-output"></div>
+            </div>
+            <p style="font-size:13px;font-weight:600;color:#F0F6FF;margin:0"><strong style="color:#38BDF8">Q:</strong> ${entry.question}</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px">
+              <span style="font-size:12px;color:#FCA5A5;background:rgba(239,68,68,0.08);padding:6px 10px;border-radius:6px;border:1px solid rgba(239,68,68,0.2)"><i class="fas fa-times" style="margin-right:4px"></i>Wrong: ${entry.wrong}</span>
+              <span style="font-size:12px;color:#6EE7B7;background:rgba(16,185,129,0.08);padding:6px 10px;border-radius:6px;border:1px solid rgba(16,185,129,0.2)"><i class="fas fa-check" style="margin-right:4px"></i>Correct: ${entry.correct}</span>
+            </div>
+          </div>
+          `).join('')}
+        </div>`}
+      </div>
+
+      <div id="error-ai-output" style="margin-top:16px"></div>
+      ${toolFooter(['performance-dashboard', 'interactive-smart-revision', 'ai-mock-test'], tips)}
     </div>`
   }
 
@@ -2719,52 +3300,49 @@ Format in clean HTML.`
   let _pomodoroCount = 0
 
   function renderPomodoroTimer(el) {
+    const tips = [
+      "25 minutes of deep focus with zero phone distractions produces double the learning retention of 2 hours of fragmented study."
+    ]
     el.innerHTML = `
-    <div class="w-full" style="display:flex;flex-direction:column;gap:18px">
-      <div>
-        <h2 class="font-headline" style="font-size:17px;font-weight:800;color:var(--text-primary)">⏱️ Pomodoro Study Timer</h2>
-        <p class="text-slate-500 text-sm mt-1">25 min focused study + 5 min break. Proven technique for maximum retention!</p>
-      </div>
-      <div class="card-dark p-8 text-center space-y-6">
-        <div id="pom-mode-label" class="chip chip-primary mx-auto" style="width:fit-content">📚 Study Session</div>
-        <div id="pom-display" class="text-7xl font-bold font-headline" style="color:#0EA5E9;letter-spacing:0.05em">25:00</div>
-        <div class="w-full rounded-full h-2" style="background:rgba(14,165,233,0.15)">
-          <div id="pom-progress" class="h-2 rounded-full transition-all" style="width:100%;background:linear-gradient(90deg,#0EA5E9,#8B5CF6)"></div>
+    <div class="w-full animate-fade-in" style="display:flex;flex-direction:column">
+      ${toolHeader('fa-stopwatch', 'Focus Study Timer', 'Pomodoro study technique: 25 minutes focused study + 5 minutes break for peak concentration.', '📊 Overview & Stats')}
+      
+      <div class="card-dark" style="padding:32px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px;margin-bottom:18px">
+        <div id="pom-mode-label" class="chip chip-primary" style="font-size:12px;padding:4px 14px">📚 Focus Study Session</div>
+        <div id="pom-display" class="font-headline" style="font-size:72px;font-weight:800;color:#38BDF8;letter-spacing:0.04em;line-height:1;text-shadow:0 0 24px rgba(56,189,248,0.3)">25:00</div>
+        
+        <div class="w-full" style="height:8px;border-radius:99px;background:rgba(255,255,255,0.08);overflow:hidden;max-width:480px">
+          <div id="pom-progress" style="height:100%;width:100%;border-radius:99px;background:linear-gradient(90deg,#0EA5E9,#8B5CF6);transition:width 0.4s ease"></div>
         </div>
-        <div class="flex gap-3 justify-center flex-wrap">
-          <button onclick="pomodoroStart()" id="pom-btn-start" class="btn-primary py-3 px-8 text-sm font-semibold">
-            <i class="fas fa-play mr-2"></i>Start
+
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:6px">
+          <button onclick="pomodoroStart()" id="pom-btn-start" class="btn-primary" style="padding:12px 28px;font-size:14px;font-weight:700">
+            <i class="fas fa-play" style="font-size:12px"></i> Start Focus Session
           </button>
-          <button onclick="pomodoroPause()" id="pom-btn-pause" class="btn-secondary py-3 px-6 text-sm hidden">
-            <i class="fas fa-pause mr-2"></i>Pause
+          <button onclick="pomodoroPause()" id="pom-btn-pause" class="btn-secondary hidden" style="padding:12px 22px;font-size:14px;font-weight:700">
+            <i class="fas fa-pause" style="font-size:12px"></i> Pause
           </button>
-          <button onclick="pomodoroReset()" class="btn-secondary py-3 px-6 text-sm">
-            <i class="fas fa-redo mr-2"></i>Reset
+          <button onclick="pomodoroReset()" class="btn-secondary" style="padding:12px 22px;font-size:14px;font-weight:700">
+            <i class="fas fa-redo" style="font-size:12px"></i> Reset
           </button>
         </div>
-        <div class="flex gap-4 justify-center text-sm">
-          <button onclick="pomodoroSetTime(25,'study')" class="chip chip-primary cursor-pointer hover:opacity-80">25 min Study</button>
-          <button onclick="pomodoroSetTime(5,'break')" class="chip chip-green cursor-pointer hover:opacity-80">5 min Break</button>
-          <button onclick="pomodoroSetTime(15,'break')" class="chip chip-amber cursor-pointer hover:opacity-80">15 min Long Break</button>
+
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);width:100%">
+          <button onclick="pomodoroSetTime(25,'study')" class="chip chip-primary cursor-pointer" style="font-size:11.5px;padding:5px 12px">25 min Study</button>
+          <button onclick="pomodoroSetTime(5,'break')" class="chip chip-green cursor-pointer" style="font-size:11.5px;padding:5px 12px">5 min Break</button>
+          <button onclick="pomodoroSetTime(15,'break')" class="chip chip-amber cursor-pointer" style="font-size:11.5px;padding:5px 12px">15 min Long Break</button>
         </div>
       </div>
-      <div class="card-dark-sm" style="padding:12px 14px">
-        <div class="flex items-center justify-between mb-3">
-          <span class="text-sm font-semibold text-slate-300">Today's Sessions</span>
-          <span class="chip chip-violet" id="pom-count">${_pomodoroCount} 🍅</span>
+
+      <div class="card-dark-sm" style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+        <div>
+          <span style="font-size:13px;font-weight:700;color:#F0F6FF">Completed Sessions Today</span>
+          <p style="font-size:11.5px;color:#94AAC8;margin-top:2px">Target: <strong style="color:#38BDF8">8+ sessions/day</strong> (approx. 3.5 hours focused study)</p>
         </div>
-        <p class="text-xs text-slate-500">Each completed 25-min session = 1 Pomodoro 🍅. Target: <strong class="text-sky-400">8+ per day</strong> for SSC CGL selection!</p>
+        <span class="chip chip-violet" id="pom-count" style="font-size:14px;font-weight:800;padding:6px 14px">${_pomodoroCount} 🍅</span>
       </div>
-      <div class="card-dark-sm p-4 space-y-2">
-        <h3 class="text-sm font-semibold text-slate-300">💡 How to use Pomodoro for SSC CGL</h3>
-        <ul class="text-xs text-slate-500 space-y-1.5">
-          <li>🍅 <strong class="text-slate-400">25 min:</strong> Single topic – no distractions, no phone</li>
-          <li>☕ <strong class="text-slate-400">5 min:</strong> Walk, stretch, water – never study in break</li>
-          <li>🧘 <strong class="text-slate-400">After 4 sessions:</strong> 15–30 min long break</li>
-          <li>📊 <strong class="text-slate-400">Target:</strong> 8 sessions/day = 3.5 hrs focused study</li>
-          <li>🎯 <strong class="text-slate-400">Best subjects per session:</strong> 1 session = 1 chapter/topic only</li>
-        </ul>
-      </div>
+
+      ${toolFooter(['daily-goals', 'performance-dashboard'], tips)}
     </div>`
     updatePomodoroDisplay()
   }

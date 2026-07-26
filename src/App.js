@@ -1,28 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import "bootstrap/dist/css/bootstrap.min.css";
 
-import Navbar from "./components/navbar.component";
-import ModulesList from "./components/modules-list.component";
-import EditModule from "./components/edit-module.component";
-import CreateModule from "./components/create-module.component";
-import CreateUser from "./components/create-user.component";
-
+// The main CGL Prep Pro app is powered by public/static/app.js (vanilla JS).
+// This React shell is intentionally empty to prevent the old MERN CRUD UI
+// (Module Log table, Navbar) from rendering on top of the actual app.
 function App() {
-  return (
-    <Router>
-      <div className="container">
-        <Navbar />
-        <br/>
-        <Routes>
-          <Route path="/" element={<ModulesList />} />
-          <Route path="/edit/:id" element={<EditModule />} />
-          <Route path="/create" element={<CreateModule />} />
-          <Route path="/user" element={<CreateUser />} />
-        </Routes>
-      </div>
-    </Router>
-  );
+  return null;
 }
 
 export default App;

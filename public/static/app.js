@@ -237,9 +237,9 @@
       const section = document.createElement('div')
       section.style.marginBottom = '14px'
       section.innerHTML = `
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 8px 5px;font-size:10px;font-weight:800;color:#38BDF8;letter-spacing:0.04em">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 8px 5px;font-size:10px;font-weight:800;color:#00F0FF;letter-spacing:0.05em;text-shadow:0 0 8px rgba(0,240,255,0.25)">
           <span>${cat}</span>
-          <span style="font-size:9px;background:rgba(56,189,248,0.15);border:1px solid rgba(56,189,248,0.25);padding:1px 6px;border-radius:99px;color:#7DD3FC">${tools.length}</span>
+          <span style="font-size:9px;background:rgba(0,240,255,0.08);border:1px solid rgba(0,240,255,0.25);padding:1px 7px;border-radius:99px;color:#60FAFF;box-shadow:0 0 6px rgba(0,240,255,0.06)">${tools.length}</span>
         </div>
         <div style="display:flex;flex-direction:column;gap:2px">
         ${tools.map(([id, t]) => `
@@ -3429,12 +3429,4 @@ Format in clean HTML.`
     showToast(`Timer set to ${mins} min ${mode} session`, 'info')
   }
 
-  // Universal 2-Color DOM Sanitizer & Hard Overrider
-  function forceTwoColorDOM() {
-    document.querySelectorAll('*').forEach(el => {
-      if (el.tagName !== 'HTML' && el.tagName !== 'BODY') {
-        if (el.hasAttribute('style')) el.removeAttribute('style');
-      }
-    });
-  }
-  setInterval(forceTwoColorDOM, 250);
+

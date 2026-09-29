@@ -356,17 +356,35 @@
     if (msg.includes('API key error') || msg.includes('API_KEY_INVALID') || msg.includes('No API key')) {
       return '🔑 API key missing or invalid. Please add your GEMINI_API_KEY to the backend/.env file.'
     }
+    if (msg.includes('overloaded') || msg.includes('high demand') || msg.includes('503') || msg.includes('temporarily unavailable')) {
+      return '⚡ This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.'
+    }
     return msg
   }
 
-  async function callFlow(type, input) {
+  function isRetryableError(status, msg) {
+    return status === 503 || status === 429 ||
+      (msg && (msg.includes('overloaded') || msg.includes('high demand') || msg.includes('temporarily unavailable') || msg.includes('RESOURCE_EXHAUSTED')))
+  }
+
+  async function callFlow(type, input, _retryCount = 0) {
+    const MAX_RETRIES = 3
     const res = await fetch(`/api/flow/${type}`, {
       method: 'POST', headers: { 'Content-Type': 'application/json', 'X-API-Key': STATE.apiKey },
       body: JSON.stringify({ ...input, _apiKey: STATE.apiKey })
     })
     if (!res.ok) {
       const e = await res.json().catch(() => ({ error: 'API error' }))
-      throw new Error(friendlyError(e.error || 'API error'))
+      const errMsg = e.error || 'API error'
+      // Auto-retry on 503/overloaded errors with exponential backoff
+      if (isRetryableError(res.status, errMsg) && _retryCount < MAX_RETRIES) {
+        const delay = 3000 * Math.pow(2, _retryCount) // 3s, 6s, 12s
+        console.warn(`⚡ Model overloaded (${res.status}). Auto-retrying in ${delay / 1000}s... (attempt ${_retryCount + 1}/${MAX_RETRIES})`)
+        showToast('⚡ Model busy — auto-retrying in ' + (delay / 1000) + 's...', 'info')
+        await new Promise(r => setTimeout(r, delay))
+        return callFlow(type, input, _retryCount + 1)
+      }
+      throw new Error(friendlyError(errMsg))
     }
     return res.json()
   }
@@ -377,14 +395,24 @@
     return callFlow('generic', { prompt: nonce + prompt, mode, enableSearch })
   }
 
-  async function callChat(type, history) {
+  async function callChat(type, history, _retryCount = 0) {
+    const MAX_RETRIES = 3
     const res = await fetch(`/api/chat/${type}`, {
       method: 'POST', headers: { 'Content-Type': 'application/json', 'X-API-Key': STATE.apiKey },
       body: JSON.stringify({ history, _apiKey: STATE.apiKey })
     })
     if (!res.ok) {
       const e = await res.json().catch(() => ({ error: 'Chat API error' }))
-      throw new Error(friendlyError(e.error || 'Chat API error'))
+      const errMsg = e.error || 'Chat API error'
+      // Auto-retry on 503/overloaded errors with exponential backoff
+      if (isRetryableError(res.status, errMsg) && _retryCount < MAX_RETRIES) {
+        const delay = 3000 * Math.pow(2, _retryCount)
+        console.warn(`⚡ Model overloaded (${res.status}). Auto-retrying in ${delay / 1000}s... (attempt ${_retryCount + 1}/${MAX_RETRIES})`)
+        showToast('⚡ Model busy — auto-retrying in ' + (delay / 1000) + 's...', 'info')
+        await new Promise(r => setTimeout(r, delay))
+        return callChat(type, history, _retryCount + 1)
+      }
+      throw new Error(friendlyError(errMsg))
     }
     return res.text()
   }
@@ -3428,5 +3456,4 @@ Format in clean HTML.`
     updatePomodoroDisplay()
     showToast(`Timer set to ${mins} min ${mode} session`, 'info')
   }
-
 
